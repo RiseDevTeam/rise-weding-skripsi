@@ -1,0 +1,212 @@
+.form {
+  margin-top: 4rem;
+}
+
+.form img.bg {
+  max-width: 20%;
+  height: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  filter: drop-shadow(5px 5px 2px rgba(0, 0, 0, 0.25));
+  -webkit-filter: drop-shadow(5px 5px 2px rgba(0, 0, 0, 0.25));
+}
+
+.form img.image {
+  max-width: 100%;
+  height: auto;
+  box-shadow: 4px 5px 2px rgba(0, 0, 0, 0.25);
+}
+
+.form h3 {
+  text-align: center;
+  font-weight: bold;
+  color: var(--warna1);
+}
+
+.form p {
+  text-align: center;
+  color: #797575;
+}
+
+.form label {
+  color: var(--warna1);
+  font-weight: bold;
+}
+
+.form form input[type="file"] {
+  color: #c1c1c1;
+  font-size: 0.8rem;
+}
+
+.form form input[type="email"],
+.form form input[type="text"],
+.form form input[type="file"],
+.form form input[type="password"] {
+  background: var(--warna2);
+  border: 1px solid var(--warna1);
+  box-shadow: 4px 5px 2px rgba(0, 0, 0, 0.25);
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+}
+
+.form form input[type="email"]:focus,
+.form form input[type="text"]:focus,
+.form form input[type="password"]:focus {
+  box-shadow: none;
+  box-shadow: 4px 5px 2px rgba(0, 0, 0, 0.25);
+}
+
+.form form input[type="email"]::placeholder,
+.form form input[type="text"]::placeholder,
+.form form input[type="password"]::placeholder {
+  color: #c1c1c1;
+  opacity: 1;
+  padding-left: 0.5rem;
+  font-size: 0.8rem;
+  /* Firefox */
+}
+
+.form form input[type="email"]:-ms-input-placeholder,
+.form form input[type="text"]:-ms-input-placeholder,
+.form form input[type="password"]:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #c1c1c1;
+  padding-left: 0.5rem;
+  font-size: 0.8rem;
+}
+
+.form form input[type="email"]::-ms-input-placeholder,
+.form form input[type="text"]::-ms-input-placeholder,
+.form form input[type="password"]::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #c1c1c1;
+  padding-left: 0.5rem;
+  font-size: 0.8rem;
+}
+
+.form form .btn-register {
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form form .btn-register button {
+  padding: 0.5rem 4rem;
+  color: var(--warna2);
+  background-color: var(--warna1);
+  box-shadow: 4px 5px 2px rgba(0, 0, 0, 0.25);
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+}
+
+/* Syarat Menjadi Mitra */
+.syarat .tulisan {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.syarat .tulisan h3 {
+  color: var(--warna1);
+  font-weight: bold;
+}
+
+.syarat .tulisan p {
+  color: #797575;
+}
+
+.syarat .kartu-syarat {
+  margin-bottom: 10rem;
+}
+
+.syarat .kartu-syarat .btn-close:focus {
+  box-shadow: none;
+}
+
+.syarat .kartu-syarat .modal-header {
+  border-bottom: none;
+}
+
+.syarat .kartu-syarat .modal-content {
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 10px var(--warna1);
+  border-radius: var(--lengkung);
+  -webkit-border-radius: var(--lengkung);
+  -moz-border-radius: var(--lengkung);
+  -ms-border-radius: var(--lengkung);
+  -o-border-radius: var(--lengkung);
+}
+
+.syarat .kartu-syarat .modal-footer {
+  border-top: none;
+}
+
+.syarat .kartu-syarat .modal-footer button {
+  background-color: var(--warna1);
+  color: var(--warna2);
+  font-weight: bold;
+}
+
+.syarat .kartu-syarat .card {
+  background-color: var(--warna1);
+  color: var(--warna2);
+  height: 60vh;
+  padding: 4rem 3rem 1rem 3rem;
+  box-shadow: 4px 5px 2px rgba(0, 0, 0, 0.25);
+  border-radius: var(--lengkung);
+  -webkit-border-radius: var(--lengkung);
+  -moz-border-radius: var(--lengkung);
+  -ms-border-radius: var(--lengkung);
+  -o-border-radius: var(--lengkung);
+}
+
+.syarat .kartu-syarat .card .nomor {
+  position: absolute;
+  top: 0;
+  left: 33.5%;
+  margin-top: -52px;
+  padding: 21px 32px;
+  border: 4px solid var(--warna1);
+  background-color: var(--warna2);
+  border-radius: var(--lengkungO);
+  -webkit-border-radius: var(--lengkungO);
+  -moz-border-radius: var(--lengkungO);
+  -ms-border-radius: var(--lengkungO);
+  -o-border-radius: var(--lengkungO);
+}
+
+.syarat .kartu-syarat .card .nomor span {
+  padding: 0.5rem;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--warna1);
+}
+
+.syarat .kartu-syarat .card p {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* .syarat .kartu-syarat .card .card-footer {
+  padding: 0;
+  background-color: transparent;
+  border-top: 0;
+} */
+
+.syarat .kartu-syarat .card button {
+  position: absolute;
+  bottom: 5%;
+  right: 10%;
+  background-color: var(--warna2) !important;
+  color: var(--warna1) !important;
+  font-weight: bold;
+}

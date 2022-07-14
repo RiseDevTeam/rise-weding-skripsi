@@ -1,0 +1,15 @@
+- search pada halaman carousel di hilangkan
+- tidah usah pakai tulisan bergerak
+
+- vidio undangan wedding
+- template undangan wedding
+- photografi
+- blog
+
+Menu : Template wedding, Vidio Undangan Wedding, Photograpi, Our news
+bagian 1 : carousel
+bagian 2 : Cards Random Blog
+bagian 3 : Cards Free template
+bagian 4 : Videos
+bagian 5 : Photography
+bagian 6 : Our News

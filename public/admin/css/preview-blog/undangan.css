@@ -1,0 +1,221 @@
+/* Harga Undangan */
+section.harga-undangan {
+  margin: 1rem auto;
+}
+
+section.harga-undangan .card {
+  background-color: var(--warna6);
+  margin-bottom: 1rem;
+  border-radius: var(--lengkung);
+  -webkit-border-radius: var(--lengkung);
+  -moz-border-radius: var(--lengkung);
+  -ms-border-radius: var(--lengkung);
+  -o-border-radius: var(--lengkung);
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+
+section.harga-undangan .card:hover {
+  box-shadow: 0 10px 5px var(--warna1);
+  transform: translateY(-5px);
+  -webkit-transform: translateY(-5px);
+  -moz-transform: translateY(-5px);
+  -ms-transform: translateY(-5px);
+  -o-transform: translateY(-5px);
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+
+section.harga-undangan .card .card-body hr {
+  height: 1px;
+  color: var(--warna1);
+  opacity: 1;
+}
+
+section.harga-undangan .card .kategori-paket {
+  color: var(--warna1);
+}
+
+section.harga-undangan .card .harga-paket {
+  color: var(--warna2);
+  text-align: center;
+}
+
+section.harga-undangan .card a.btn {
+  background-color: var(--warna1);
+  color: var(--warna2);
+  border-radius: var(--lengkung);
+  -webkit-border-radius: var(--lengkung);
+  -moz-border-radius: var(--lengkung);
+  -ms-border-radius: var(--lengkung);
+  -o-border-radius: var(--lengkung);
+}
+
+section.harga-undangan .card a.btn:focus {
+  box-shadow: none;
+}
+
+section.harga-undangan .card ul li {
+  display: flex;
+  align-items: flex-start;
+}
+
+section.harga-undangan .card ul li i {
+  color: var(--warna1);
+  margin-right: 0.5rem;
+  font-weight: bold;
+}
+
+section.harga-undangan .card ul li p {
+  color: var(--warna2);
+  margin-bottom: 0;
+  font-size: 0.95rem;
+}
+/* End Harga Undangan */
+
+/* Benefit */
+section.section-benefit {
+  padding: 50px 0;
+}
+
+section.section-benefit .title-section span {
+  color: var(--warna1);
+}
+
+section.section-benefit .benefit {
+  padding-left: 20px;
+  position: relative;
+}
+
+section.section-benefit .benefit:not(:nth-child(4)) {
+  border-left: 2px solid var(--warna1);
+  padding-bottom: 20px;
+}
+
+section.section-benefit .benefit h3 {
+  font-size: 18px;
+  color: var(--warna6);
+}
+
+section.section-benefit .benefit h3::before {
+  content: "";
+  display: block;
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  background-color: var(--warna1);
+  border-radius: 100%;
+  top: 0px;
+  left: -13px;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -ms-border-radius: 100%;
+  -o-border-radius: 100%;
+}
+
+section.section-benefit .benefit h3::after {
+  content: "";
+  display: block;
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  background-color: var(--warna2);
+  border-radius: 100%;
+  top: 5px;
+  left: -8px;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -ms-border-radius: 100%;
+  -o-border-radius: 100%;
+}
+
+section.section-benefit .benefit p {
+  font-size: 16px;
+  color: #737988;
+}
+
+section.section-benefit .image-mobbile {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+section.section-benefit .image-mobbile::before {
+  background: rgb(255, 206, 115);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 206, 115, 1) 41%,
+    rgba(245, 139, 84, 1) 72%
+  );
+  content: "";
+  display: block;
+  width: 100%;
+  height: 350px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: -90;
+  -webkit-border-radius: 30px 30px 0px 30px;
+  -moz-border-radius: 30px 30px 0px 30px;
+  -ms-border-radius: 30px 30px 0px 30px;
+  -o-border-radius: 30px 30px 0px 30px;
+  border-radius: 30px 30px 0px 30px;
+}
+
+section.section-benefit .image-mobbile img.image-hand {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+  object-fit: contain;
+}
+
+section.section-benefit .image-mobbile .img-iner {
+  position: absolute;
+  width: 220px;
+  height: auto;
+  background-color: #f58b54;
+  top: 51px;
+  z-index: -10;
+  left: 110px;
+  overflow: hidden;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+section.section-benefit .image-mobbile .img-iner .slider-item {
+  width: 225px;
+  height: 465px;
+  background-position: center;
+  background-size: cover;
+}
+/* End Benefit */
+
+/* Media Breakpoints */
+@media (max-width: 992px) {
+  section.section-benefit .image-mobbile .img-iner {
+    width: 309px;
+    height: 595px;
+    top: 66px;
+    left: 149px;
+    background-color: #fff;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+  }
+
+  section.section-benefit .image-mobbile .img-iner .slider-item {
+    width: 273px;
+    height: 598px;
+  }
+}

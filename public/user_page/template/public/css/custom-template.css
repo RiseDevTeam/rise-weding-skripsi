@@ -1,0 +1,116 @@
+/* Header */
+header .user {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+header .user img {
+    width: 2rem;
+    height: 2rem;
+    border: 2px dashed var(--warna1);
+    border-radius: var(--lengkungO);
+    -webkit-border-radius: var(--lengkungO);
+    -moz-border-radius: var(--lengkungO);
+    -ms-border-radius: var(--lengkungO);
+    -o-border-radius: var(--lengkungO);
+}
+
+header .user li.dropdown {
+    position: relative;
+}
+
+header .user li.dropdown a.dropdown-toggle {
+    color: var(--warna6);
+}
+
+header .user .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: var(--warna5);
+    padding: 12px 16px;
+    z-index: 1;
+}
+
+header .user li.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Sidebar */
+.sidebar {
+    z-index: 9999;
+    background: var(--warna1);
+    box-shadow: 0 0 3px var(--warna6);
+    padding: 1rem 0;
+    position: fixed;
+    left: 17px;
+    top: 150px;
+    border-radius: var(--lengkung);
+    -webkit-border-radius: var(--lengkung);
+    -moz-border-radius: var(--lengkung);
+    -ms-border-radius: var(--lengkung);
+    -o-border-radius: var(--lengkung);
+}
+
+.sidebar ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.sidebar ul li {
+    text-align: center;
+    padding: 1rem 0;
+    color: var(--warna2);
+}
+
+.sidebar ul li a img {
+    max-width: 40%;
+}
+
+/* Kepala */
+.kepala {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2rem auto;
+}
+
+.kepala .logo {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.kepala .logo img {
+   max-width: 25%; 
+}
+
+.kepala .logo span {
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.kepala a.btn {
+    background: var(--warna1);
+    color: var(--warna2);
+}
+
+/* Isi */
+.isi {
+    margin: auto auto 3rem auto;
+}
+
+.isi img {
+    max-width: 100%;
+    height: auto;
+    margin: 1rem auto;
+    box-shadow: 0 0 5px var(--warna6);
+    border-radius: var(--lengkung);
+    -webkit-border-radius: var(--lengkung);
+    -moz-border-radius: var(--lengkung);
+    -ms-border-radius: var(--lengkung);
+    -o-border-radius: var(--lengkung);
+}

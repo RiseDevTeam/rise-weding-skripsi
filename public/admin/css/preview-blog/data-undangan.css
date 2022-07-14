@@ -1,0 +1,147 @@
+/* Isi Data Undangan */
+section.isi-data-undangan {
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+}
+
+section.isi-data-undangan h3 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+section.isi-data-undangan h3 span {
+  font-weight: bold;
+  color: var(--warna1);
+}
+
+section.isi-data-undangan .accordion-flush .accordion-item {
+  border: none;
+  margin-bottom: 1px;
+}
+
+section.isi-data-undangan .accordion-flush .accordion-item p {
+  border: none;
+}
+
+section.isi-data-undangan .accordion-flush .accordion-item .accordion-button {
+  background-color: var(--warna2);
+  border: 2px solid var(--warna1);
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+section.isi-data-undangan .accordion-button:focus {
+  border-color: var(--warna1) !important;
+  box-shadow: none !important;
+}
+
+section.isi-data-undangan
+  .accordion-item:last-of-type
+  .accordion-button.collapsed {
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+section.isi-data-undangan .accordion-button:not(.collapsed) {
+  background-color: var(--warna2);
+  border: 2px solid var(--warna1);
+}
+
+section.isi-data-undangan .accordion-item button {
+  color: var(--warna1);
+}
+
+section.isi-data-undangan .accordion-item button p {
+  margin-bottom: 0;
+  font-weight: bold;
+  color: var(--warna6);
+}
+
+section.isi-data-undangan .accordion-item button p i {
+  color: var(--warna1);
+}
+
+section.isi-data-undangan .accordion-body {
+  color: var(--warna6);
+  border: 2px solid var(--warna1);
+  border-top: none;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+section.isi-data-undangan .accordion-body h5 {
+  font-weight: bold;
+  text-align: center;
+  border-bottom: 2px solid var(--warna1);
+}
+
+section.isi-data-undangan .accordion-body input {
+  border: 1px solid var(--warna6);
+}
+
+section.isi-data-undangan .accordion-body input:focus {
+  box-shadow: none;
+  border: 2px dashed var(--warna6);
+}
+
+/* Button Modal */
+section.isi-data-undangan button.pesan-undangan {
+  background-color: var(--warna1);
+  color: var(--warna2);
+}
+
+/* Modal Content */
+
+section.isi-data-undangan .modal .modal-content {
+  background: rgb(255, 206, 115);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 206, 115, 1) 41%,
+    rgba(245, 139, 84, 1) 72%
+  );
+  border-radius: var(--lengkung);
+  -webkit-border-radius: var(--lengkung);
+  -moz-border-radius: var(--lengkung);
+  -ms-border-radius: var(--lengkung);
+  -o-border-radius: var(--lengkung);
+}
+
+section.isi-data-undangan .modal .modal-content h5.modal-title {
+  /* color: var(--warna2); */
+  border-bottom: none;
+}
+/* 
+section.isi-data-undangan .modal .modal-content .modal-body label {
+  color: var(--warna2);
+} */
+
+section.isi-data-undangan .modal .modal-content .modal-body input.form-control {
+  border: none;
+}
+
+section.isi-data-undangan .modal .modal-content .modal-header,
+section.isi-data-undangan .modal .modal-content .modal-footer {
+  border: none;
+}
+
+section.isi-data-undangan .modal .modal-content .modal-footer button.btn {
+  background-color: var(--warna2);
+  color: var(--warna1);
+}
+
+/* End Isi Data Undangan */
+
+@media (max-width: 576px) {
+  section.isi-data-undangan .img-du .card .card-img-overlay span {
+    font-size: 1rem;
+  }
+}

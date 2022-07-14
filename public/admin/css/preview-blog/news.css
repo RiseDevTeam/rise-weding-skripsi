@@ -1,0 +1,222 @@
+/* Search */
+.pencarian-news .container .input-group input[type="text"] {
+  border: 2px solid var(--warna1);
+  font-size: 0.8rem;
+}
+
+.pencarian-news .container .input-group input[type="text"]::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #aaa;
+  opacity: 1; /* Firefox */
+}
+.pencarian-news
+  .container
+  .input-group
+  input[type="text"]:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #aaa;
+}
+.pencarian-news
+  .container
+  .input-group
+  input[type="text"]::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #aaa;
+}
+
+.pencarian-news .container .input-group input[type="text"]:focus {
+  box-shadow: none;
+}
+
+.pencarian-news .container .input-group button {
+  background-color: var(--warna1);
+  color: var(--warna2);
+}
+
+.pencarian-news .container .input-group select {
+  padding: 0 0.5rem 0.13rem 0.5rem;
+  outline: none;
+  font-weight: bold;
+  border: 2px solid var(--warna1);
+  font-size: 0.8rem;
+  color: var(--warna6);
+}
+/* End Search */
+
+/* Daftar Blog */
+.blog .card-utama .card {
+  border: none;
+  border-radius: 0.5rem;
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
+}
+
+.blog .card-utama .card img {
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+.blog .card-utama .card .card-body .kdw {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.blog .card-utama .card .card-body .kdw h6 {
+  color: var(--warna1);
+  font-weight: bold;
+}
+
+.blog .card-utama .card-body .card-title h5 {
+  font-weight: bold;
+  color: var(--warna6);
+}
+
+.blog .card-utama .card-body .card-text p {
+  color: var(--warna6);
+}
+
+.blog .card-utama .card .card-body p.card-waktu {
+  font-size: 0.85rem;
+  color: #aaa;
+}
+
+.blog .ads .card {
+  max-height: 20rem;
+}
+
+.blog .ads .card img {
+  object-fit: cover;
+  object-position: center;
+  overflow: hidden;
+  height: 100vh;
+}
+
+.blog .card-daftar .card {
+  border: none;
+  border-radius: 0.5rem;
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+
+.blog .card-daftar .card:hover {
+  filter: drop-shadow(0 10px 5px var(--warna1));
+  transform: translateY(-10px);
+  transition: 0.5s;
+  -webkit-filter: drop-shadow(0 10px 5px var(--warna1));
+  -webkit-transform: translateY(-10px);
+  -moz-transform: translateY(-10px);
+  -ms-transform: translateY(-10px);
+  -o-transform: translateY(-10px);
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+
+.blog .card-daftar .card img {
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+.blog .card-daftar .card-body .card-kategori h6 {
+  font-weight: bold;
+  color: var(--warna1);
+}
+
+.blog .card-daftar .card-body .card-title span {
+  font-weight: bold;
+  color: var(--warna6);
+}
+
+.blog .card-daftar .card-body .card-title p {
+  margin-top: 0.5rem;
+  color: var(--warna6);
+}
+
+.blog .card-daftar .card .card-body p.card-waktu {
+  font-size: 0.7rem;
+  color: #aaa;
+}
+
+/* End Daftar  */
+
+/* Media Breakpoints */
+@media (max-width: 576px) {
+  .pencarian-news {
+    margin-top: 0;
+  }
+
+  .blog .card-utama .card-body .card-text p {
+    margin-top: 1rem;
+  }
+
+  .blog .ads-mobile .card {
+    max-height: 15rem;
+  }
+
+  .blog .ads-mobile .card img {
+    /* object-fit: cover;
+    object-position: center;
+    overflow: hidden;
+    height: 100vh; */
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .pencarian-news {
+    margin-top: 0;
+  }
+
+  .blog .ads-mobile .card {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  .pencarian-news {
+    margin-top: 0;
+  }
+
+  .blog .ads-mobile .card {
+    display: none;
+  }
+
+  .blog .ads .card {
+    max-height: 13rem;
+  }
+}
+
+@media (min-width: 991.98px) and (max-width: 1200px) {
+  .blog .ads-mobile .card {
+    display: none;
+  }
+
+  .blog .ads .card {
+    max-height: 18rem;
+  }
+}
+
+@media (min-width: 1199.98px) and (max-width: 1400px) {
+  .blog .ads-mobile .card {
+    display: none;
+  }
+
+  .blog .ads .card {
+    max-height: 22rem;
+  }
+}

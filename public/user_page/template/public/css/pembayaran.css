@@ -1,0 +1,310 @@
+.paket img.daun-atas,
+.bayar img.daun-bawah {
+  width: 20%;
+  position: absolute;
+}
+
+.paket img.daun-atas {
+  top: 0;
+  right: 0;
+}
+
+.bayar img.daun-bawah {
+  left: 0;
+  transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+}
+
+.paket h5.tpp {
+  color: var(--warna1);
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.paket .harga .basic,
+.paket .harga .premium {
+  width: 100%;
+  margin-right: 2rem;
+  padding: 0.5rem 1rem;
+  box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.25);
+  border: 2px solid var(--warna1);
+  border-radius: var(--lengkung);
+  -webkit-border-radius: var(--lengkung);
+  -moz-border-radius: var(--lengkung);
+  -ms-border-radius: var(--lengkung);
+  -o-border-radius: var(--lengkung);
+}
+
+.paket .benefitbas img.segitigabas,
+.paket .benefitpre img.segitigapre {
+  width: 15%;
+}
+
+.paket .harga .basic span,
+.paket .harga .premium span {
+  font-weight: bold;
+  margin-bottom: 1rem;
+  width: max-content;
+  padding: 5px 15px;
+  border-radius: var(--lengkung);
+  -webkit-border-radius: var(--lengkung);
+  -moz-border-radius: var(--lengkung);
+  -ms-border-radius: var(--lengkung);
+  -o-border-radius: var(--lengkung);
+}
+
+.paket .harga .basic span {
+  background-color: var(--warna1);
+  color: var(--warna2);
+}
+
+.paket .harga .premium span {
+  background-color: var(--warna2);
+  color: var(--warna1);
+}
+
+.paket .harga .basic h2,
+.paket .harga .premium h2 {
+  margin: auto;
+  text-align: center;
+  font-weight: 900;
+}
+
+.paket .harga .basic h2 {
+  color: var(--warna1);
+}
+
+.paket .harga .premium h2 {
+  color: var(--warna2);
+}
+
+.paket .harga .premium {
+  background-color: var(--warna1);
+}
+
+.paket .benefitbas,
+.paket .benefitpre {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.paket .benefitbas .card, 
+.paket .benefitpre .card {
+  box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.25);
+  padding: 0.85rem;
+  border: 2px solid var(--warna1);
+  border-radius: var(--lengkung);
+  -webkit-border-radius: var(--lengkung);
+  -moz-border-radius: var(--lengkung);
+  -ms-border-radius: var(--lengkung);
+  -o-border-radius: var(--lengkung);
+}
+
+.paket .benefitbas .card h5, 
+.paket .benefitpre .card h5 {
+  color: var(--warna1);
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.paket .benefitbas .card ul,
+.paket .benefitpre .card ul {
+  padding-left: 0;
+}
+
+.paket .benefitbas .card ul li, 
+.paket .benefitpre .card ul li {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  margin-bottom: 0.2rem;
+}
+
+.paket .benefitbas .card ul li span, 
+.paket .benefitpre .card ul li span {
+  width: 20px;
+  height: 20px;
+  padding-right: 1rem;
+  margin-right: 1rem;
+  background-color: var(--warna1);
+  border-radius: var(--lengkungO);
+  -webkit-border-radius: var(--lengkungO);
+  -moz-border-radius: var(--lengkungO);
+  -ms-border-radius: var(--lengkungO);
+  -o-border-radius: var(--lengkungO);
+}
+
+.accordion-header {
+  margin-bottom: 0;
+  filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.25));
+  -webkit-filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.25));
+}
+
+.bayar .data-pembayaran .accordion-flush .accordion-item {
+  border: none;
+  margin-bottom: 1px;
+}
+
+.bayar .data-pembayaran .accordion-flush .accordion-item p {
+  border: none;
+}
+
+.bayar .data-pembayaran .accordion-flush .accordion-item .accordion-button {
+  background-color: var(--warna2);
+  border: 2px solid var(--warna1);
+  border-radius: 1rem;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
+}
+
+.bayar .data-pembayaran .accordion-button:focus {
+  border-color: var(--warna1) !important;
+  box-shadow: none !important;
+}
+
+.bayar
+  .data-pembayaran
+  .accordion-item:last-of-type
+  .accordion-button.collapsed {
+  border-radius: 1rem;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
+}
+
+.bayar .data-pembayaran .accordion-button:not(.collapsed) {
+  background-color: var(--warna2);
+  border: 2px solid var(--warna1);
+}
+
+.bayar .data-pembayaran .accordion-item button {
+  color: var(--warna1);
+}
+
+.bayar .data-pembayaran .accordion-item button p {
+  margin-bottom: 0;
+  font-weight: bold;
+  color: var(--warna6);
+}
+
+.bayar .data-pembayaran .accordion-item button p i {
+  color: var(--warna1);
+}
+
+.bayar .data-pembayaran .accordion-body {
+  color: var(--warna6);
+  border: 2px solid var(--warna1);
+  border-top: none;
+  border-radius: 1rem;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
+}
+
+.bayar .data-pembayaran .accordion-body h5 {
+  font-weight: bold;
+  text-align: center;
+}
+
+.bayar .data-pembayaran .accordion-body input {
+  border: 1px solid var(--warna6);
+}
+
+.bayar .data-pembayaran .accordion-body input:focus {
+  box-shadow: none;
+  border: 2px dashed var(--warna6);
+}
+
+.bayar {
+  margin: 3rem auto;
+  text-align: center;
+}
+
+.bayar h5.tpyd {
+  color: var(--warna1);
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.bayar h5.tpyd span {
+  background-color: var(--warna1);
+  color: var(--warna2);
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  width: max-content;
+  padding: 5px 15px;
+  border-radius: var(--lengkung);
+  -webkit-border-radius: var(--lengkung);
+  -moz-border-radius: var(--lengkung);
+  -ms-border-radius: var(--lengkung);
+  -o-border-radius: var(--lengkung);
+}
+
+.bayar .card {
+  padding: 1rem;
+  box-shadow: 5px 5px 4px rgb(0 0 0 / 25%);
+  border: 2px solid var(--warna1);
+  border-radius: var(--lengkung);
+  -webkit-border-radius: var(--lengkung);
+  -moz-border-radius: var(--lengkung);
+  -ms-border-radius: var(--lengkung);
+  -o-border-radius: var(--lengkung);
+}
+
+.bayar .card h5.tmt {
+  color: var(--warna1);
+  text-align: left;
+  font-weight: bold;
+}
+
+.bayar .card .total {
+  color: var(--warna1);
+}
+
+.bayar .card .total h6,
+.bayar .card .total h2 {
+  font-weight: bold;
+}
+
+.bayar button.ubp {
+  margin: 2rem auto;
+  padding: 0.5rem;
+  background-color: var(--warna1);
+  color: var(--warna2);
+  box-shadow: 3px 5px 4px rgba(0, 0, 0, 0.25);
+  border-radius: var(--lengkung);
+  -webkit-border-radius: var(--lengkung);
+  -moz-border-radius: var(--lengkung);
+  -ms-border-radius: var(--lengkung);
+  -o-border-radius: var(--lengkung);
+}
+
+@media (max-width: 576px) {
+  .paket h5.tpp {
+    margin-top: 2rem;
+  }
+  .paket img.daun-atas {
+    width: 40%;
+    z-index: -1;
+  }
+  .bayar {
+    margin-bottom: 0;
+  }
+  .bayar button.ubp {
+    margin-bottom: 0;
+  }
+  .bayar img.daun-bawah {
+    width: 40%;
+    z-index: -1;
+  }
+}

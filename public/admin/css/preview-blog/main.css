@@ -1,0 +1,336 @@
+@font-face {
+  font-family: "Rubik";
+  src: url("../font/Rubik/static/Rubik-Regular.ttf");
+  src: url("../font/Rubik/static/Rubik-Regular.ttf") format("ttf"),
+    url("../font/Rubik/static/Rubik-Regular.ttf") format("truetype");
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none !important;
+  padding: 0;
+  margin: 0;
+  font-family: "Rubik", sans-serif;
+  font-weight: 400;
+}
+
+:root {
+  --warna1: #f58b54;
+  --warna2: #fff;
+  --warna3: #000;
+  --warna4: #333;
+  --warna5: #c9c9c9;
+  --warna6: #2f2f31;
+  --warna7: #edab2f;
+  --title: 0.85rem;
+  --lengkung: 1rem;
+  --lengkungO: 9999px;
+}
+
+h1 {
+  color: var(--warna6);
+}
+
+h3 {
+  font-weight: bold !important;
+  color: var(--warna6);
+}
+
+button.btn:focus,
+a.btn:focus {
+  box-shadow: none;
+}
+
+div.input-group select.form-select {
+  font-size: var(--title);
+  padding-top: 0.2rem;
+  color: var(--warna6);
+}
+
+.navbar-light .navbar-toggler {
+  border-color: var(--warna2) !important;
+}
+
+.navbar-light .navbar-toggler:focus {
+  box-shadow: none;
+}
+
+/* Chat */
+a#chatButton {
+  color: var(--warna2);
+  padding: 0.5rem 1rem;
+  border-radius: 50px 0px 0px 50px;
+  position: fixed;
+  top: 50%;
+  right: -148px;
+  font-size: 1rem;
+  background-color: var(--warna1);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  z-index: 10;
+  -webkit-border-radius: 50px 0px 0px 50px;
+  -moz-border-radius: 50px 0px 0px 50px;
+  -ms-border-radius: 50px 0px 0px 50px;
+  -o-border-radius: 50px 0px 0px 50px;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+}
+
+a#chatButton:hover {
+  right: 0px;
+}
+
+a#chatButton i {
+  /*color: #25D366;*/
+  color: var(--warna2);
+  text-shadow: 0 0 1px var(--warna2);
+}
+/* End Chat */
+
+/* Up Button */
+a#upButton {
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 10;
+  color: var(--warna1);
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 18px;
+  -webkit-transform: scale(2);
+  transform: scale(2);
+  -moz-transform: scale(2);
+  -ms-transform: scale(2);
+  -o-transform: scale(2);
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+/* End Up Button */
+
+/* Header */
+header div.logo span.nama-logo {
+  font-weight: bolder;
+}
+
+header .input-group input[type="text"] {
+  border: 2px solid var(--warna1);
+  font-size: 0.8rem;
+}
+
+header .input-group input[type="text"]::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #aaa;
+  opacity: 1; /* Firefox */
+}
+header .input-group input[type="text"]:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #aaa;
+}
+header .input-group input[type="text"]::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #aaa;
+}
+
+header .input-group input[type="text"]:focus {
+  box-shadow: none;
+}
+
+header .input-group button {
+  background-color: var(--warna1);
+  color: var(--warna2);
+  text-shadow: 0 0 5px var(--warna2);
+}
+
+/* Sebelum sigin */
+header .header-title a {
+  background-color: var(--warna1);
+  font-size: var(--title);
+  font-weight: 600;
+  color: var(--warna2);
+}
+
+header nav ul li {
+  padding: 0 0.5rem;
+}
+
+header nav ul li a {
+  color: var(--warna6) !important;
+  font-size: var(--title);
+  font-weight: 600;
+  transition: 0.01s;
+  -webkit-transition: 0.01s;
+  -moz-transition: 0.01s;
+  -ms-transition: 0.01s;
+  -o-transition: 0.01s;
+}
+
+/* header nav ul li a:active {
+  border-bottom: 2px solid var(--warna1);
+} */
+
+header nav ul li a i.bi {
+  font-size: 1rem;
+}
+
+header nav ul li a.signin {
+  color: var(--warna1) !important;
+}
+/* End Header */
+
+/* Footer */
+footer {
+  background-color: var(--warna6);
+}
+
+footer .container .row span.sign-up {
+  color: var(--warna2);
+  margin-bottom: 0.2rem;
+  margin-left: 0.55rem;
+}
+/* For Icons */
+footer .container {
+  padding: 2rem 0;
+  font-weight: lighter;
+}
+
+/* For subscribe form */
+footer .input-group input::placeholder,
+footer .input-group input::-ms-input-placeholder,
+footer .input-group input:-ms-input-placeholder {
+  font-size: 0.2rem;
+  color: #adb5bd;
+}
+
+footer .input-group input[type="text"] {
+  border: 1px solid var(--warna1);
+  font-size: var(--title);
+  /*    border-top-right-radius: 0;
+        border-bottom-right-radius: 0;*/
+}
+
+footer .input-group input[type="text"]:focus {
+  box-shadow: none;
+}
+
+footer .input-group button {
+  background-color: var(--warna1);
+  color: var(--warna2);
+  text-shadow: 0 0 5px var(--warna2);
+}
+
+/* Media Social */
+footer .container .icon ul {
+  margin-top: 0.4rem;
+  padding-left: 0;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+footer .container .icon ul li {
+  margin: 0 0.5rem;
+}
+
+footer .container .icon ul li span.follow {
+  color: var(--warna2);
+}
+
+footer .container .icon ul li a i {
+  font-size: 1rem;
+}
+
+footer .container .icon ul li a i.bi-facebook {
+  color: #1877f2;
+}
+
+footer .container .icon ul li a i.bi-instagram {
+  color: #e4405f;
+}
+
+footer .container .icon ul li a i.bi-twitter {
+  color: #1da1f2;
+}
+
+footer .container .icon ul li a i.bi-youtube {
+  color: #cd201f;
+}
+
+footer .container .icon ul li a i.bi-tiktok {
+  color: #ee1d51;
+}
+
+footer .contact ul li {
+  display: flex;
+  justify-content: flex-start;
+  margin-right: 1rem;
+}
+
+footer .contact ul li i {
+  margin-right: 0.8rem;
+  color: var(--warna1);
+}
+
+/* footer .container .contact ul li p i.bi-whatsapp {
+  color: #43d854;
+}
+
+footer .container .contact ul li p i.bi-envelope {
+  color: #ea4335;
+}
+
+footer .container .contact ul li p i.bi-geo-alt {
+  color: #dd4b3e;
+} */
+
+/* For powered */
+footer .container .icon .powered span {
+  color: var(--warna2);
+  margin-left: 0.5rem;
+}
+
+footer .container .icon .powered span img {
+  filter: drop-shadow(0 0 1px var(--warna2));
+  margin-left: 4px;
+}
+
+/* For Explore */
+footer .container .explore {
+  color: var(--warna2);
+}
+
+footer .container .contact {
+  color: var(--warna2);
+}
+
+/* For Pembayaran */
+footer .container .pembayaran ul li img {
+  filter: drop-shadow(0 0 0.1px var(--warna2));
+}
+/* End Footer */
+
+/* For Copyright */
+div.copyright {
+  background-color: var(--warna1);
+}
+
+div.copyright span {
+  color: var(--warna2);
+  font-size: 1rem;
+  font-weight: lighter;
+}
+
+/* End Footer */
+
+@media (max-width: 576px) {
+  a#chatButton {
+    right: -137px;
+  }
+}

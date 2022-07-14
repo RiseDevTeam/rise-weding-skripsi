@@ -1,0 +1,456 @@
+/* Tombol arah */
+div.tombol-arah {
+  border: none;
+}
+
+div.tombol-arah i.btn {
+  color: var(--warna1);
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0;
+}
+/* End Tombol Arah */
+
+/* Boostrap Slider */
+section.slider .carousel-inner .carousel-item img {
+  object-fit: cover;
+  object-position: center;
+  overflow: hidden;
+  height: 65vh;
+  max-height: 65vh;
+  border-radius: var(--lengkung);
+  -webkit-border-radius: var(--lengkung);
+  -moz-border-radius: var(--lengkung);
+  -ms-border-radius: var(--lengkung);
+  -o-border-radius: var(--lengkung);
+}
+
+/* Card own-slider 1 */
+/* Highlight News */
+section.highlight-news .card {
+  max-height: 24rem;
+}
+
+section.highlight-news .card img {
+  object-fit: cover;
+  object-position: center;
+  overflow: hidden;
+  height: 100vh;
+  border-radius: var(--lengkung);
+  -webkit-border-radius: var(--lengkung);
+  -moz-border-radius: var(--lengkung);
+  -ms-border-radius: var(--lengkung);
+  -o-border-radius: var(--lengkung);
+}
+
+section.highlight-news .card .carousel-caption {
+  padding-bottom: 0;
+  font-size: 1.3rem;
+  z-index: 1;
+  right: 5%;
+  left: 5%;
+}
+
+section.highlight-news .card:before {
+  content: "";
+  background-image: linear-gradient(
+    to bottom,
+    transparent 40%,
+    rgba(0, 0, 0, 0.6)
+  );
+  display: block;
+  position: absolute;
+  top: 0;
+  border-radius: 1rem;
+  width: 100%;
+  height: 100%;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
+}
+
+section.highlight-news .card .carousel-caption button {
+  background-color: var(--warna1);
+  font-size: 0.9rem;
+  color: var(--warna2);
+  font-weight: 700;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
+}
+
+section.highlight-news .card .carousel-caption p {
+  color: var(--warna2);
+  font-weight: 500;
+  margin-top: 1rem;
+  margin-bottom: 0;
+  font-size: 0.9rem;
+  text-overflow: ellipsis;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  max-height: 2.5rem;
+  line-height: normal;
+  overflow: hidden;
+}
+
+/* Card -own-slider 2 */
+/* Wedding Templates */
+section.paket .card {
+  max-height: 24rem;
+  border: none;
+  transition: 0.5s;
+  border-radius: var(--lengkung);
+  -webkit-border-radius: var(--lengkung);
+  -moz-border-radius: var(--lengkung);
+  -ms-border-radius: var(--lengkung);
+  -o-border-radius: var(--lengkung);
+}
+
+section.paket .card .kategori {
+  position: absolute;
+  z-index: 1;
+  top: 25px;
+  right: 30px;
+}
+
+section.paket .card .kategori span {
+  padding: 6.7px 15px 10px 15px;
+  font-weight: bold;
+  background-color: var(--warna1);
+  border-radius: var(--lengkungO);
+  color: var(--warna2);
+  -webkit-border-radius: var(--lengkungO);
+  -moz-border-radius: var(--lengkungO);
+  -ms-border-radius: var(--lengkungO);
+  -o-border-radius: var(--lengkungO);
+}
+
+section.paket .card .pemesanan {
+  opacity: 0.5;
+  right: 0;
+  left: 0;
+  bottom: 40%;
+  transition: 0.5s;
+}
+
+section.paket .card .pemesanan:hover {
+  right: 0;
+  left: 0;
+  bottom: 40%;
+  opacity: 1;
+  background-color: var(--warna1);
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+
+section.paket .card .pemesanan a {
+  font-weight: bold;
+  margin: auto 0.3rem;
+  border-radius: 9999px;
+  -webkit-border-radius: 9999px;
+  -moz-border-radius: 9999px;
+  -ms-border-radius: 9999px;
+  -o-border-radius: 9999px;
+}
+
+section.paket .card .pemesanan a:nth-child(1) {
+  background-color: var(--warna2);
+  color: var(--warna1);
+}
+
+section.paket .card .pemesanan a:nth-child(2) {
+  border: 1px solid var(--warna2);
+  color: var(--warna2);
+}
+
+/* section.paket .card .pemesanan a:hover {
+  color: var(--warna3);
+  font-weight: bold;
+  background-color: var(--warna2);
+  border-radius: 9999px;
+} */
+
+section.paket .card img {
+  object-fit: cover;
+  object-position: center;
+  overflow: hidden;
+  height: 100vh;
+  border-radius: var(--lengkung);
+  -webkit-border-radius: var(--lengkung);
+  -moz-border-radius: var(--lengkung);
+  -ms-border-radius: var(--lengkung);
+  -o-border-radius: var(--lengkung);
+}
+
+/* News */
+/* Card Utama */
+section.news h3 {
+  margin-bottom: 1rem;
+}
+
+section.news .card-image-utama .card .card-title h6 {
+  color: var(--warna1);
+}
+
+section.news .card-image-utama .card .card-title h5 {
+  color: var(--warna6);
+}
+
+section.news .card-image-utama .card .card-title span {
+  color: var(--warna5);
+}
+
+section.news .card-image-utama .card .card-text p {
+  color: var(--warna3);
+}
+
+section.news .card-image-utama .card .card-body p.card-waktu {
+  font-size: 0.85rem;
+  color: #aaa;
+}
+
+/* Card Lists */
+section.news .card-image-utama .card img {
+  border-radius: var(--lengkung);
+  -webkit-border-radius: var(--lengkung);
+  -moz-border-radius: var(--lengkung);
+  -ms-border-radius: var(--lengkung);
+  -o-border-radius: var(--lengkung);
+}
+
+section.news .card-image-lists .card {
+  margin-bottom: 0.7rem;
+  border: none;
+}
+
+section.news .card-image-lists .card .card-body .card-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--warna1);
+}
+
+section.news .card-image-lists .card .card-body p.card-text {
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.2rem;
+  color: var(--warna3);
+}
+
+section.news .card-image-lists .card .card-body p.card-waktu {
+  font-size: 0.7rem;
+  color: #aaa;
+}
+
+section.news .card-image-lists .card img {
+  object-fit: cover;
+  object-position: center;
+  overflow: hidden;
+  max-height: 10rem;
+  border-radius: var(--lengkung);
+  -webkit-border-radius: var(--lengkung);
+  -moz-border-radius: var(--lengkung);
+  -ms-border-radius: var(--lengkung);
+  -o-border-radius: var(--lengkung);
+}
+/* Card -own-slider 3 */
+
+/* Videos */
+section.video h3 {
+  margin-bottom: 1rem;
+}
+
+section.video .card {
+  border: 0;
+  margin-bottom: 1rem;
+}
+
+section.video .card,
+section.video iframe {
+  height: 24rem;
+  border-radius: var(--lengkung);
+  -webkit-border-radius: var(--lengkung);
+  -moz-border-radius: var(--lengkung);
+  -ms-border-radius: var(--lengkung);
+  -o-border-radius: var(--lengkung);
+}
+/* End Videos */
+
+/* Documentations */
+section.photography .card {
+  max-height: 24rem;
+  border-radius: var(--lengkung);
+  -webkit-border-radius: var(--lengkung);
+  -moz-border-radius: var(--lengkung);
+  -ms-border-radius: var(--lengkung);
+  -o-border-radius: var(--lengkung);
+}
+
+section.photography .card .carousel-caption {
+  padding-bottom: 0;
+  font-size: 0.9rem;
+  z-index: 1;
+}
+
+section.photography .card:before {
+  content: "";
+  background-image: linear-gradient(
+    to bottom,
+    transparent 40%,
+    rgba(0, 0, 0, 0.6)
+  );
+  display: block;
+  position: absolute;
+  top: 0;
+  border-radius: 1rem;
+  width: 100%;
+  height: 100%;
+}
+
+section.photography .card .carousel-caption span.editor {
+  background-color: var(--warna1);
+  color: var(--warna2);
+  font-size: 0.75rem;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--lengkungO);
+  -webkit-border-radius: var(--lengkungO);
+  -moz-border-radius: var(--lengkungO);
+  -ms-border-radius: var(--lengkungO);
+  -o-border-radius: var(--lengkungO);
+}
+
+section.photography .card img {
+  object-fit: cover;
+  object-position: center;
+  overflow: hidden;
+  height: 100vh;
+  border-radius: var(--lengkung);
+  -webkit-border-radius: var(--lengkung);
+  -moz-border-radius: var(--lengkung);
+  -ms-border-radius: var(--lengkung);
+  -o-border-radius: var(--lengkung);
+}
+
+/* Media Breakpoints */
+@media (max-width: 576px) {
+  section.news .card-image-lists .card img {
+    object-fit: cover;
+    object-position: center;
+    overflow: hidden;
+    height: 15vh;
+    min-width: 30vw;
+  }
+
+  .slider {
+    margin-top: 1rem;
+  }
+
+  section.paket .card .pemesanan {
+    right: 0;
+    left: 0;
+    bottom: 0;
+    opacity: 1;
+    background-color: var(--warna1);
+    border-bottom-left-radius: var(--lengkung);
+    border-bottom-right-radius: var(--lengkung);
+  }
+
+  section.paket .card .pemesanan a {
+    margin: auto 0.3rem;
+    font-weight: bold;
+    border-radius: 9999px;
+    -webkit-border-radius: 9999px;
+    -moz-border-radius: 9999px;
+    -ms-border-radius: 9999px;
+    -o-border-radius: 9999px;
+  }
+
+  section.paket .card .pemesanan a:nth-child(1) {
+    color: var(--warna1);
+    background-color: var(--warna2);
+  }
+
+  section.paket .card .pemesanan a:nth-child(2) {
+    border: 1px solid var(--warna2);
+  }
+}
+
+@media (max-width: 768px) {
+  .slider {
+    margin-top: 4rem;
+  }
+
+  section.paket .card .pemesanan {
+    right: 0;
+    left: 0;
+    bottom: 0;
+    opacity: 1;
+    background-color: var(--warna1);
+    border-bottom-left-radius: var(--lengkung);
+    border-bottom-right-radius: var(--lengkung);
+  }
+
+  section.paket .card .pemesanan a {
+    margin: auto 0.3rem;
+    font-weight: bold;
+    border-radius: 9999px;
+    -webkit-border-radius: 9999px;
+    -moz-border-radius: 9999px;
+    -ms-border-radius: 9999px;
+    -o-border-radius: 9999px;
+  }
+
+  section.paket .card .pemesanan a:nth-child(1) {
+    color: var(--warna1);
+    background-color: var(--warna2);
+  }
+
+  section.paket .card .pemesanan a:nth-child(2) {
+    border: 1px solid var(--warna2);
+  }
+}
+
+@media (max-width: 992px) {
+  .slider {
+    margin-top: 1rem;
+  }
+
+  section.paket .card .pemesanan {
+    right: 0;
+    left: 0;
+    bottom: 0;
+    opacity: 1;
+    background-color: var(--warna1);
+    border-bottom-left-radius: var(--lengkung);
+    border-bottom-right-radius: var(--lengkung);
+  }
+
+  section.paket .card .pemesanan a {
+    margin: auto 0.3rem;
+    font-weight: bold;
+    border-radius: 9999px;
+    -webkit-border-radius: 9999px;
+    -moz-border-radius: 9999px;
+    -ms-border-radius: 9999px;
+    -o-border-radius: 9999px;
+  }
+
+  section.paket .card .pemesanan a:nth-child(1) {
+    color: var(--warna1);
+    background-color: var(--warna2);
+  }
+
+  section.paket .card .pemesanan a:nth-child(2) {
+    border: 1px solid var(--warna2);
+  }
+}

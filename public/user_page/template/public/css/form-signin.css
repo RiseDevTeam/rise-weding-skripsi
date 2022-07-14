@@ -1,0 +1,127 @@
+.form {
+  background: var(--warna2);
+}
+
+.form img {
+  width: 55%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.form .form-isi {
+  padding-top: 5rem;
+  padding-right: 2rem;
+}
+
+.form .form-isi h3 {
+  color: var(--warna1);
+  font-weight: bold;
+}
+
+.form .form-isi p {
+  color: #797575;
+  font-weight: lighter;
+}
+
+.form .form-isi form {
+  padding-top: 1rem;
+  padding-left: 1rem;
+}
+
+.form .form-isi form label {
+  color: var(--warna1);
+  font-weight: bold;
+}
+
+.form .form-isi form input[type="email"],
+.form .form-isi form input[type="password"] {
+  color: var(--warna6);
+  background: var(--warna2);
+  border: 1px solid var(--warna1);
+  box-shadow: 4px 5px 2px rgba(0, 0, 0, 0.25);
+}
+
+.form .form-isi form input[type="email"]:focus,
+.form .form-isi form input[type="password"]:focus {
+  box-shadow: none;
+  box-shadow: 4px 5px 2px rgba(0, 0, 0, 0.25);
+}
+
+.form .form-isi form input[type="email"]::placeholder,
+.form .form-isi form input[type="password"]::placeholder {
+  color: #c1c1c1;
+  opacity: 1;
+  padding-left: 0.5rem;
+  font-size: 0.8rem;
+  /* Firefox */
+}
+
+.form .form-isi form input[type="email"]:-ms-input-placeholder,
+.form .form-isi form input[type="password"]:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #c1c1c1;
+  padding-left: 0.5rem;
+  font-size: 0.8rem;
+}
+
+.form .form-isi form input[type="email"]::-ms-input-placeholder,
+.form .form-isi form input[type="password"]::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #c1c1c1;
+  padding-left: 0.5rem;
+  font-size: 0.8rem;
+}
+
+.form .form-isi .bsi,
+.form .form-isi .bsiwg,
+.form .form-isi .bm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form .form-isi .bsi a.btn,
+.form .form-isi .bsiwg a.btn {
+  background: var(--warna1);
+  color: var(--warna2);
+  padding: 0.5rem 0;
+  font-weight: bold;
+  width: 220px;
+  box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.form .form-isi .bsi button.btn {
+  background: var(--warna1);
+  color: var(--warna2);
+  padding: 0.5rem 0;
+  font-weight: bold;
+  width: 220px;
+  box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.form .form-isi .bm a.btn {
+  background: var(--warna2);
+  color: var(--warna1);
+  font-weight: bold;
+  padding: 0.5rem 4rem;
+  border: 1px solid var(--warna1);
+  filter: drop-shadow(4px 4px 2px rgba(0, 0, 0, 0.25));
+  border-radius: var(--lengkung);
+  -webkit-border-radius: var(--lengkung);
+  -moz-border-radius: var(--lengkung);
+  -ms-border-radius: var(--lengkung);
+  -o-border-radius: var(--lengkung);
+  -webkit-filter: drop-shadow(4px 4px 2px rgba(0, 0, 0, 0.25));
+}

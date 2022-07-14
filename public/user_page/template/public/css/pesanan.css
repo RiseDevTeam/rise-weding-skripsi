@@ -1,0 +1,251 @@
+/* Header */
+header .user {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+header .user img {
+  width: 2rem;
+  height: 2rem;
+  border: 2px dashed var(--warna1);
+  border-radius: var(--lengkungO);
+  -webkit-border-radius: var(--lengkungO);
+  -moz-border-radius: var(--lengkungO);
+  -ms-border-radius: var(--lengkungO);
+  -o-border-radius: var(--lengkungO);
+}
+
+header .user li.dropdown {
+  position: relative;
+}
+
+header .user li.dropdown a.dropdown-toggle {
+  color: var(--warna6);
+}
+
+header .user .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: var(--warna5);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+header .user li.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Wizard Tabs */
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
+  color: var(--warna1) !important;
+  font-weight: bold !important;
+  background-color: transparent !important;
+  border-color: transparent !important;
+}
+
+.nav-link {
+  color: var(--warna3) !important;
+}
+
+.nav-tabs .nav-link:focus,
+.nav-tabs .nav-link:hover {
+  border-color: transparent !important;
+  isolation: isolate;
+}
+
+/* Pesanan */
+section.pesanan ul.kepala-card {
+  background-color: var(--warna2);
+  border: 1px solid var(--warna2);
+  box-shadow: 3px 3px 3px var(--warna5);
+  margin-bottom: 1rem;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: var(--lengkung);
+  -webkit-border-radius: var(--lengkung);
+  -moz-border-radius: var(--lengkung);
+  -ms-border-radius: var(--lengkung);
+  -o-border-radius: var(--lengkung);
+}
+
+section.pesanan .kepala-card button {
+  font-weight: bold;
+}
+
+section.pesanan .card {
+  background-color: var(--warna2);
+  border: 1px solid var(--warna2);
+  box-shadow: 3px 3px 3px var(--warna5);
+  padding: 1rem 2rem;
+  margin-bottom: 2rem;
+}
+
+/* For Template Wedding */
+section.pesanan .card .template {
+  margin: auto;
+}
+
+section.pesanan .card .template img {
+  border-radius: var(--lengkung);
+  -webkit-border-radius: var(--lengkung);
+  -moz-border-radius: var(--lengkung);
+  -ms-border-radius: var(--lengkung);
+  -o-border-radius: var(--lengkung);
+}
+/* End For Template Wedding */
+
+/* For Video Wedding */
+section.pesanan .card .video iframe {
+  height: 22rem;
+  border-radius: var(--lengkung);
+  -webkit-border-radius: var(--lengkung);
+  -moz-border-radius: var(--lengkung);
+  -ms-border-radius: var(--lengkung);
+  -o-border-radius: var(--lengkung);
+}
+/* End For Video Wedding */
+
+section.pesanan .card .isi .kas {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--warna1);
+}
+
+section.pesanan .card .isi .kas span {
+  color: var(--warna1);
+  margin-bottom: 0.5rem;
+}
+
+/* For Template Wedding */
+section.pesanan .card .isi .npalw a {
+  color: var(--warna3);
+}
+/* End For Template Wedding */
+
+/* For Video Wedding */
+section.pesanan .card .isi .npak button.btn {
+  background-color: #00ff01;
+  color: var(--warna2);
+  padding: 0.5rem 1rem;
+  border-radius: var(--lengkungO);
+  -webkit-border-radius: var(--lengkungO);
+  -moz-border-radius: var(--lengkungO);
+  -ms-border-radius: var(--lengkungO);
+  -o-border-radius: var(--lengkungO);
+}
+/* End For Video Wedding */
+
+section.pesanan .card .isi .bagikan {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--warna1);
+}
+
+section.pesanan #tSelesai .isi .bagikan {
+  margin-top: 7rem;
+}
+
+section.pesanan #tBelumBayar .isi .bagikan {
+  margin-top: 7rem;
+}
+
+section.pesanan #tDiProses .isi .bagikan {
+  margin-top: 5.5rem;
+}
+
+section.pesanan .card .isi .bagikan {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--warna1);
+}
+
+section.pesanan #tSelesai .isi .bagikan {
+  margin-top: 5.5rem;
+}
+
+section.pesanan #tBelumBayar .isi .bagikan {
+  margin-top: 6.5rem;
+}
+
+section.pesanan #tDiProses .isi .bagikan {
+  margin-top: 5rem;
+}
+
+section.pesanan .card .isi .bagikan span {
+  margin-bottom: 0.5rem;
+}
+
+section.pesanan .card .isi .bagikan span a {
+  font-size: 1.5rem;
+  color: var(--warna6);
+}
+
+section.pesanan .card .isi .bagikan h4.harga {
+  color: var(--warna6);
+}
+
+section.pesanan .card .isi .bagikan h4.harga b {
+  color: var(--warna1);
+}
+
+section.pesanan .card .isi .daftar-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+section.pesanan .card .isi .daftar-button .bpas button {
+  margin-top: 1rem;
+  margin-left: 0.5rem;
+  background-color: var(--warna1);
+  color: var(--warna2);
+  padding: 0.5rem 1rem;
+  border-radius: var(--lengkungO);
+  -webkit-border-radius: var(--lengkungO);
+  -moz-border-radius: var(--lengkungO);
+  -ms-border-radius: var(--lengkungO);
+  -o-border-radius: var(--lengkungO);
+}
+
+section.pesanan .card .isi .daftar-button button.uab {
+  background-color: var(--warna1);
+  color: var(--warna2);
+  padding: 0.5rem 1rem;
+  border-radius: var(--lengkungO);
+  -webkit-border-radius: var(--lengkungO);
+  -moz-border-radius: var(--lengkungO);
+  -ms-border-radius: var(--lengkungO);
+  -o-border-radius: var(--lengkungO);
+}
+
+/* Media Breakpoint */
+@media (max-width: 576px) {
+  section.pesanan .card .isi {
+    margin-top: 12rem;
+  }
+
+  section.pesanan .card .isi .bagikan {
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  section.pesanan .card .isi .kas {
+    margin-top: 0.5rem;
+  }
+}
+
+@media (max-width: 992px) {
+  section.pesanan .card .isi .kas {
+    margin-top: 0.5rem;
+  }
+}
