@@ -66,8 +66,8 @@
                 })
                 .then((response) => {
                     let data = response.data
-
                     data.forEach(element => {
+                        // console.log(element);
                         document.querySelector('.data').innerHTML += `
                     <ul>
                         <li>

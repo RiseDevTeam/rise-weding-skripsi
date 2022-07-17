@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Section 3</title>
+    <link
+      rel="shortcut icon"
+      href="favicon.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href=" https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Birthstone+Bounce&family=Noto+Serif&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --warna1: #dea057;
+        --warna2: #fff;
+      }
+
+      .waktu {
+        margin-top: 7rem;
+        padding: 5rem 0;
+        background: rgba(222, 160, 87, 90%);
+        color: var(--warna2);
+      }
+
+      .waktu p {
+        text-shadow: 0 0 5px var(--warna2);
+        font-size: 46px;
+        font-family: "Birthstone Bounce", cursive;
+        display: block;
+        -webkit-margin-before: 1em;
+        margin-block-start: 1em;
+        -webkit-margin-after: 1em;
+        margin-block-end: 1em;
+        -webkit-margin-start: 0px;
+        margin-inline-start: 0px;
+        -webkit-margin-end: 0px;
+        margin-inline-end: 0px;
+      }
+
+      .waktu p #hari,
+      .waktu p #jam,
+      .waktu p #menit,
+      .waktu p #detik {
+        display: inline-block;
+        margin: 0 25px;
+      }
+      @media (min-width: 768px) and (max-width: 991.98px) {
+        .waktu p {
+          font-size: 30px;
+        }
+      }
+      @media (max-width: 575.98px) {
+        .waktu {
+          margin-top: 0;
+        }
+      }
+  </style>
+  <body>
+    <div class="waktu" id="waktu">
+      <div class="container">
+        <div class="row text-center">
+          <p>
+            <span id="hari"></span>
+            <span id="jam"></span>
+            <span id="menit"></span>
+            <span id="detik"></span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      // Countdown
+      // Atur waktu akhir
+      let countDownDate = new Date("Maret 31, 2022 08:00:00").getTime();
+
+      // Update waktu setiap 1 detik
+      let x = setInterval(function () {
+        // dapatkan tanggal dan waktu sekarang
+        let now = new Date().getTime();
+
+        // Cari jarak waktu sekarang dengan waktu akhir
+        let distance = countDownDate - now;
+
+        // Kalkukalasikan waktu
+        let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("hari").innerHTML = days + " Hari";
+        document.getElementById("jam").innerHTML = hours + " Jam";
+        document.getElementById("menit").innerHTML = minutes + " Menit";
+        document.getElementById("detik").innerHTML = seconds + " Detik";
+      }, 1000);
+    </script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+  </html>

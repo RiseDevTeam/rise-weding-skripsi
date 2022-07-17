@@ -55,6 +55,7 @@ class PembayaranAdminController extends Controller
                 'biodata_pasangan_wanita.nama_lengkap as nama_pasangan_wanita',
                 // 'kategori_template.harga',
             )
+            ->orderBy('id_pembayaran', 'desc')
             ->groupBy('pembayaran_invitation.id_pembayaran')
             ->get();
 

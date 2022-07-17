@@ -4,14 +4,15 @@ namespace App\Http\Controllers\User\Pembayaran;
 
 use Illuminate\Http\Request;
 use App\Models\KategoriTemplate;
+use Illuminate\Support\Facades\DB;
 use App\Models\PemesananInvitation;
 use App\Http\Controllers\Controller;
-use App\Models\DetailPembayaranInvitation;
 use App\Models\PembayaranInvitation;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Crypt;
 use App\Models\RincianKetegoriTemplate;
 use Illuminate\Support\Facades\Validator;
+use App\Models\DetailPembayaranInvitation;
 
 class PembayaranController extends Controller
 {
@@ -68,6 +69,13 @@ class PembayaranController extends Controller
 
         $PemesananInvitation->status = 'sudah bayar';
         $PemesananInvitation->save();
+
+        DB::table('cash_out_sementara')->insert([
+            'id_pembayaran' => $IdPembayaranInvitation,
+            'id_pemesanan' => $PemesananInvitation->id_pemesanan,
+            'total' => $request->total,
+        ]);
+
         return response()->json(["success" => "Data berhasil Disimpan"]);
     }
 }

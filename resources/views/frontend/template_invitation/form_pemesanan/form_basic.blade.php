@@ -5,7 +5,8 @@
 
 @section('content_user')
 
-    <a href="{{ route('preview_template', $id_kategori_template) }}" target="_blank" class="btn btn-danger">Check Preview
+    <a href="{{ route('preview_template', $id_kategori_template) }}"
+        target="_blank" class="btn btn-danger">Check Preview
         Template</a>
     <form method="POST" id="form-biodata-pelanggan" enctype="multipart/form-data">
         @csrf

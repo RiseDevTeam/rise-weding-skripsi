@@ -133,7 +133,11 @@ Route::middleware(['auth'])->group(function () {
 
 
         // Cash Out
-        Route::get('cashout', [CashOutController::class, 'index'])->name('cashout-pembayaran');
+        Route::get('cashout_mitra', [CashOutController::class, 'index'])->name('cashout-pembayaran');
+        Route::get('cashout_admin', [CashOutController::class, 'cashout_admin'])->name('cashout_admin');
+        Route::POST('proses_cash_out', [CashOutController::class, 'proses_cash_out'])->name('proses_cash_out');
+        Route::get('detail_cashout_admin/{id}', [CashOutController::class, 'detail_cashout_admin'])->name('detail_cashout_admin');
+        Route::POST('konfirmasi_cash_out_admin', [CashOutController::class, 'konfirmasi_cash_out_admin'])->name('konfirmasi_cash_out_admin');
     });
     Route::get('logout', [GoogleController::class, 'logout'])->name('logout');
 });

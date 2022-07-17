@@ -35,7 +35,7 @@
                                 <div class="col-lg-9 isi">
                                     <div class="kas">
                                         <span>Kategori : <b>Template {{ $pesananSemua->kategori_template }}</b></span>
-                                        <span>Template Selesai</span>
+                                        <span>{{ $pesananSemua->status }}</span>
                                     </div>
                                     <div class="npalw">
                                         <h3 class="my-4">{{ $pesananSemua->nama_pasangan_pria }} &

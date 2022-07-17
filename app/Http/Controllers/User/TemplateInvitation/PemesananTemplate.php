@@ -82,6 +82,7 @@ class PemesananTemplate extends Controller
         $kategori_template = Crypt::decrypt($id_kategori);
         // menampilkan musik pada halaman input biodata pelanggan
         $musikTemplate = MusikTemplate::all();
+
         // menampilkan kategori pada halaman input biodata pelanggan
         $kategoriTemplate = KategoriTemplate::where('id_kategori_template', $kategori_template)->select('id_kategori_template', 'kategori')->first();
         $kategori = $kategoriTemplate->kategori;
@@ -97,6 +98,8 @@ class PemesananTemplate extends Controller
 
     public function preview_template($id_kategori)
     {
+        // menampilkan preview pada halaman input biodata pelanggan
+        $IdPreviewTemplate = PreviewTemplate::orderBy('id_preview_template_pemesanan', 'desc')->where('id_user', Auth::User()->id)->first();
         // decrypt id yang kita encripsi sebelumnya
         $id_kategori_template = Crypt::decrypt($id_kategori);
         // menampilkan kategori pada halaman input biodata pelanggan
@@ -104,9 +107,9 @@ class PemesananTemplate extends Controller
         // menampilkan preview template pada halaman input biodata pelanggan
         $PreviewTemplate = PreviewTemplate::leftjoin('detail_preview_template', 'preview_template_pemesanan.id_preview_template_pemesanan', '=', 'detail_preview_template.id_preview_template_pemesanan')
             ->select('preview_template_pemesanan.id_user', 'detail_preview_template.file_template')->where('preview_template_pemesanan.id_user', Auth::user()->id)
-            ->orderByDesc('detail_preview_template.id_preview_template_pemesanan')
+            ->orderByDesc('preview_template_pemesanan.id_preview_template_pemesanan')
+            ->where('preview_template_pemesanan.id_preview_template_pemesanan', $IdPreviewTemplate->id_preview_template_pemesanan)
             ->get();
-
         return view('frontend.template_invitation.preview_template', compact('PreviewTemplate', 'id_kategori'));
     }
 

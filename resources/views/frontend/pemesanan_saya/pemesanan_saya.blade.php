@@ -39,6 +39,7 @@
                 <!-- Semua -->
                 <div class="tab-pane fade show active" id="semua" role="tabpanel" aria-labelledby="semua-tab">
                     @forelse ($semua_pesanan as $pesananSaya)
+                        {{-- @dd($pesananSaya) --}}
                         <div class="tab-pane show active" id="semua">
                             <div class="card" id="tSelesai">
                                 <div class="row">

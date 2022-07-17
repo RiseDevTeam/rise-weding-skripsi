@@ -41,9 +41,15 @@
         <div class="container">
             @forelse ($PreviewTemplate as $preview)
                 <p>
-                    <iframe src='{{ asset("file/file_template/$preview->file_template") }}' width="100%"
+                    {{-- <iframe src='{{ asset("file/file_template/$preview->file_template") }}' width="100%"
                         title="W3Schools Free Online Web Tutorials">
-                    </iframe>
+                    </iframe> --}}
+                <div>
+                    {{-- <img src="{{ asset("file/file_template/$preview->file_template") }}" alt=""> --}}
+
+                    <embed src="{{ asset("file/file_template/$preview->file_template") }}" width="100%"
+                        type="text/html" height="200">
+                </div>
                 </p>
             @empty
                 {{ 'Silahkan Pilih Template Undangan mu' }}
