@@ -14,7 +14,8 @@
                 @endif
                 <div class="card mb-4">
                     <div class="card-header pb-0">
-                        Laporan Cash Out
+                        Laporan Cash Out <br>
+                        <a href="{{ route('print_laporan_cash_mitra') }}" target="_blank" class="btn btn-primary">Print</a>
                         <hr>
 
                     </div>
@@ -55,7 +56,7 @@
                                         </th>
 
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Upload Bukti Cash Out
+                                            Bukti Transfer
                                         </th>
 
 

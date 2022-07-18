@@ -14,9 +14,49 @@
                 @endif
                 <div class="card mb-4">
                     <div class="card-header pb-0">
-                        Laporan Cash Out
+                        Laporan Cash Out <br>
                         <hr>
+                        <form action="{{ route('cari_penjualan') }}" method="POST">
+                            @csrf
+                            <div class="row mb-3">
+                                <div class="col-6">
+                                    <select class="form-control" name="tahun" aria-label="Default select example">
+                                        @php
+                                            $tahun_sekarang = date('Y');
+                                            $tgl_kemarin = date('Y', strtotime('-1 Year', strtotime(date('Y'))));
+                                        @endphp
+                                        <option value="{{ $tahun_sekarang }}">Pilih Tahun</option>
+                                        <option value="{{ $tahun_sekarang }}">{{ $tahun_sekarang }}</option>
+                                        <option value="{{ $tgl_kemarin }}">{{ $tgl_kemarin }}</option>
+                                    </select>
+                                </div>
 
+                                <div class="col-6">
+                                    <select class="form-control" name="bulan" aria-label="Default select example">
+                                        @php
+                                            date_default_timezone_set('Asia/Jakarta');
+                                            $tgl = date('m');
+                                            $bulan = ['Januari' => '1', 'Februari' => '2', 'Maret' => '3', 'April' => '4', 'Mei' => '5', 'Juni' => '6', 'Juli' => '7', 'Agustus' => '8', 'September' => '9', 'Oktober' => '10', 'November' => '11', 'Desember' => '12'];
+                                        @endphp
+                                        <option value="{{ $tgl }}">Pilih Bulan</option>
+                                        @foreach ($bulan as $b => $value_bulan)
+                                            <option value="{{ $value_bulan }}">{{ $b }} </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                            @if (isset($tahun_print) && isset($bulan_print))
+                                <a href="{{ route('print_laporan_penjualan_tahun_bulan', ['tahun_print' => $tahun_print, 'bulan_print' => $bulan_print]) }}"
+                                    target="_blank" class="btn btn-danger">Print</a>
+                            @else
+                                <a href="{{ route('print_laporan_penjualan') }}" target="_blank"
+                                    class="btn btn-danger">Print</a>
+                            @endif
+                            <a href="{{ route('laporan_penjualan') }}" class="btn btn-info">Reset</a>
+                        </form>
+                        <br>
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">
                         <div class="table-responsive p-0">
@@ -80,17 +120,16 @@
 
 
                                             <td class="text-center">
-                                                {{-- <a target="_blank" href="{{ asset("cash_out/$cash_out->bukti_cashout") }}"
-                                                    class="btn btn-primary">Lihat
-                                                    Bukti Bayar</a> --}}
-
                                                 <img src='{{ asset("gambar/gambar_cover_template/$cash->gambar_cover") }}'
                                                     width="100" alt="Icon Template">
                                             </td>
 
                                             <td class="text-center">
                                                 <span class="text-secondary text-xs font-weight-bold">
-                                                    {{ $cash->tanggal_pemesanan }}
+                                                    @php
+                                                        date_default_timezone_set('Asia/Jakarta');
+                                                    @endphp
+                                                    {{ date('d F Y', strtotime('$cash->tanggal_pemesanan')) }}
                                                 </span>
                                             </td>
 

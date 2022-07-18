@@ -14,8 +14,8 @@
                             aria-label=".form-select-md example" style="border: 2px solid var(--warna1);">
                             <option selected>"Cari Yang Kamu Inginkan..."</option>
                             <option value="template">Template Invitation</option>
-                            <option value="portofolio">Portofolio</option>
-                            <option value="blog">Blog</option>
+                            {{-- <option value="portofolio">Portofolio</option>
+                            <option value="blog">Blog</option> --}}
                         </select>
                     </div>
 
@@ -116,14 +116,14 @@
                         <a class="nav-link" href="{{ route('video_invitation') }}">
                             <i class="bi bi-camera-reels"></i> Videos Invitation</a>
                     </li> --}}
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a class="nav-link" href="{{ route('portofolio') }}">
                             <i class="bi bi-journal-richtext"></i> Portfolio</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('blog') }}">
                             <i class="bi bi-newspaper"></i> Blog</a>
-                    </li>
+                    </li> --}}
                     @if (session()->get('status_user') == 'pelanggan')
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('pemesanan_saya') }}">

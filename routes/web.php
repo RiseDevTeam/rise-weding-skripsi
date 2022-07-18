@@ -151,6 +151,10 @@ Route::middleware(['auth'])->group(function () {
         // Laporan Mitra
         Route::get('laporan_cashout_mitra', [LaporanController::class, 'laporan_cashout_mitra'])->name('laporan_cashout_mitra');
         Route::get('laporan_penjualan', [LaporanController::class, 'laporan_penjualan'])->name('laporan_penjualan');
+        Route::get('print_laporan_cash_mitra', [LaporanController::class, 'print_laporan_cash_mitra'])->name('print_laporan_cash_mitra');
+        Route::get('print_laporan_penjualan', [LaporanController::class, 'print_laporan_penjualan'])->name('print_laporan_penjualan');
+        Route::get('print_laporan_penjualan_tahun_bulan/{tahun_print}/{bulan_print}', [LaporanController::class, 'print_laporan_penjualan_tahun_bulan'])->name('print_laporan_penjualan_tahun_bulan');
+        Route::POST('cari_penjualan', [LaporanController::class, 'cari_penjualan'])->name('cari_penjualan');
     });
     Route::get('logout', [GoogleController::class, 'logout'])->name('logout');
 });
