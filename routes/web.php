@@ -66,16 +66,16 @@ Route::middleware(['auth'])->group(function () {
     Route::prefix('risedev-wedding-users')->group(function () {
 
         Route::prefix('template_invitation')->group(function () {
-            Route::get('detail-template/{id_kategori}', [PemesananTemplate::class, 'detail_template'])->name('detail-template');
-            Route::POST('simpan-template/{id_kategori}', [PemesananTemplate::class, 'pemesanan_template'])->name('pemesanan_template');
-            Route::get('preview-template/{id_kategori}', [PemesananTemplate::class, 'preview_template'])->name('preview_template');
-            Route::get('data-undangan/{id_kategori}', [PemesananTemplate::class, 'data_undangan'])->name('data_undangan');
+            Route::get('detail-template/{id_template}', [PemesananTemplate::class, 'detail_template'])->name('detail-template');
+            Route::POST('simpan-template/{id_template}', [PemesananTemplate::class, 'pemesanan_template'])->name('pemesanan_template');
+            Route::get('data-undangan/{id_template}', [PemesananTemplate::class, 'data_undangan'])->name('data_undangan');
+            Route::get('preview-template/{id_template}', [PemesananTemplate::class, 'preview_template'])->name('preview_template');
             Route::POST('data-undangan-store_basic/{kategori}', [PemesananTemplate::class, 'data_undangan_store_basic'])->name('data_undangan_store_basic');
             Route::POST('data_undangan_store_premium/{kategori}', [PemesananTemplate::class, 'data_undangan_store_premium'])->name('data_undangan_store_premium');
         });
 
         Route::prefix('pembayaran')->group(function () {
-            Route::get('pembayaran_template/{id_kategori_template}', [PembayaranController::class, 'pembayaran_template'])->name('pembayaran_template');
+            Route::get('pembayaran_template/{id_template}', [PembayaranController::class, 'pembayaran_template'])->name('pembayaran_template');
             Route::POST('pembayaran_template_store', [PembayaranController::class, 'pembayaran_template_store'])->name('pembayaran_template_store');
         });
 

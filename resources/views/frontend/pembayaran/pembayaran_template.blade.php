@@ -30,8 +30,8 @@
                 <!-- Harga -->
                 <div class="col-lg-4 col-md-4 harga">
                     <button class="btn card premium">
-                        <span>{{ $KategoriTemplate->kategori }}</span>
-                        <h2>Rp. {{ number_format($KategoriTemplate->harga) }}</h1>
+                        <span>{{ $TemplateInvitation->kategori }}</span>
+                        <h2>Rp. {{ number_format($TemplateInvitation->harga) }}</h1>
                     </button>
                 </div>
                 <!-- Benefit Premium -->
@@ -66,12 +66,12 @@
         <!-- Pembayaran Paket -->
         <section class="bayar col-12">
             <div class="container">
-                <h5 class="tpyd">Paket Yang Dipilih : <span>{{ $KategoriTemplate->kategori }}</span></h5>
+                <h5 class="tpyd">Paket Yang Dipilih : <span>{{ $TemplateInvitation->kategori }}</span></h5>
                 <div class="card">
                     <h5 class="tmt">Manual Transfer</h5>
                     <div class="total">
                         <h6>Total Pembayaran</h6>
-                        <h2>Rp. {{ number_format($KategoriTemplate->harga) }},-</h2>
+                        <h2>Rp. {{ number_format($TemplateInvitation->harga) }},-</h2>
                     </div>
                     <div class="data-pembayaran">
                         <div class="accordion accordion-flush" id="accordionFlush">
@@ -147,7 +147,7 @@
                         <div class="modal-body">
                             <div class="col-md-5 mx-auto">
                                 <label for="fotoPria" class="form-label">Bukti Pembayaran</label>
-                                <input type="hidden" id="total" value="{{ $KategoriTemplate->harga }}">
+                                <input type="hidden" id="total" value="{{ $TemplateInvitation->harga }}">
                                 <input class="form-control" type="file" id="bukti_pembayaran"
                                     onchange="buktiPembayaran()" />
                                 <img src="{{ asset('user_page/template/public/img/img.png') }}"

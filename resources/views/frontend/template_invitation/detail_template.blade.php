@@ -25,7 +25,7 @@
 
 
     <form id="formPemesanan" method="POST" enctype="multipart/form-data"
-        action="{{ route('pemesanan_template', $id_kategori) }}">
+        action="{{ route('pemesanan_template', $id_template) }}">
         @csrf
         <section>
             <div class="container">
@@ -53,7 +53,7 @@
         integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
-        var id_kategori = "{{ $id_kategori }}";
+        var id_template = "{{ $id_template }}";
 
         var id_user = "{{ Auth::user()->id }}";
 
@@ -62,7 +62,7 @@
         function getAllData() {
             axios({
                     method: 'GET',
-                    url: `${window.location.origin}/api/risedev-wedding-users/template-invitation/detail-template/${id_kategori}`
+                    url: `${window.location.origin}/api/risedev-wedding-users/template-invitation/detail-template/${id_template}`
                 })
                 .then((response) => {
                     let data = response.data
@@ -80,7 +80,7 @@
                     
                     <section class="isi_${element.id_file_template}">
                         <div class="container" id="template_${element.id_file_template}">
-                            <input type="hidden" name="id_template[]" class="form-control" id="id_template" width="100" value="${element.id_template}">
+                            <input type="hidden" name="id_template" class="form-control" id="id_template" width="100" value="${element.id_template}">
                             <input type="hidden" name="file_template[]" class="form-control" id="file_template" width="100" value="${element.file}">
                             <input type="hidden" name="id_user" class="form-control" id="file_template" width="100" value="${id_user}">
                             <button type="button" onclick="hapusTemplate(this)" id="${element.id_file_template}" class="badge badge-sm bg-danger mt-2"><i class="bi bi-trash"></i></button>
@@ -108,14 +108,14 @@
 
             axios({
                     method: 'GET',
-                    url: `${window.location.origin}/api/detail-template/ambil_satu/${e.id}/${id_kategori}`
+                    url: `${window.location.origin}/api/detail-template/ambil_satu/${e.id}/${id_template}`
                 })
                 .then((response) => {
                     let data = response.data
 
                     document.querySelector(`.isi_${e.id}`).innerHTML = `
                     <div class="container" id="template_${data.id_file_template}">
-                        <input type="hidden" name="id_template[]" class="form-control" id="id_template" value="${data.id_template}">
+                        <input type="hidden" name="id_template" class="form-control" id="id_template" value="${data.id_template}">
                         <input type="hidden" name="file_template[]" class="form-control" id="file_template" value="${data.file}">
                         <input type="hidden" name="id_user" class="form-control" id="file_template" width="100" value="${id_user}">
                         <button type="button" onclick="hapusTemplate(this)" id="${data.id_file_template}" class="badge badge-sm bg-danger mt-2"><i class="bi bi-trash"></i></button>

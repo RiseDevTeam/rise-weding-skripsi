@@ -13,18 +13,21 @@ use Illuminate\Support\Facades\Crypt;
 use App\Models\RincianKetegoriTemplate;
 use Illuminate\Support\Facades\Validator;
 use App\Models\DetailPembayaranInvitation;
+use App\Models\TemplateInvitation;
 
 class PembayaranController extends Controller
 {
-    public function pembayaran_template($id_kategori_template)
+    public function pembayaran_template($id_template)
     {
         // decrypt id yang kita encripsi sebelumnya
-        $id_kategori = Crypt::decrypt($id_kategori_template);
+        $idTemplate = Crypt::decrypt($id_template);
         // menampilkan kategori template pada halaman utama
-        $KategoriTemplate = KategoriTemplate::leftjoin('rincian_kategori_template', 'kategori_template.id_kategori_template', '=', 'rincian_kategori_template.id_kategori')
-            ->where('id_kategori_template', $id_kategori)->select('id_kategori_template', 'kategori', 'harga', 'rincian_kategori_template')->first();
-        $RincianKetegoriTemplate =  RincianKetegoriTemplate::where('id_kategori', $KategoriTemplate->id_kategori_template)->get();
-        return view('frontend.pembayaran.pembayaran_template', compact('KategoriTemplate', 'RincianKetegoriTemplate'));
+        // $KategoriTemplate = KategoriTemplate::leftjoin('rincian_kategori_template', 'kategori_template.id_kategori_template', '=', 'rincian_kategori_template.id_kategori')
+        //     ->where('id_kategori_template', $id_kategori)->select('id_kategori_template', 'kategori', 'harga', 'rincian_kategori_template')->first();
+        $TemplateInvitation = TemplateInvitation::leftjoin('kategori_template', 'template_invitation.id_kategori', '=', 'kategori_template.id_kategori_template')->leftjoin('rincian_kategori_template', 'kategori_template.id_kategori_template', '=', 'rincian_kategori_template.id_kategori')
+            ->where('id_template', $idTemplate)->select('template_invitation.id_template', 'kategori_template.id_kategori_template', 'kategori_template.kategori', 'kategori_template.harga', 'rincian_kategori_template.rincian_kategori_template')->first();
+        $RincianKetegoriTemplate =  RincianKetegoriTemplate::where('id_kategori', $TemplateInvitation->id_kategori_template)->get();
+        return view('frontend.pembayaran.pembayaran_template', compact('TemplateInvitation', 'RincianKetegoriTemplate'));
     }
 
     public function pembayaran_template_store(Request $request)

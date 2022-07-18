@@ -34,66 +34,56 @@ class PemesananTemplate extends Controller
         // decrypt id yang kita encripsi sebelumnya
         $kategori_template = Crypt::decrypt($id_kategori_template);
 
-        $templateInvitation = TemplateInvitation::leftjoin('kategori_template', 'template_invitation.id_kategori', '=', 'kategori_template.id_kategori_template')->select('kategori_template.kategori', 'template_invitation.link_hosting', 'template_invitation.id_kategori', 'template_invitation.gambar_cover')
+        $templateInvitation = TemplateInvitation::leftjoin('kategori_template', 'template_invitation.id_kategori', '=', 'kategori_template.id_kategori_template')
+            ->select('kategori_template.kategori', 'template_invitation.link_hosting', 'template_invitation.id_kategori', 'template_invitation.gambar_cover', 'id_template')
             ->where('template_invitation.id_kategori', $kategori_template)->get();
         $kategori =  KategoriTemplate::where('id_kategori_template', $kategori_template)->select('kategori')->first();
         return view('frontend.template_invitation.template_invitation', compact('templateInvitation', 'kategori'));
     }
 
-    public function detail_template($id_kategori)
+    public function detail_template($id_template)
     {
-        return view('frontend.template_invitation.detail_template', ['id_kategori' => $id_kategori]);
+        return view('frontend.template_invitation.detail_template', ['id_template' => $id_template]);
     }
 
-    public function pemesanan_template(Request $request, $id_kategori)
+    public function pemesanan_template(Request $request, $id_template)
     {
-        // decrypt id yang kita encripsi sebelumnya
-        $kategori_template = Crypt::decrypt($id_kategori);
-        $kategoriTemplate = DB::table('kategori_template')->where('id_kategori_template', $kategori_template)->select('kategori')->first();
         // input preview template pemesanan
         $data = new PreviewTemplate;
         $data->id_user = $request->id_user;
+        $data->id_template = $request->id_template;
         $data->save();
         // mencari last id pada table preview template pemesanan
         $id_preview_template =  $data->id_preview_template_pemesanan;
 
         // input detail preview template
-        foreach ($request->id_template as $key => $value) {
+        foreach ($request->file_template as $key => $value) {
             DB::table('detail_preview_template')->insert([
                 'id_preview_template_pemesanan'   => $id_preview_template,
-                'id_template'   => $value,
-                'file_template' => $request->file_template[$key]
+                'file_template' => $value
             ]);
         }
-        // if ($kategoriTemplate->kategori == 'Premium') {
-        //     return redirect()->route('data_undangan', $id_kategori);
-        // } elseif ($kategoriTemplate->kategori == 'Basic') {
-        //     # code...
-        // } else {
-        //     return back();
-        // }
-
-        return redirect()->route('data_undangan', $id_kategori);
+        return redirect()->route('data_undangan', $id_template);
     }
 
-    public function data_undangan($id_kategori)
+    public function data_undangan($id_template)
     {
         // decrypt id yang kita encripsi sebelumnya
-        $kategori_template = Crypt::decrypt($id_kategori);
+        $idTemplate = Crypt::decrypt($id_template);
         // menampilkan musik pada halaman input biodata pelanggan
         $musikTemplate = MusikTemplate::all();
 
-        // menampilkan kategori pada halaman input biodata pelanggan
-        $kategoriTemplate = KategoriTemplate::where('id_kategori_template', $kategori_template)->select('id_kategori_template', 'kategori')->first();
-        $kategori = $kategoriTemplate->kategori;
-        $id_kategori_template = Crypt::encrypt($kategoriTemplate->id_kategori_template);
+        // menampilkan id template pada halaman input biodata pelanggan
+        $templateInvitation = TemplateInvitation::leftjoin('kategori_template', 'template_invitation.id_kategori', '=', 'kategori_template.id_kategori_template')
+            ->select('kategori_template.kategori')->first();
+        $kategori = $templateInvitation->kategori;
 
         // menampilkan preview template di dalam form data
         $previewTemplate = PreviewTemplate::where('id_user', Auth::user()->id)->orderBy('id_preview_template_pemesanan', 'desc')
             ->select('preview_template_pemesanan.id_preview_template_pemesanan')->first();
         $IdpreviewTemplate = $previewTemplate->id_preview_template_pemesanan;
 
-        return view('frontend.template_invitation.form_data_undangan', compact('kategori', 'musikTemplate', 'IdpreviewTemplate', 'id_kategori_template'));
+        return view('frontend.template_invitation.form_data_undangan', compact('kategori', 'musikTemplate', 'IdpreviewTemplate', 'id_template'));
     }
 
     public function preview_template($id_kategori)
@@ -298,7 +288,9 @@ class PemesananTemplate extends Controller
         // insert data ke database pemesanan
         date_default_timezone_set('Asia/Jakarta');
         $tgl = date('Y-m-d');
+        $previewTemplatePemesanan = DB::table('preview_template_pemesanan')->where('id_preview_template_pemesanan', $request->IdpreviewTemplate)->first();
         $PemesananInvitation = PemesananInvitation::create([
+            'id_template' => $previewTemplatePemesanan->id_template,
             'id_biodata_pelanggan' => $IdBiodataPelanggan,
             'kategori_template' => $kategori,
             'email' => Auth::User()->email,
@@ -312,7 +304,6 @@ class PemesananTemplate extends Controller
         foreach ($detailPreviewTemplate as $detailPreview) {
             DetailPemesananInvitation::create([
                 'id_pemesanan' => $IdPemesananInvitation,
-                'id_template' => $detailPreview->id_template,
                 'file_template' => $detailPreview->file_template,
             ]);
         }
@@ -584,7 +575,9 @@ class PemesananTemplate extends Controller
         // insert data ke database pemesanan
         date_default_timezone_set('Asia/Jakarta');
         $tgl = date('Y-m-d');
+        $previewTemplatePemesanan = DB::table('preview_template_pemesanan')->where('id_preview_template_pemesanan', $request->IdpreviewTemplate)->first();
         $PemesananInvitation = PemesananInvitation::create([
+            'id_template' => $previewTemplatePemesanan->id_template,
             'id_biodata_pelanggan' => $IdBiodataPelanggan,
             'kategori_template' => $kategori,
             'email' => Auth::User()->email,
@@ -598,7 +591,6 @@ class PemesananTemplate extends Controller
         foreach ($detailPreviewTemplate as $detailPreview) {
             DetailPemesananInvitation::create([
                 'id_pemesanan' => $IdPemesananInvitation,
-                'id_template' => $detailPreview->id_template,
                 'file_template' => $detailPreview->file_template,
             ]);
         }

@@ -21,12 +21,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/risedev-wedding-users/template-invitation/detail-template/{id_kategori}', function ($id_kategori) {
-    // return $id_kategori;
-    $id_kategori = Crypt::decrypt($id_kategori);
+Route::get('/risedev-wedding-users/template-invitation/detail-template/{id_kategori}', function ($id_template) {
+    // return $id_template;
+    $idTemplate = Crypt::decrypt($id_template);
     $gambar_template = TemplateInvitation::leftjoin('file_template', 'template_invitation.id_template', '=', 'file_template.id_template')
-        ->where('template_invitation.id_kategori', $id_kategori)
-        // ->groupby('file_template.id_sub_kategori')
+        ->where('template_invitation.id_template', $idTemplate)
+        ->groupby('file_template.id_sub_kategori')
         ->select('template_invitation.id_template', 'file_template.file', 'file_template.gambar_template', 'file_template.id_file_template', 'file_template.id_sub_kategori', 'template_invitation.id_template')
         ->get();
 
@@ -36,17 +36,16 @@ Route::get('/risedev-wedding-users/template-invitation/detail-template/{id_kateg
             ->first();
         $gambar_template[$key]->id_sub_kategori = $sub;
     }
-    // dd($gambar_template);
     return response()->json($gambar_template);
 });
 
-Route::get('/detail-template/ambil_satu/{id}/{id_kategori}', function ($id, $id_kategori) {
+Route::get('/detail-template/ambil_satu/{id}/{id_kategori}', function ($id, $id_template) {
 
-    // return response()->json([$id, $id_kategori]);
+    // return response()->json([$id, $id_template]);
 
-    $id_kategori = Crypt::decrypt($id_kategori);
+    $idTemplate = Crypt::decrypt($id_template);
     $gambar_template = TemplateInvitation::leftjoin('file_template', 'template_invitation.id_template', '=', 'file_template.id_template')
-        ->where('template_invitation.id_kategori', $id_kategori)
+        ->where('template_invitation.id_template', $idTemplate)
         ->where('file_template.id_file_template', $id)
         ->groupby('file_template.id_sub_kategori')
         ->select('template_invitation.id_template', 'file_template.file', 'file_template.gambar_template', 'file_template.id_file_template', 'file_template.id_sub_kategori', 'template_invitation.id_template')

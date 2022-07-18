@@ -16,13 +16,13 @@
                             <div class="kategori">
                                 <span>{{ $template->kategori }}</span>
                             </div>
-                            <img src="{{ asset("gambar/gambar_cover_template/$template->gambar_cover") }}"
-                                class="img-fluid" alt="..." />
+                            <img src="{{ asset("gambar/gambar_cover_template/$template->gambar_cover") }}" class="img-fluid"
+                                alt="..." />
                             <div class="pemesanan carousel-caption my-0 d-md-block">
                                 @php
-                                    $kategori_template = Crypt::encrypt($template->id_kategori);
+                                    $id_template = Crypt::encrypt($template->id_template);
                                 @endphp
-                                <a href="{{ route('detail-template', $kategori_template) }}" class="btn">
+                                <a href="{{ route('detail-template', $id_template) }}" class="btn">
                                     Pesan
                                 </a>
                                 <a href="{{ $template->link_hosting }}" target="_blank" class="btn">Preview</a>

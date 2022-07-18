@@ -5,7 +5,7 @@
 
 @section('content_user')
 
-    <a href="{{ route('preview_template', $id_kategori_template) }}"
+    <a href="{{ route('preview_template', $id_template) }}"
         target="_blank" class="btn btn-danger">Check Preview
         Template</a>
     <form method="POST" id="form-biodata-pelanggan" enctype="multipart/form-data">
@@ -891,7 +891,7 @@
                                 timer: 1000
                             }).then(function() {
                                 window.location.href =
-                                    "{{ route('pembayaran_template', $id_kategori_template) }}"
+                                    "{{ route('pembayaran_template', $id_template) }}"
                             })
                         }
                     }

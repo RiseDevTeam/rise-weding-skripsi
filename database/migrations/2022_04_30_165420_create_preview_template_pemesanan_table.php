@@ -16,6 +16,7 @@ class CreatePreviewTemplatePemesananTable extends Migration
         Schema::create('preview_template_pemesanan', function (Blueprint $table) {
             $table->bigIncrements('id_preview_template_pemesanan');
             $table->bigInteger('id_user');
+            $table->bigInteger('id_template');
         });
     }
 

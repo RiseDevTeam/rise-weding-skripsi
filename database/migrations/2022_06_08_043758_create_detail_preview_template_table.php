@@ -16,7 +16,6 @@ class CreateDetailPreviewTemplateTable extends Migration
         Schema::create('detail_preview_template', function (Blueprint $table) {
             $table->bigIncrements('id_detail_preview');
             $table->bigInteger('id_preview_template_pemesanan');
-            $table->bigInteger('id_template');
             $table->string('file_template');
         });
     }
