@@ -30,7 +30,7 @@ class PemesananAdminController extends Controller
         $dataPemesananInvitation = PemesananInvitation::leftjoin('biodata_pelanggan', 'biodata_pelanggan.id_biodata_pelanggan', '=', 'pemesanan_invitation.id_biodata_pelanggan')
             ->leftjoin('users', 'users.id', '=', 'biodata_pelanggan.id_user')
             ->leftjoin('detail_pemesanan_invitation', 'detail_pemesanan_invitation.id_pemesanan', '=', 'pemesanan_invitation.id_pemesanan')
-            ->leftjoin('template_invitation', 'template_invitation.id_template', '=', 'detail_pemesanan_invitation.id_template')
+            ->leftjoin('template_invitation', 'template_invitation.id_template', '=', 'pemesanan_invitation.id_template')
             ->leftjoin('biodata_pasangan_pria', 'biodata_pasangan_pria.id_pasangan_pria', '=', 'biodata_pelanggan.id_pasangan_pria')
             ->leftjoin('biodata_pasangan_wanita', 'biodata_pasangan_wanita.id_pasangan_wanita', '=', 'biodata_pelanggan.id_pasangan_wanita')
             ->leftjoin('kategori_template', 'kategori_template.id_kategori_template', '=', 'template_invitation.id_kategori')

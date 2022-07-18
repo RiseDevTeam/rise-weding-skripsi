@@ -14,8 +14,7 @@ class CashOutController extends Controller
     {
         $cashOut = DB::table('cash_out_sementara')->leftjoin('pembayaran_invitation', 'cash_out_sementara.id_pembayaran', '=', 'pembayaran_invitation.id_pembayaran')
             ->leftjoin('pemesanan_invitation', 'cash_out_sementara.id_pemesanan', '=', 'pemesanan_invitation.id_pemesanan')
-            ->leftjoin('detail_pemesanan_invitation', 'detail_pemesanan_invitation.id_pemesanan', '=', 'cash_out_sementara.id_pemesanan')
-            ->leftjoin('template_invitation', 'template_invitation.id_template', '=', 'detail_pemesanan_invitation.id_template')
+            ->leftjoin('template_invitation', 'template_invitation.id_template', '=', 'pemesanan_invitation.id_template')
             ->select(
                 'cash_out_sementara.id_pembayaran',
                 'cash_out_sementara.total',
@@ -87,18 +86,18 @@ class CashOutController extends Controller
             ->leftjoin('pemesanan_invitation', 'pemesanan_invitation.id_pemesanan', '=', 'pembayaran_invitation.id_pemesanan')
             ->leftjoin('detail_pemesanan_invitation', 'detail_pemesanan_invitation.id_pemesanan', '=', 'pemesanan_invitation.id_pemesanan')
             ->leftjoin('detail_pembayaran_invitation', 'detail_pembayaran_invitation.id_pembayaran', '=', 'pembayaran_invitation.id_pembayaran')
-            ->leftjoin('template_invitation', 'template_invitation.id_template', '=', 'detail_pemesanan_invitation.id_template')
+            ->leftjoin('template_invitation', 'template_invitation.id_template', '=', 'pemesanan_invitation.id_template')
             ->leftjoin('kategori_template', 'kategori_template.id_kategori_template', '=', 'template_invitation.id_kategori')
             ->select(
                 'pembayaran_invitation.id_pembayaran',
                 'detail_pembayaran_invitation.kode_transaksi',
                 'pemesanan_invitation.kategori_template',
                 'detail_pembayaran_invitation.total',
-                'pembayaran_invitation.status',
                 'kategori_template.kategori',
                 'bank_mitra.*',
                 'users.name',
                 'cash_out.id_user',
+                'cash_out.status',
             )
             ->where('cash_out.id_user', $id)
             ->groupBy('cash_out.id_cash_out')

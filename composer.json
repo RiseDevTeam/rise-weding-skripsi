@@ -30,7 +30,8 @@
         "files": [
 
             "app/Helpers/uploadImage.php",
-            "app/Helpers/uploadImageKTP.php"
+            "app/Helpers/uploadImageKTP.php",
+            "app/Helpers/sideBar.php"
         ]
     },
     "autoload-dev": {

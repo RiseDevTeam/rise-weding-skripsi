@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title', 'Petugas')
+@section('title', 'Admin')
 
 @section('content')
     <div class="container-fluid py-4">
@@ -183,8 +183,7 @@
                                             <td class="text-center">
                                                 <span class="text-secondary text-xs font-weight-bold">
                                                     @if ($cash->status == 'pending')
-                                                        Rp.
-                                                        {{ number_format($cash->total - $cash->total * 0.15) }}
+                                                        Rp. {{ number_format($cash->total - $cash->total * 0.15) }}
                                                     @else
                                                         Rp. {{ '0' }}
                                                     @endif

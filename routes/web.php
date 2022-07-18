@@ -17,6 +17,8 @@ use App\Http\Controllers\Admin\Pembayaran\PembayaranAdminController;
 use App\Http\Controllers\User\PemesananSaya\PemesananSayaController;
 use App\Http\Controllers\Admin\Template\TemplateInvitationController;
 use App\Http\Controllers\CashOutController;
+use App\Http\Controllers\LaporanAdminController;
+use App\Http\Controllers\LaporanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -97,6 +99,8 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('template', '\App\Http\Controllers\Admin\Template\TemplateInvitationController');
         // route Musik Template
         Route::resource('musik', '\App\Http\Controllers\Admin\Template\MusikController');
+        // route Mitra Template
+        Route::resource('mitra', '\App\Http\Controllers\MitraController');
 
         // route Blog   
         Route::resource('blog', '\App\Http\Controllers\Admin\BlogController');
@@ -138,6 +142,15 @@ Route::middleware(['auth'])->group(function () {
         Route::POST('proses_cash_out', [CashOutController::class, 'proses_cash_out'])->name('proses_cash_out');
         Route::get('detail_cashout_admin/{id}', [CashOutController::class, 'detail_cashout_admin'])->name('detail_cashout_admin');
         Route::POST('konfirmasi_cash_out_admin', [CashOutController::class, 'konfirmasi_cash_out_admin'])->name('konfirmasi_cash_out_admin');
+
+        //Laporan Admin
+        Route::get('laporan_cashout', [LaporanAdminController::class, 'laporan_cashout'])->name('laporan_cashout');
+        Route::get('laporan_rekapitulasi', [LaporanAdminController::class, 'laporan_rekapitulasi'])->name('laporan_rekapitulasi');
+        Route::get('print_laporan_rekapitulasi', [LaporanAdminController::class, 'print_laporan_rekapitulasi'])->name('print_laporan_rekapitulasi');
+
+        // Laporan Mitra
+        Route::get('laporan_cashout_mitra', [LaporanController::class, 'laporan_cashout_mitra'])->name('laporan_cashout_mitra');
+        Route::get('laporan_penjualan', [LaporanController::class, 'laporan_penjualan'])->name('laporan_penjualan');
     });
     Route::get('logout', [GoogleController::class, 'logout'])->name('logout');
 });
