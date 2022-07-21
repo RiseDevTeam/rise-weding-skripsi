@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Section 1</title>
+    <link
+      rel="shortcut icon"
+      href="favicon.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href=" https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Birthstone+Bounce&family=Noto+Serif&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --warna1: #dea057;
+        --warna2: #fff;
+      }
+
+      ul.navbar-bawah {
+        list-style: none;
+        position: fixed;
+        bottom: 20px;
+        left: 49.5%;
+        width: 90%;
+        padding-left: 0;
+        z-index: 11;
+        background-color: var(--warna1);
+        transform: translateX(-50%);
+        -webkit-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        -o-transform: translateX(-50%);
+        border-radius: 20px;
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        -ms-border-radius: 20px;
+        -o-border-radius: 20px;
+      }
+
+      ul.navbar-bawah li {
+        padding: 5px;
+        transition: 0.1s;
+        -webkit-transition: 0.1s;
+        -moz-transition: 0.1s;
+        -ms-transition: 0.1s;
+        -o-transition: 0.1s;
+      }
+
+      ul.navbar-bawah li a {
+        color: var(--warna2);
+        font-size: 2rem;
+      }
+
+      .tombol-musik {
+        position: fixed;
+        bottom: 100px;
+        right: 70px;
+        z-index: 11;
+        background-color: var(--warna1);
+        cursor: pointer;
+        padding: 2px 10px;
+        border-radius: 999px;
+        -webkit-border-radius: 999px;
+        -moz-border-radius: 999px;
+        -ms-border-radius: 999px;
+        -o-border-radius: 999px;
+      }
+
+      .tombol-musik i {
+        color: var(--warna2);
+        font-size: 30px;
+      }
+
+      .header {
+        height: 100vh;
+        position: relative;
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+          url("header.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        background-attachment: fixed;
+        overflow: hidden;
+      }
+
+      .header .kiri {
+        background: rgba(222, 160, 87, 0.8);
+        height: 100vh;
+        border-top-right-radius: 50%;
+        border-bottom-right-radius: 50%;
+      }
+
+      .header .wi {
+        margin: 33vh auto auto 10vw;
+        text-align: left;
+      }
+
+      .header .wi h4 {
+        color: var(--warna2);
+        font-family: "Noto Serif", serif;
+      }
+
+      .header .wi h1 {
+        margin: 3rem auto;
+        font-size: 4rem;
+        color: var(--warna2);
+        font-family: "Birthstone Bounce", cursive;
+      }
+      @media (min-width: 768px) and (max-width: 991.98px) {
+        .tombol-musik {
+          right: 45px;
+        }
+        .header .wi {
+          margin-top: 40vh;
+        }
+      }
+      @media (max-width: 575.98px) {
+        .tombol-musik {
+          bottom: 95px;
+          right: 20px;
+        }
+        .header .kiri {
+          width: 80vw;
+          border-top-right-radius: 100%;
+          border-bottom-right-radius: 100%;
+        }
+        .header .wi {
+          margin-top: 35vh;
+        }
+        .header .wi h1 {
+          margin: 2rem auto;
+          font-size: 3rem;
+          font-weight: bold;
+        }
+      }
+  </style>
+  <body>
+    <!-- Navbar Bawah -->
+    <ul class="navbar-bawah d-flex justify-content-around m-0">
+      <li>
+        <a href="#header">
+          <i class="bi bi-envelope-heart"></i>
+        </a>
+      </li>
+      <li>
+        <a href="#pasangan">
+          <i class="bi bi-people-fill"></i>
+        </a>
+      </li>
+      <li>
+        <a href="#waktu">
+          <i class="bi bi-watch"></i>
+        </a>
+      </li>
+      <li>
+        <a href="#lokasi">
+          <i class="bi bi-pin-map-fill"></i>
+        </a>
+      </li>
+      <li>
+        <a href="#gallery">
+          <i class="bi bi-images"></i>
+        </a>
+      </li>
+    </ul>
+
+    <!-- Music -->
+    <div class="tombol-musik">
+      <audio id="track" src="public/music/lagu.mp3"></audio>
+      <i id="play-pause" class="bi bi-play-fill"> </i>
+    </div>
+
+    <div class="header" id="header">
+      <div class="row">
+        <div class="col-lg-5 col-md-7 kiri">
+          <div class="wi">
+            <h4>Wedding Invitation</h4>
+            <h1>Jojo & Rose</h1>
+            <h4>07 Mei 2023</h4>
+          </div>
+        </div>
+        <div class="col-lg-7 col-md-3"></div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      // Musik
+      const track = document.getElementById("track");
+      const button = document.getElementById("play-pause");
+
+      function playPause() {
+        if (track.paused) {
+          track.play();
+          button.className = "bi-pause-fill";
+        } else {
+          track.pause();
+          button.className = "bi-play-fill";
+        }
+      }
+      // Button Music
+      button.addEventListener("click", playPause);
+      track.addEventListener("ended", function () {
+        button.className = "bi-play-fill";
+      });
+    </script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+  </html>

@@ -21,7 +21,6 @@
 
         <div class="tab-content" id="pills-tabContent">
 
-            {{-- Bagian Semua --}}
             <div class="tab-pane fade show active" id="pills-semua" role="tabpanel" aria-labelledby="pills-semua-tab"
                 tabindex="0">
                 <section class="pesanan">
@@ -64,6 +63,54 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="card mb-4">
+                            <div class="card-header pb-0">
+                                <div class="mb-3">
+                                    Pemesanan Template <br>
+                                </div>
+                                <form action="{{ route('cari_pemesanan') }}" method="POST">
+                                    @csrf
+                                    <div class="row mb-3">
+                                        <div class="col-6">
+                                            <select class="form-control" name="tahun" aria-label="Default select example">
+                                                @php
+                                                    $tahun_sekarang = date('Y');
+                                                    $tgl_kemarin = date('Y', strtotime('-1 Year', strtotime(date('Y'))));
+                                                @endphp
+                                                <option value="{{ $tahun_sekarang }}">Pilih Tahun</option>
+                                                <option value="{{ $tahun_sekarang }}">{{ $tahun_sekarang }}</option>
+                                                <option value="{{ $tgl_kemarin }}">{{ $tgl_kemarin }}</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-6">
+                                            <select class="form-control" name="bulan" aria-label="Default select example">
+                                                @php
+                                                    date_default_timezone_set('Asia/Jakarta');
+                                                    $tgl = date('m');
+                                                    $bulan = ['Januari' => '1', 'Februari' => '2', 'Maret' => '3', 'April' => '4', 'Mei' => '5', 'Juni' => '6', 'Juli' => '7', 'Agustus' => '8', 'September' => '9', 'Oktober' => '10', 'November' => '11', 'Desember' => '12'];
+                                                @endphp
+                                                <option value="{{ $tgl }}">Pilih Bulan</option>
+                                                @foreach ($bulan as $b => $value_bulan)
+                                                    <option value="{{ $value_bulan }}">{{ $b }} </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-primary">Cari</button>
+                                    @if (isset($pilih_tahun) && isset($pilih_bulan))
+                                        <a href="{{ route('print_laporan_pemesanan_bulan_tahun', ['pilih_tahun' => $pilih_tahun, 'pilih_bulan' => $pilih_bulan]) }}"
+                                            target="_blank" class="btn btn-danger">Print</a>
+                                    @else
+                                        <a href="{{ route('print_laporan_pemesanan') }}" target="_blank"
+                                            class="btn btn-danger">Print</a>
+                                    @endif
+                                    <a href="{{ route('data-pemesanan') }}" class="btn btn-info">Reset</a>
+                                </form>
+
+                                <hr>
+
+                            </div>
                             <div class="card-body px-0 pt-0 pb-2">
                                 <div class="table-responsive p-0">
                                     <table class="table align-items-center mb-0">
@@ -100,11 +147,6 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {{-- @if ($FileTemplate->file_template == '0')
-                                            <script>
-                                                alert("Belum ada Data Pemesanan!")
-                                            </script>
-                                        @endif --}}
                                             @forelse ($dataPemesananInvitation as $pemesanan)
                                                 <tr>
                                                     <td>

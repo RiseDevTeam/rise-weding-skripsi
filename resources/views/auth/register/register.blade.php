@@ -13,85 +13,6 @@
 </head>
 
 <body>
-    <!-- Form Registrasi -->
-    <section class="form">
-        <div class="container">
-            <img src="{{ asset('user_page/template/public/img/daun2.png') }}" class="bg"
-                alt="Background Form Registrasi" />
-            <h3>Registrasi</h3>
-            <p>Please Register Using Your Email</p>
-            <form method="POST" id="form-register" class="mx-auto">
-                <div class="row">
-                    <!-- 1 -->
-                    <div class="col-lg-6 col-md-6 px-5">
-                        <div class="mb-4">
-                            <label for="nama" class="form-label">Nama Lengkap</label>
-                            <input type="text" id="nama" class="form-control" placeholder="Nama Lengkap"
-                                autofocus />
-                            <div id="validationNama" class="invalid-feedback"></div>
-                        </div>
-                        <div class="mb-4">
-                            <label for="username" class="form-label">Email</label>
-                            <input type="text" id="email" class="form-control" placeholder="email" />
-                            <div id="validationEmail" class="invalid-feedback"></div>
-                        </div>
-                        <div class="mb-4">
-                            <label for="nowa" class="form-label">Nomor WhatsApp</label>
-                            <input type="text" id="nomor_telepon" class="form-control"
-                                placeholder="Nomor WhatsApp" />
-                            <div id="validationNomorTelepon" class="invalid-feedback"></div>
-                        </div>
-                        <div class="row mb-4">
-                            <div class="col-lg-6 col-md-6 col-sm-6">
-                                <label for="foto" class="form-label">Upload Foto Diri</label>
-                                <input type="file" id="foto_diri" onchange="fotoDiri()" class="form-control"
-                                    placeholder="Foto Diri" />
-                                <div id="validationFotoDiri" class="invalid-feedback"></div>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6">
-                                <img src="{{ asset('user_page/template/public/img/img.png') }}" id="img_foto_diri"
-                                    class="image" alt="image" />
-                            </div>
-                        </div>
-                    </div>
-                    <!-- 2 -->
-                    <div class="col-lg-6 col-md-6 px-5">
-                        <div class="mb-4">
-                            <label for="alamat" class="form-label">Alamat</label>
-                            <input type="text" id="alamat" class="form-control" placeholder="Alamat" />
-                            <div id="validationAlamat" class="invalid-feedback"></div>
-                        </div>
-                        <div class="mb-4">
-                            <label for="password" class="form-label">Password</label>
-                            <input type="password" id="password" class="form-control" placeholder="Password" />
-                            <div id="validationPassword" class="invalid-feedback"></div>
-                        </div>
-                        <div class="mb-4">
-                            <label for="noktp" class="form-label">Nomor KTP</label>
-                            <input type="text" id="nomor_ktp" class="form-control" placeholder="Nomor KTP" />
-                            <div id="validationNomorKtp" class="invalid-feedback"></div>
-                        </div>
-                        <div class="row mb-4">
-                            <div class="col-lg-6 col-md-6 col-sm-6">
-                                <label for="fotoktp" class="form-label">Upload Foto Diri dengan KTP</label>
-                                <input type="file" onchange="fotoKTP()" id="foto_ktp" class="form-control"
-                                    placeholder="Foto Diri Dengan KTP" />
-                                <div id="validationFotoKtp" class="invalid-feedback"></div>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6">
-                                <img src="{{ asset('user_page/template/public/img/img.png') }}" id="img_foto_ktp"
-                                    class="image" alt="image" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="btn-register">
-                    <button type="submit" class="btn">Register</button>
-                </div>
-            </form>
-        </div>
-    </section>
-    <!-- End Form Registrasi -->
 
     <!-- Syarat Menjadi Mitra-->
     <section class="syarat">
@@ -230,6 +151,87 @@
         </div>
     </section>
     <!-- End Syarat Menjadi Mitra -->
+
+    <!-- Form Registrasi -->
+    <section class="form">
+        <div class="container">
+            <img src="{{ asset('user_page/template/public/img/daun2.png') }}" class="bg"
+                alt="Background Form Registrasi" />
+            <h3>Registrasi</h3>
+            <p>Please Register Using Your Email</p>
+            <form method="POST" id="form-register" class="mx-auto">
+                <div class="row">
+                    <!-- 1 -->
+                    <div class="col-lg-6 col-md-6 px-5">
+                        <div class="mb-4">
+                            <label for="nama" class="form-label">Nama Lengkap</label>
+                            <input type="text" id="nama" class="form-control" placeholder="Nama Lengkap"
+                                autofocus />
+                            <div id="validationNama" class="invalid-feedback"></div>
+                        </div>
+                        <div class="mb-4">
+                            <label for="username" class="form-label">Email</label>
+                            <input type="text" id="email" class="form-control" placeholder="email" />
+                            <div id="validationEmail" class="invalid-feedback"></div>
+                        </div>
+                        <div class="mb-4">
+                            <label for="nowa" class="form-label">Nomor WhatsApp</label>
+                            <input type="text" id="nomor_telepon" class="form-control"
+                                placeholder="Nomor WhatsApp" />
+                            <div id="validationNomorTelepon" class="invalid-feedback"></div>
+                        </div>
+                        <div class="row mb-4">
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <label for="foto" class="form-label">Upload Foto Diri</label>
+                                <input type="file" id="foto_diri" onchange="fotoDiri()" class="form-control"
+                                    placeholder="Foto Diri" />
+                                <div id="validationFotoDiri" class="invalid-feedback"></div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <img src="{{ asset('user_page/template/public/img/img.png') }}" id="img_foto_diri"
+                                    class="image" alt="image" />
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 2 -->
+                    <div class="col-lg-6 col-md-6 px-5">
+                        <div class="mb-4">
+                            <label for="alamat" class="form-label">Alamat</label>
+                            <input type="text" id="alamat" class="form-control" placeholder="Alamat" />
+                            <div id="validationAlamat" class="invalid-feedback"></div>
+                        </div>
+                        <div class="mb-4">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" id="password" class="form-control" placeholder="Password" />
+                            <div id="validationPassword" class="invalid-feedback"></div>
+                        </div>
+                        <div class="mb-4">
+                            <label for="noktp" class="form-label">Nomor KTP</label>
+                            <input type="text" id="nomor_ktp" class="form-control" placeholder="Nomor KTP" />
+                            <div id="validationNomorKtp" class="invalid-feedback"></div>
+                        </div>
+                        <div class="row mb-4">
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <label for="fotoktp" class="form-label">Upload Foto Diri dengan KTP</label>
+                                <input type="file" onchange="fotoKTP()" id="foto_ktp" class="form-control"
+                                    placeholder="Foto Diri Dengan KTP" />
+                                <div id="validationFotoKtp" class="invalid-feedback"></div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <img src="{{ asset('user_page/template/public/img/img.png') }}" id="img_foto_ktp"
+                                    class="image" alt="image" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="btn-register">
+                    <button type="submit" class="btn">Register</button>
+                </div>
+            </form>
+        </div>
+    </section>
+    <!-- End Form Registrasi -->
+
 </body>
 
 <script>

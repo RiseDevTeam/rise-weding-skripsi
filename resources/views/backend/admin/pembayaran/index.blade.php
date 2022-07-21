@@ -18,7 +18,6 @@
                     aria-selected="false">Template Invitation</button>
             </li>
         </ul>
-
         <div class="tab-content" id="pills-tabContent">
 
             {{-- Bagian Semua --}}

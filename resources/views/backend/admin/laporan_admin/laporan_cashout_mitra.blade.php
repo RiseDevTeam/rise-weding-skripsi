@@ -15,9 +15,37 @@
                 <div class="card mb-4">
                     <div class="card-header pb-0">
                         Laporan Cash Out <br>
-                        <a href="{{ route('print_laporan_cash_mitra') }}" target="_blank" class="btn btn-primary">Print</a>
+                        @if (isset($pilih_tahun))
+                            <span>Nama Mitra : {{ $namaMitra->name }} / Tahun : {{ $pilih_tahun }}</span>
+                        @endif
                         <hr>
 
+                        <form action="{{ route('cari_cashout_mitra') }}" method="POST">
+                            @csrf
+                            <div class="col-12">
+                                <select class="form-control mb-3" name="bulan" aria-label="Default select example">
+                                    @php
+                                        date_default_timezone_set('Asia/Jakarta');
+                                        $tgl = date('m');
+                                        $bulan = ['Januari' => '1', 'Februari' => '2', 'Maret' => '3', 'April' => '4', 'Mei' => '5', 'Juni' => '6', 'Juli' => '7', 'Agustus' => '8', 'September' => '9', 'Oktober' => '10', 'November' => '11', 'Desember' => '12'];
+                                    @endphp
+                                    <option value="{{ $tgl }}">Pilih Bulan</option>
+                                    @foreach ($bulan as $b => $value_bulan)
+                                        <option value="{{ $value_bulan }}">{{ $b }} </option>
+                                    @endforeach
+                                </select>
+                                <button type="submit" class="btn btn-primary">Cari</button>
+                                @if (isset($bulan_cashout))
+                                    <a href="{{ route('print_laporan_cash_mitra_bulan', $bulan_cashout) }}" target="_blank"
+                                        class="btn btn-danger">Print</a>
+                                @else
+                                    <a href="{{ route('print_laporan_cash_mitra') }}" target="_blank"
+                                        class="btn btn-danger">Print</a>
+                                @endif
+
+                                <a href="{{ route('laporan_cashout_mitra') }}" class="btn btn-info">Reset</a>
+                            </div>
+                        </form>
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">
                         <div class="table-responsive p-0">

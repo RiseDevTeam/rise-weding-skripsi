@@ -36,23 +36,41 @@ class LaporanAdminController extends Controller
     }
     public function laporan_rekapitulasi()
     {
-        $data = [
-            'user' => DB::table('users')->where('status', '=', 'mitra')->count(),
-            'produk' => DB::table('template_invitation')->select('id_template as template')->count(),
-            'pendapatan_mitra' => DB::table('cash_out')->select(DB::raw('SUM(total) as total_cash_out'), 'id_pembayaran')->first(),
-            'transaksi' => DB::table('detail_pembayaran_invitation')->select(DB::raw('SUM(detail_pembayaran_invitation.total) as total'))->first(),
-        ];
-        return view('backend.admin.laporan_admin.laporan_rekapitulasi', $data);
+
+        $menampilkanUser = DB::table('users')
+            ->where('status', '=', 'mitra')
+            ->get();
+        return view('backend.admin.laporan_admin.laporan_rekapitulasi', compact('menampilkanUser'));
     }
 
     public function print_laporan_rekapitulasi()
     {
-        $print = [
-            'user' => DB::table('users')->where('status', '=', 'mitra')->count(),
-            'produk' => DB::table('template_invitation')->select('id_template as template')->count(),
-            'pendapatan_mitra' => DB::table('cash_out')->select(DB::raw('SUM(total) as total_cash_out'), 'id_pembayaran')->first(),
-            'transaksi' => DB::table('detail_pembayaran_invitation')->select(DB::raw('SUM(detail_pembayaran_invitation.total) as total'))->first(),
-        ];
-        return view('backend.admin.print.print_laporan_rekapitulasi', $print);
+        $menampilkanUser = DB::table('users')
+            ->get();
+        return view('backend.admin.print.print_laporan_rekapitulasi', compact('menampilkanUser'));
+    }
+
+    public function cari_rekapitulasi_tahun(Request $request)
+    {
+        $pilih_mitra =  $request->mitra;
+        $pilih_tahun =  $request->tahun;
+        $menampilkanUser = DB::table('users')
+            ->where('id', '=', $request->mitra)
+            ->get();
+        return view('backend.admin.laporan_admin.laporan_rekapitulasi', compact('menampilkanUser', 'pilih_mitra', 'pilih_tahun'));
+    }
+
+    public function print_laporan_rekapitulasi_tahun($pilih_mitra, $pilih_tahun)
+    {
+        $menampilkanUser = DB::table('users')
+            ->where('id', '=', $pilih_mitra)
+            ->where('status', 'mitra')
+            ->get();
+
+        $namaMitra = DB::table('users')
+            ->where('id', '=', $pilih_mitra)
+            ->where('status', 'mitra')
+            ->first();
+        return view('backend.admin.print.print_laporan_rekapitulasi', compact('menampilkanUser', 'pilih_tahun', 'namaMitra'));
     }
 }

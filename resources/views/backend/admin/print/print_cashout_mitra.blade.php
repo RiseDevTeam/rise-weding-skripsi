@@ -25,6 +25,33 @@
                     <br>
                     <b>
                         <h2>Laporan Cash Out Mitra</h2>
+                        @if (isset($bulan_cashout))
+                            @if ($bulan_cashout == '1')
+                                <span>Bulan : {{ 'January' }} </span>
+                            @elseif($bulan_cashout == '2')
+                                <span>Bulan : {{ 'February' }} </span>
+                            @elseif($bulan_cashout == '3')
+                                <span>Bulan : {{ 'Maret' }} </span>
+                            @elseif($bulan_cashout == '4')
+                                <span>Bulan : {{ 'April' }} </span>
+                            @elseif($bulan_cashout == '5')
+                                <span>Bulan : {{ 'Mei' }} </span>
+                            @elseif($bulan_cashout == '6')
+                                <span>Bulan : {{ 'Juni' }} </span>
+                            @elseif($bulan_cashout == '7')
+                                <span>Bulan : {{ 'Juli' }} </span>
+                            @elseif($bulan_cashout == '8')
+                                <span>Bulan : {{ 'Agustus' }} </span>
+                            @elseif($bulan_cashout == '9')
+                                <span>Bulan : {{ 'September' }} </span>
+                            @elseif($bulan_cashout == '10')
+                                <span>Bulan : {{ 'October' }} </span>
+                            @elseif($bulan_cashout == '11')
+                                <span>Bulan : {{ 'November' }} </span>
+                            @elseif($bulan_cashout == '12')
+                                <span>Bulan : {{ 'Desember' }} </span>
+                            @endif
+                        @endif
                     </b>
                 </td>
             </tr>
@@ -68,11 +95,6 @@
                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                             Total Untuk Mitra
                         </th>
-
-                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                            Bukti Transfer
-                        </th>
-
 
                     </tr>
                 </thead>
@@ -130,11 +152,6 @@
                                     {{ number_format($cash->harga_template - $cash->harga_template * 0.15) }}
                                     {{-- Rp. {{ number_format($cash->total_cashout) }} --}}
                                 </span>
-                            </td>
-
-                            <td class="text-center">
-                                <img src="{{ asset("cash_out/$cash_out->bukti_cashout") }}" alt="Bukti Cash"
-                                    width="100%">
                             </td>
 
                         </tr>

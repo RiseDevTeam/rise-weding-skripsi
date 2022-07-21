@@ -14,7 +14,7 @@
                 @endif
                 <div class="card mb-4">
                     <div class="card-header pb-0">
-                        Laporan Cash Out <br>
+                        Laporan Penjualan <br>
                         <hr>
                         <form action="{{ route('cari_penjualan') }}" method="POST">
                             @csrf
@@ -46,7 +46,7 @@
                                 </div>
                             </div>
 
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary">Cari</button>
                             @if (isset($tahun_print) && isset($bulan_print))
                                 <a href="{{ route('print_laporan_penjualan_tahun_bulan', ['tahun_print' => $tahun_print, 'bulan_print' => $bulan_print]) }}"
                                     target="_blank" class="btn btn-danger">Print</a>

@@ -226,8 +226,7 @@
             @endif
             @if (Auth::user()->status == 'admin')
                 <li class="nav-item">
-                    <a class="nav-link {{ set_active('data-pembayaran') }}"
-                        href="{{ route('data-pembayaran') }}">
+                    <a class="nav-link {{ set_active('data-pembayaran') }}" href="{{ route('data-pembayaran') }}">
                         <div
                             class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                             <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1"
@@ -373,6 +372,13 @@
                     </a>
                     <div class="collapse " id="menuLaporan">
                         <ul class="nav ms-4 ps-3">
+
+                            <li class="nav-item ">
+                                <a class="nav-link " href="{{ route('laporan_pemesanan') }}">
+                                    <span class="sidenav-mini-icon"> P </span>
+                                    <span class="sidenav-normal"> Laporan Pemesanan </span>
+                                </a>
+                            </li>
 
                             <li class="nav-item ">
                                 <a class="nav-link " href="{{ route('laporan_cashout_mitra') }}">

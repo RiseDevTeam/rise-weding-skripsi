@@ -25,6 +25,34 @@
                     <br>
                     <b>
                         <h2>Laporan Penjualan Mitra</h2>
+
+                        @if (isset($bulan_print) && isset($tahun_print))
+                            @if ($bulan_print == '1')
+                                <span>Bulan : {{ 'January' }} / Tahun : {{ $tahun_print }}</span>
+                            @elseif($bulan_print == '2')
+                                <span>Bulan : {{ 'February' }} / Tahun : {{ $tahun_print }} </span>
+                            @elseif($bulan_print == '3')
+                                <span>Bulan : {{ 'Maret' }} / Tahun : {{ $tahun_print }} </span>
+                            @elseif($bulan_print == '4')
+                                <span>Bulan : {{ 'April' }} / Tahun : {{ $tahun_print }} </span>
+                            @elseif($bulan_print == '5')
+                                <span>Bulan : {{ 'Mei' }} / Tahun : {{ $tahun_print }}</span>
+                            @elseif($bulan_print == '6')
+                                <span>Bulan : {{ 'Juni' }} / Tahun : {{ $tahun_print }}</span>
+                            @elseif($bulan_print == '7')
+                                <span>Bulan : {{ 'Juli' }} / Tahun : {{ $tahun_print }}</span>
+                            @elseif($bulan_print == '8')
+                                <span>Bulan : {{ 'Agustus' }} / Tahun : {{ $tahun_print }}</span>
+                            @elseif($bulan_print == '9')
+                                <span>Bulan : {{ 'September' }} / Tahun : {{ $tahun_print }}</span>
+                            @elseif($bulan_print == '10')
+                                <span>Bulan : {{ 'October' }} </span>
+                            @elseif($bulan_print == '11')
+                                <span>Bulan : {{ 'November' }} / Tahun : {{ $tahun_print }}</span>
+                            @elseif($bulan_print == '12')
+                                <span>Bulan : {{ 'Desember' }} / Tahun : {{ $tahun_print }}</span>
+                            @endif
+                        @endif
                     </b>
                 </td>
             </tr>
@@ -58,10 +86,6 @@
                         </th>
 
                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                            Gambar Template
-                        </th>
-
-                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                             Tanggal Pemesanan
                         </th>
 
@@ -92,13 +116,6 @@
 
                             <td class="text-center">
                                 <h6 class="mb-0 text-sm">{{ $cash->kategori_template }}</h6>
-                            </td>
-
-
-                            <td class="text-center">
-
-                                <img src='{{ asset("gambar/gambar_cover_template/$cash->gambar_cover") }}'
-                                    width="100" alt="Icon Template">
                             </td>
 
                             <td class="text-center">

@@ -25,6 +25,9 @@
                     <br>
                     <b>
                         <h2>Laporan Rekapitulasi</h2>
+                        @if (isset($pilih_tahun))
+                            <span>Nama Mitra : {{ $namaMitra->name }} / Tahun : {{ $pilih_tahun }}</span>
+                        @endif
                     </b>
                 </td>
             </tr>
@@ -36,49 +39,64 @@
         </table>
     </center>
 
-
-    <div class="card mb-4">
-        @php
-            $transaksi_cashout = DB::table('detail_pembayaran_invitation')
-                ->where('id_pembayaran', $pendapatan_mitra->id_pembayaran)
-                ->select(DB::raw('SUM(detail_pembayaran_invitation.total) as total_pembayaran'))
-                ->first();
-        @endphp
-        <div class="card-body px-0 pt-0 pb-2">
-            <table id="example1" class="table table-bordered table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col" class="text-center">Jumlah Mitra Terdaftar</th>
-                        <th scope="col" class="text-center">Jumlah Semua Produk </th>
-                        <th scope="col" class="text-center">Jumlah Transaksi</th>
-                        <th scope="col" class="text-center">Jumlah Transaksi Cash Out</th>
-                        <th scope="col" class="text-center">Jumlah Untuk Marketplace</th>
-                        <th scope="col" class="text-center">Jumlah Untuk Mitra</th>
-                    </tr>
-                </thead>
-                <tbody>
+    <div class="card-body px-0 pt-0 pb-2">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th scope="col" class="text-center">Nomor</th>
+                    <th scope="col" class="text-center">Nama Mitra</th>
+                    <th scope="col" class="text-center">Jumlah Semua Produk </th>
+                    <th scope="col" class="text-center">Jumlah Transaksi</th>
+                    <th scope="col" class="text-center">Jumlah Untuk Marketplace</th>
+                    <th scope="col" class="text-center">Jumlah Untuk Mitra</th>
+                </tr>
+            </thead>
+            <tbody>
+                @forelse ($menampilkanUser as $userMitra)
                     @php
-                        $no = 0;
+                        $produk = DB::table('template_invitation')
+                            ->where('template_invitation.id_user', '=', $userMitra->id)
+                            ->select('id_template as template')
+                            ->count();
+                        if (isset($pilih_tahun)) {
+                            $pendapatan_mitra = DB::table('cash_out')
+                                ->leftjoin('pembayaran_invitation', 'cash_out.id_pembayaran', '=', 'pembayaran_invitation.id_pembayaran')
+                                ->leftjoin('detail_pembayaran_invitation', 'pembayaran_invitation.id_pembayaran', '=', 'detail_pembayaran_invitation.id_pembayaran')
+                                ->where('cash_out.id_user', '=', $userMitra->id)
+                                ->whereYear('pembayaran_invitation.tanggal_pembayaran', '=', $pilih_tahun)
+                                ->select(DB::raw('SUM(cash_out.total) as total_cash_out'), DB::raw('SUM(detail_pembayaran_invitation.total) as total_pembayaran'), 'pembayaran_invitation.tanggal_pembayaran')
+                                ->first();
+                        } else {
+                            $pendapatan_mitra = DB::table('cash_out')
+                                ->leftjoin('pembayaran_invitation', 'cash_out.id_pembayaran', '=', 'pembayaran_invitation.id_pembayaran')
+                                ->leftjoin('detail_pembayaran_invitation', 'pembayaran_invitation.id_pembayaran', '=', 'detail_pembayaran_invitation.id_pembayaran')
+                                ->where('cash_out.id_user', '=', $userMitra->id)
+                                ->select(DB::raw('SUM(cash_out.total) as total_cash_out'), DB::raw('SUM(detail_pembayaran_invitation.total) as total_pembayaran'), 'pembayaran_invitation.tanggal_pembayaran')
+                                ->first();
+                        }
                     @endphp
                     <tr>
-                        <td class="text-center">{{ $user }}</td>
+                        <td class="text-center">{{ $loop->iteration }}</td>
+                        <td class="text-center">{{ $userMitra->name }}</td>
                         <td class="text-center">{{ $produk }}</td>
                         <td class="text-center">
-                            Rp.{{ number_format($transaksi->total) }}</td>
+                            Rp.{{ number_format($pendapatan_mitra->total_pembayaran) }}
+                        </td>
                         <td class="text-center">
-                            Rp.{{ number_format($transaksi_cashout->total_pembayaran) }}</td>
-                        <td class="text-center">
-                            Rp.{{ number_format($transaksi_cashout->total_pembayaran * 0.15) }}
+                            Rp.{{ number_format($pendapatan_mitra->total_pembayaran * 0.15) }}
                         </td>
                         <td class="text-center">
                             Rp.{{ number_format($pendapatan_mitra->total_cash_out) }}
                         </td>
                     </tr>
+                @empty
+                    {{ 'Data Kosong' }}
+                @endforelse
 
 
-                    </tfoot>
-            </table>
-        </div>
+                </tfoot>
+        </table>
+
     </div>
     @php
         $tgl = date('d-m-Y');

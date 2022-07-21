@@ -19,6 +19,7 @@ use App\Http\Controllers\Admin\Template\TemplateInvitationController;
 use App\Http\Controllers\CashOutController;
 use App\Http\Controllers\LaporanAdminController;
 use App\Http\Controllers\LaporanController;
+use App\Http\Controllers\LaporanPemesananController;
 
 /*
 |--------------------------------------------------------------------------
@@ -128,6 +129,9 @@ Route::middleware(['auth'])->group(function () {
 
         // route pemesanan
         Route::get('pemesanan', [PemesananAdminController::class, 'index'])->name('data-pemesanan');
+        Route::get('print_laporan_pemesanan_bulan_tahun/{pilih_tahun}/{pilih_bulan}', [PemesananAdminController::class, 'print_laporan_pemesanan_bulan_tahun'])->name('print_laporan_pemesanan_bulan_tahun');
+        Route::get('print_laporan_pemesanan', [PemesananAdminController::class, 'print_laporan_pemesanan'])->name('print_laporan_pemesanan');
+        Route::POST('cari_pemesanan', [PemesananAdminController::class, 'cari_pemesanan'])->name('cari_pemesanan');
         Route::DELETE('pemesanan/delete/{id}', [PemesananAdminController::class, 'destroy'])->name('data-pemesanan.destroy');
 
         // route pembayaran
@@ -146,15 +150,28 @@ Route::middleware(['auth'])->group(function () {
         //Laporan Admin
         Route::get('laporan_cashout', [LaporanAdminController::class, 'laporan_cashout'])->name('laporan_cashout');
         Route::get('laporan_rekapitulasi', [LaporanAdminController::class, 'laporan_rekapitulasi'])->name('laporan_rekapitulasi');
+
+        Route::POST('cari_rekapitulasi_tahun', [LaporanAdminController::class, 'cari_rekapitulasi_tahun'])->name('cari_rekapitulasi_tahun');
+
         Route::get('print_laporan_rekapitulasi', [LaporanAdminController::class, 'print_laporan_rekapitulasi'])->name('print_laporan_rekapitulasi');
+        Route::get('print_laporan_rekapitulasi_tahun/{pilih_mitra}/{pilih_tahun}', [LaporanAdminController::class, 'print_laporan_rekapitulasi_tahun'])->name('print_laporan_rekapitulasi_tahun');
+        Route::get('print_laporan_rekapitulasi', [LaporanAdminController::class, 'print_laporan_rekapitulasi'])->name('print_laporan_rekapitulasi');
+
+        //laporan pemesanan
+        Route::get('laporan_pemesanan', [LaporanPemesananController::class, 'laporan_pemesanan'])->name('laporan_pemesanan');
+        Route::get('laporan_rekapitulasi', [LaporanAdminController::class, 'laporan_rekapitulasi'])->name('laporan_rekapitulasi');
 
         // Laporan Mitra
         Route::get('laporan_cashout_mitra', [LaporanController::class, 'laporan_cashout_mitra'])->name('laporan_cashout_mitra');
         Route::get('laporan_penjualan', [LaporanController::class, 'laporan_penjualan'])->name('laporan_penjualan');
+
         Route::get('print_laporan_cash_mitra', [LaporanController::class, 'print_laporan_cash_mitra'])->name('print_laporan_cash_mitra');
+        Route::get('print_laporan_cash_mitra_bulan/{bulan_cashout}', [LaporanController::class, 'print_laporan_cash_mitra_bulan'])->name('print_laporan_cash_mitra_bulan');
         Route::get('print_laporan_penjualan', [LaporanController::class, 'print_laporan_penjualan'])->name('print_laporan_penjualan');
         Route::get('print_laporan_penjualan_tahun_bulan/{tahun_print}/{bulan_print}', [LaporanController::class, 'print_laporan_penjualan_tahun_bulan'])->name('print_laporan_penjualan_tahun_bulan');
+
         Route::POST('cari_penjualan', [LaporanController::class, 'cari_penjualan'])->name('cari_penjualan');
+        Route::POST('cari_cashout_mitra', [LaporanController::class, 'cari_cashout_mitra'])->name('cari_cashout_mitra');
     });
     Route::get('logout', [GoogleController::class, 'logout'])->name('logout');
 });

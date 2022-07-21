@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Section 2</title>
+    <link
+      rel="shortcut icon"
+      href="favicon.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href=" https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Birthstone+Bounce&family=Noto+Serif&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --warna1: #dea057;
+        --warna2: #fff;
+      }
+
+      .pasangan .bunga-atas,
+      .pasangan .bunga-bawah {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+
+      .pasangan .bunga-bawah {
+        transform: rotateX(180deg);
+        -webkit-transform: rotateX(180deg);
+        -moz-transform: rotateX(180deg);
+        -ms-transform: rotateX(180deg);
+        -o-transform: rotateX(180deg);
+      }
+
+      .pasangan .bunga-atas img.bunga-kiri,
+      .pasangan .bunga-bawah img.bunga-kiri {
+        max-width: calc(25% - 1rem);
+      }
+
+      .pasangan .bunga-atas img.bunga-kanan,
+      .pasangan .bunga-bawah img.bunga-kanan {
+        max-width: calc(25% - 1rem);
+        transform: rotateY(180deg);
+        -webkit-transform: rotateY(180deg);
+        -moz-transform: rotateY(180deg);
+        -ms-transform: rotateY(180deg);
+        -o-transform: rotateY(180deg);
+      }
+
+      .pasangan .container {
+        margin-top: -10rem;
+        margin-bottom: 2rem;
+      }
+
+      .pasangan h2 {
+        text-align: center;
+        font-family: "Birthstone Bounce", cursive;
+        position: relative;
+        font-size: 50px;
+        color: var(--warna1);
+      }
+
+      .pasangan hr {
+        margin: 1rem auto 5rem auto;
+        width: 50%;
+        height: 3px;
+        background-color: var(--warna1);
+      }
+
+      .pasangan .mempelai {
+        justify-content: space-evenly;
+        align-items: center;
+      }
+
+      .pasangan .mempelai .pria {
+        margin-right: -5rem;
+      }
+
+      .pasangan .mempelai .wanita {
+        margin-left: -5rem;
+      }
+
+      .pasangan .mempelai .pria .card {
+        margin-right: 5rem;
+      }
+
+      .pasangan .mempelai .wanita .card {
+        margin-left: 5rem;
+      }
+
+      .pasangan .mempelai .pria .card,
+      .pasangan .mempelai .wanita .card {
+        background-color: transparent;
+        border: 0;
+        margin: auto;
+        max-width: 10rem;
+        width: 10rem;
+        height: 10rem;
+        /* overflow: hidden; */
+        border-radius: 9999px;
+        -webkit-border-radius: 9999px;
+        -moz-border-radius: 9999px;
+        -ms-border-radius: 9999px;
+        -o-border-radius: 9999px;
+      }
+
+      .pasangan .mempelai .pria .card .card-body,
+      .pasangan .mempelai .wanita .card .card-body {
+        padding: 2rem 0;
+      }
+
+      .pasangan .mempelai .pria .card img,
+      .pasangan .mempelai .wanita .card img {
+        max-width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top;
+        border-radius: 9999px;
+        -webkit-border-radius: 9999px;
+        -moz-border-radius: 9999px;
+        -ms-border-radius: 9999px;
+        -o-border-radius: 9999px;
+      }
+
+      .pasangan .mempelai .card .card-body h3 {
+        text-align: center;
+        font-family: "Birthstone Bounce", cursive;
+        color: var(--warna1);
+        font-weight: bold;
+      }
+
+      .pasangan .mempelai .card .card-body p {
+        text-align: center;
+        font-family: "Noto Serif", serif;
+        color: var(--warna1);
+      }
+      @media (max-width: 575.98px) {
+        .pasangan {
+          height: 100vh;
+        }
+        .pasangan .bunga-atas img.bunga-kiri,
+        .pasangan .bunga-bawah img.bunga-kiri,
+        .pasangan .bunga-atas img.bunga-kanan,
+        .pasangan .bunga-bawah img.bunga-kanan {
+          max-width: calc(35% - 1rem);
+        }
+        .pasangan {
+          height: auto;
+        }
+        .pasangan h2 {
+          font-size: 2rem;
+        }
+        .pasangan hr {
+          margin-bottom: 4rem;
+          width: 90%;
+        }
+        .pasangan .container {
+          margin-top: 0rem;
+          margin-bottom: 3rem;
+        }
+        .pasangan .mempelai .pria {
+          margin-right: 0rem;
+        }
+        .pasangan .mempelai .wanita {
+          margin-top: 12rem;
+          margin-left: 0rem;
+        }
+        .pasangan .mempelai .pria .card,
+        .pasangan .mempelai .wanita .card {
+          margin: auto;
+        }
+      }
+  </style>
+  <body>
+    <div class="pasangan" id="pasangan">
+      <div class="bunga-atas">
+        <img src="bunga.png" class="bunga-kiri" alt="Bunga" />
+        <img src="bunga.png" class="bunga-kanan" alt="Bunga" />
+      </div>
+      <div class="container">
+        <h2>Pasangan Mempelai</h2>
+        <hr />
+        <div class="row mempelai">
+          <div class="pria col-lg-6 col-md-6">
+            <div class="card">
+              <img
+                src="pria.jpg"
+                alt="mempelai-pria"
+                class="foto"
+              />
+              <div class="card-body">
+                <h3>Jojo Wardoyo</h3>
+                <p>Putra dari Bpk. Udin & Ibu Susi</p>
+              </div>
+            </div>
+          </div>
+          <div class="wanita col-lg-6 col-md-6">
+            <div class="card">
+              <img
+                src="wanita.jpg"
+                alt="mempelai-wanita"
+                class="foto"
+              />
+              <div class="card-body">
+                <h3>Rose Suminah</h3>
+                <p>Putri dari Bpk. Ujang & Ibu Wati</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bunga-bawah">
+        <img src="bunga.png" class="bunga-kiri" alt="Bunga" />
+        <img src="bunga.png" class="bunga-kanan" alt="Bunga" />
+      </div>
+    </div>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+  </html>
