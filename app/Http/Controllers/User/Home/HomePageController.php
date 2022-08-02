@@ -43,20 +43,4 @@ class HomePageController extends Controller
             ->orderBy('id_blog', 'desc')->get();
         return view('frontend.home_page', compact('TemplateInvitation', 'biodata_pelanggan', 'blog', 'blogLain'));
     }
-
-    public function hostingan_user($link_hosting)
-    {
-        $hostingan =  PemesananInvitation::leftjoin('template_invitation', 'pemesanan_invitation.id_template', '=', 'template_invitation.id_template')
-            ->leftjoin('biodata_pelanggan', 'pemesanan_invitation.id_biodata_pelanggan', '=', 'biodata_pelanggan.id_biodata_pelanggan')
-            ->select(
-                'pemesanan_invitation.kategori_template',
-                'pemesanan_invitation.link_hosting',
-                'template_invitation.file_master',
-                'biodata_pelanggan.id_user',
-            )
-            ->where('pemesanan_invitation.link_hosting', $link_hosting)
-            ->where('biodata_pelanggan.id_user', Auth::User()->id)
-            ->first();
-        return view('frontend.hostingan', compact('hostingan'));
-    }
 }

@@ -92,4 +92,11 @@ class AuthController extends Controller
 
         return response()->json(["success" => "Data berhasil Disimpan"]);
     }
+
+    public function logout()
+    {
+        Auth::logout(); // menghapus session yang aktif
+        session()->flush();
+        return redirect()->route('login');
+    }
 }

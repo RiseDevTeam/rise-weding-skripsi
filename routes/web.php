@@ -1,25 +1,27 @@
 <?php
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GoogleController;
+use App\Http\Controllers\CashOutController;
+use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\LaporanAdminController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\LaporanPemesananController;
 use App\Http\Controllers\User\Home\HomePageController;
+
 use App\Http\Controllers\User\Users\UserPageController;
 use App\Http\Controllers\User\Pembayaran\PembayaranController;
 use App\Http\Controllers\Admin\Template\FileTemplateController;
 use App\Http\Controllers\Admin\Pemesanan\PemesananAdminController;
 use App\Http\Controllers\User\TemplateInvitation\PemesananTemplate;
-
 use App\Http\Controllers\Admin\Pembayaran\PembayaranAdminController;
 use App\Http\Controllers\User\PemesananSaya\PemesananSayaController;
 use App\Http\Controllers\Admin\Template\TemplateInvitationController;
-use App\Http\Controllers\CashOutController;
-use App\Http\Controllers\LaporanAdminController;
-use App\Http\Controllers\LaporanController;
-use App\Http\Controllers\LaporanPemesananController;
+use App\Http\Controllers\LinkHostingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,7 +40,7 @@ use App\Http\Controllers\LaporanPemesananController;
 
 
 Route::get('/', [HomePageController::class, 'home_page'])->name('/');
-Route::get('{link_hosting}', [HomePageController::class, 'hostingan_user'])->name('hostingan_user');
+Route::get('rise-wedding/{link_hosting}', [LinkHostingController::class, 'hostingan_user'])->name('hostingan_user');
 
 Route::get('preview-blog', function () {
     return view('backend.admin.blog.preview');
@@ -66,7 +68,6 @@ Route::prefix('risedev-wedding-users')->group(function () {
 });
 
 Route::middleware(['auth'])->group(function () {
-
     Route::prefix('risedev-wedding-users')->group(function () {
 
         Route::prefix('template_invitation')->group(function () {

@@ -60,6 +60,7 @@
         getAllData()
 
         function getAllData() {
+            console.log(window.location.origin);
             axios({
                     method: 'GET',
                     url: `${window.location.origin}/api/risedev-wedding-users/template-invitation/detail-template/${id_template}`
