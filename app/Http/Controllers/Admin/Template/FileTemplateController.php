@@ -45,7 +45,7 @@ class FileTemplateController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'idSubKategori' => 'required',
-            'fileTemplate' => 'required|mimes:html,sql,php',
+            'fileTemplate' => 'required',
             'gambarTemplate' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
         ]);
 

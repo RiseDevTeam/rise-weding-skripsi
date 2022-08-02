@@ -28,8 +28,8 @@ class PemesananSayaController extends Controller
                 'pemesanan_invitation.id_pemesanan',
                 'pembayaran_invitation.status as status_pembayaran',
                 'pemesanan_invitation.status as status_pemesanan',
-                'biodata_pasangan_pria.nama_lengkap as nama_pria',
-                'biodata_pasangan_wanita.nama_lengkap as nama_wanita',
+                'biodata_pasangan_pria.nama_lengkap_pria as nama_pria',
+                'biodata_pasangan_wanita.nama_lengkap_wanita as nama_wanita',
                 'biodata_pelanggan.id_user',
                 'kategori_template.harga',
                 'detail_pembayaran_invitation.total'
@@ -52,8 +52,8 @@ class PemesananSayaController extends Controller
                 'pemesanan_invitation.link_hosting',
                 'pembayaran_invitation.status as status_pembayaran',
                 'pemesanan_invitation.status as status_pemesanan',
-                'biodata_pasangan_pria.nama_lengkap as nama_pria',
-                'biodata_pasangan_wanita.nama_lengkap as nama_wanita',
+                'biodata_pasangan_pria.nama_lengkap_pria as nama_pria',
+                'biodata_pasangan_wanita.nama_lengkap_wanita as nama_wanita',
                 'biodata_pelanggan.id_user',
                 'kategori_template.harga'
             )

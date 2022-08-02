@@ -18,6 +18,7 @@ class CreateTemplateInvitationTable extends Migration
             $table->bigInteger('id_kategori');
             $table->bigInteger('id_user');
             $table->string('link_hosting');
+            $table->string('file_master');
             $table->string('gambar_cover')->nullable();
             $table->timestamps();
         });

@@ -374,13 +374,6 @@
                         <ul class="nav ms-4 ps-3">
 
                             <li class="nav-item ">
-                                <a class="nav-link " href="{{ route('laporan_pemesanan') }}">
-                                    <span class="sidenav-mini-icon"> P </span>
-                                    <span class="sidenav-normal"> Laporan Pemesanan </span>
-                                </a>
-                            </li>
-
-                            <li class="nav-item ">
                                 <a class="nav-link " href="{{ route('laporan_cashout_mitra') }}">
                                     <span class="sidenav-mini-icon"> P </span>
                                     <span class="sidenav-normal"> Laporan Cash Out </span>

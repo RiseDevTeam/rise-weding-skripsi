@@ -50,8 +50,8 @@ class PembayaranAdminController extends Controller
                 // 'pemesanan_invitation.link_hosting', 
                 // 'pemesanan_invitation.tanggal_pemesanan', 
                 'template_invitation.gambar_cover',
-                'biodata_pasangan_pria.nama_lengkap as nama_pasangan_pria',
-                'biodata_pasangan_wanita.nama_lengkap as nama_pasangan_wanita',
+                'biodata_pasangan_pria.nama_lengkap_pria as nama_pasangan_pria',
+                'biodata_pasangan_wanita.nama_lengkap_wanita as nama_pasangan_wanita',
                 // 'kategori_template.harga',
             )
             ->orderBy('id_pembayaran', 'desc')

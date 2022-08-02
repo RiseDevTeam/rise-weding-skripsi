@@ -88,7 +88,8 @@
                                                     <span class="text-secondary text-xs font-weight-bold">Rp.
                                                         {{ number_format($cash->total - $cash->total * 0.15) }}</span>
                                                 </td>
-
+                                                <input type="hidden" name="id_cash_out_sementara[]"
+                                                    value="{{ $cash->id_cash_out_sementara }}">
                                                 <input type="hidden" name="total_cashout[]"
                                                     value="{{ $cash->total - $cash->total * 0.15 }}">
                                                 <input type="hidden" name="id_pembayaran[]"

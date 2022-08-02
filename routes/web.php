@@ -38,6 +38,7 @@ use App\Http\Controllers\LaporanPemesananController;
 
 
 Route::get('/', [HomePageController::class, 'home_page'])->name('/');
+Route::get('{link_hosting}', [HomePageController::class, 'hostingan_user'])->name('hostingan_user');
 
 Route::get('preview-blog', function () {
     return view('backend.admin.blog.preview');

@@ -16,6 +16,7 @@ class CashOutController extends Controller
             ->leftjoin('pemesanan_invitation', 'cash_out_sementara.id_pemesanan', '=', 'pemesanan_invitation.id_pemesanan')
             ->leftjoin('template_invitation', 'template_invitation.id_template', '=', 'pemesanan_invitation.id_template')
             ->select(
+                'cash_out_sementara.id_cash_out_sementara',
                 'cash_out_sementara.id_pembayaran',
                 'cash_out_sementara.total',
                 'pemesanan_invitation.kategori_template',
@@ -23,7 +24,7 @@ class CashOutController extends Controller
                 'template_invitation.id_user',
                 'template_invitation.gambar_cover',
             )
-            ->groupBy('cash_out_sementara.id_pembayaran')
+            // ->groupBy('cash_out_sementara.id_pembayaran')
             ->where('pembayaran_invitation.status', 'lunas')
             ->where('template_invitation.id_user', Auth::User()->id)
             ->get();
@@ -59,6 +60,10 @@ class CashOutController extends Controller
                 'nomor_rekening' => $request->nomor_rekening,
             ]);
         }
+        foreach ($request->id_cash_out_sementara as $key => $value) {
+            DB::table('cash_out_sementara')->where('id_cash_out_sementara', $request->id_cash_out_sementara[$key])->delete();
+            # code...
+        }
 
         return redirect()->route('cashout-pembayaran')->with('cash_out', 'Mohon Menunggu balasan dari admin');
     }
@@ -74,7 +79,7 @@ class CashOutController extends Controller
             )->groupBy('users.id')
             ->get();
         foreach ($cashOutAdmin as $key => $value) {
-            $pending = CashOut::where('status', 'pending')->count();
+            $pending = CashOut::where('status', 'pending')->where('id_user', $value->id_user)->count();
         }
         return view('backend.admin.cash_out.cashout_admin', compact('cashOutAdmin', 'pending'));
     }

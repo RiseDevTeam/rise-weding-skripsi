@@ -19,22 +19,32 @@
                                 <thead>
                                     <tr>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Nomor</th>
+                                            Nomor
+                                        </th>
                                         <th
                                             class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                            Nama Kategori</th>
+                                            Nama Kategori
+                                        </th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Gambar Cover Template</th>
+                                            Gambar Cover Template
+                                        </th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Link Hosting</th>
+                                            Link Hosting
+                                        </th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            File Template</th>
+                                            File Master
+                                        </th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Action</th>
+                                            File Template
+                                        </th>
+                                        <th
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            Action
+                                        </th>
                                         <th class="text-secondary opacity-7"></th>
                                     </tr>
                                 </thead>
@@ -81,12 +91,20 @@
                                             </td>
 
                                             <td class="text-center">
+                                                <p class="text-xs font-weight-bold mb-0">
+                                                    <a href="{{ asset("file/file_master_template/$template->file_master") }}"
+                                                        target="_blank">Menampilkan
+                                                        file
+                                                    </a>
+                                                </p>
+                                            </td>
+
+                                            <td class="text-center">
                                                 <span class="badge badge bg-gradient-warning"><a
                                                         href="{{ route('file_template.show', $template->id_template) }}"
                                                         class="text-white"><i class="bi bi-file-earmark-code"
                                                             style="font-size: 1.5rem"></i></a></span>
                                             </td>
-
 
                                             <td class="align-middle text-center">
                                                 <span class="badge badge bg-gradient-success"><a

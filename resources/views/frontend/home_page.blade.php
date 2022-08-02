@@ -28,7 +28,10 @@
                             <h4 class="pengantin my-4">
                                 {{ $biodata_pelanggan->nama_pria }} & {{ $biodata_pelanggan->nama_wanita }}
                             </h4>
-                            <a href="" class="link-web">{{ $biodata_pelanggan->link_hosting }}</a>
+                            Link Hosting :
+                            <a href="{{ route('hostingan_user', $biodata_pelanggan->link_hosting) }}"
+                                target="_blank">{{ $biodata_pelanggan->link_hosting }}
+                            </a>
                             <br />
                             <p class="kategori">Kategori : <b>{{ $biodata_pelanggan->kategori_template }}</b></p>
                             <div class="pas">
@@ -37,9 +40,11 @@
                             <div class="bagikan mt-4">
                                 <p>
                                     Bagikan :
-                                    <a href="#">
+                                    <a target="_blank"
+                                        href="https://web.whatsapp.com/send?phone=&text={{ route('hostingan_user', $biodata_pelanggan->link_hosting) }} ">
                                         <i class="bi bi-whatsapp"></i>
                                     </a>
+
                                 </p>
                             </div>
                         </div>
@@ -49,7 +54,7 @@
                             <h4 class="pengantin my-4">
                                 Romeo Widodo & Juliet Soekarno Putri
                             </h4>
-                            <a href="" class="link-web">https://www.weddingku.com/</a>
+                            <a href="" class="link-web">weddingku</a>
                             <br />
                             <p class="kategori">Kategori : <b>Spesial</b></p>
                             <div class="pas">
@@ -74,7 +79,8 @@
         }else{
     ?>
     <!-- Slider Bootstrap -->
-    <section class="slider mb-3">
+    <section class="slider
+                                        mb-3">
         <div class="container">
             <div class="pb-2">
                 <div id="carouselFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
@@ -276,7 +282,7 @@
             <div class="row">
                 <!-- Card Utama -->
                 <div class="col-lg-6 card-image-utama">
-                    
+
                     @if ($blog != null)
                         <a href="{{ route('detail_blog', Crypt::encrypt($blog->id_blog)) }}">
                             <div class="card border-0">

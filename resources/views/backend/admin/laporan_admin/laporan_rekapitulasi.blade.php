@@ -26,7 +26,7 @@
                                                 ->where('status', '=', 'mitra')
                                                 ->get();
                                         @endphp
-                                        <option selected>Pilih Nasabah</option>
+                                        <option>Pilih Nasabah</option>
                                         @foreach ($user as $u)
                                             <option value="{{ $u->id }}"> {{ $u->name }}</option>
                                         @endforeach
@@ -47,7 +47,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary">Cari</button>
                             @if (isset($pilih_mitra) && isset($pilih_tahun))
                                 <a href="{{ route('print_laporan_rekapitulasi_tahun', ['pilih_mitra' => $pilih_mitra, 'pilih_tahun' => $pilih_tahun]) }}"
                                     target="_blank" class="btn btn-danger">Print</a>
@@ -76,26 +76,21 @@
                                 <tbody>
                                     @forelse ($menampilkanUser as $userMitra)
                                         @php
+                                            if (condition) {
+                                                # code...
+                                            }
                                             $produk = DB::table('template_invitation')
                                                 ->where('template_invitation.id_user', '=', $userMitra->id)
                                                 ->select('id_template as template')
                                                 ->count();
-                                            if (isset($pilih_tahun)) {
-                                                $pendapatan_mitra = DB::table('cash_out')
-                                                    ->leftjoin('pembayaran_invitation', 'cash_out.id_pembayaran', '=', 'pembayaran_invitation.id_pembayaran')
-                                                    ->leftjoin('detail_pembayaran_invitation', 'pembayaran_invitation.id_pembayaran', '=', 'detail_pembayaran_invitation.id_pembayaran')
-                                                    ->where('cash_out.id_user', '=', $userMitra->id)
-                                                    ->whereYear('pembayaran_invitation.tanggal_pembayaran', '=', $pilih_tahun)
-                                                    ->select(DB::raw('SUM(cash_out.total) as total_cash_out'), DB::raw('SUM(detail_pembayaran_invitation.total) as total_pembayaran'), 'pembayaran_invitation.tanggal_pembayaran')
-                                                    ->first();
-                                            } else {
-                                                $pendapatan_mitra = DB::table('cash_out')
-                                                    ->leftjoin('pembayaran_invitation', 'cash_out.id_pembayaran', '=', 'pembayaran_invitation.id_pembayaran')
-                                                    ->leftjoin('detail_pembayaran_invitation', 'pembayaran_invitation.id_pembayaran', '=', 'detail_pembayaran_invitation.id_pembayaran')
-                                                    ->where('cash_out.id_user', '=', $userMitra->id)
-                                                    ->select(DB::raw('SUM(cash_out.total) as total_cash_out'), DB::raw('SUM(detail_pembayaran_invitation.total) as total_pembayaran'), 'pembayaran_invitation.tanggal_pembayaran')
-                                                    ->first();
-                                            }
+                                            
+                                            $pendapatan_mitra = DB::table('cash_out')
+                                                ->leftjoin('pembayaran_invitation', 'cash_out.id_pembayaran', '=', 'pembayaran_invitation.id_pembayaran')
+                                                ->leftjoin('detail_pembayaran_invitation', 'pembayaran_invitation.id_pembayaran', '=', 'detail_pembayaran_invitation.id_pembayaran')
+                                                // ->whereYear('pembayaran_invitation.tanggal_pembayaran', '=', $pilih_tahun)
+                                                ->where('cash_out.id_user', '=', $userMitra->id)
+                                                ->select(DB::raw('SUM(cash_out.total) as total_cash_out'), DB::raw('SUM(detail_pembayaran_invitation.total) as total_pembayaran'), 'pembayaran_invitation.tanggal_pembayaran')
+                                                ->first();
                                         @endphp
                                         <tr>
                                             <td class="text-center">{{ $loop->iteration }}</td>

@@ -47,6 +47,9 @@
                 <div>
                     {{-- <img src="{{ asset("file/file_template/$preview->file_template") }}" alt=""> --}}
 
+                    {{-- <embed src="{{ asset("file/file_template/$preview->file_template") }}" width="100%"
+                        type="text/html" height="200"> --}}
+
                     <embed src="{{ asset("file/file_template/$preview->file_template") }}" width="100%"
                         type="text/html" height="200">
                 </div>

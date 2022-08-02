@@ -23,7 +23,7 @@ class TemplateInvitationController extends Controller
     public function index()
     {
         $TemplateInvitation = TemplateInvitation::leftjoin('kategori_template', 'template_invitation.id_kategori', '=', 'kategori_template.id_kategori_template')
-            ->select('kategori_template.kategori', 'template_invitation.id_template', 'template_invitation.link_hosting', 'template_invitation.gambar_cover')
+            ->select('kategori_template.kategori', 'template_invitation.id_template', 'template_invitation.link_hosting', 'template_invitation.gambar_cover', 'template_invitation.file_master')
             ->where('template_invitation.id_user', Auth::User()->id)->get();
 
         $FileTemplate = FileTemplate::select(DB::raw('count(id_file_template) as file_template'))
@@ -53,6 +53,7 @@ class TemplateInvitationController extends Controller
         $validator = Validator::make($request->all(), [
             'idKategori' => 'required',
             'linkHosting' => 'required',
+            'fileMaster' => 'required|mimes:php,html',
             'gambarTemplate' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
         ]);
 
@@ -67,10 +68,18 @@ class TemplateInvitationController extends Controller
             $image = uploadImage($request->file('gambarTemplate'), 'gambar/gambar_cover_template/', $fileName);
         }
 
+        if ($request->file('fileMaster')) {
+
+            $NameFile = time();
+            // contoh untuk controllers uploadFile($request->file('file'), 'public/upload/', 'gambar123');
+            $uploadFile = uploadFile($request->file('fileMaster'), 'file/file_master_template/', $NameFile);
+        }
+
         TemplateInvitation::create([
             'id_kategori' => $request->idKategori,
             'id_user' => Auth::User()->id,
             'link_hosting' => $request->linkHosting,
+            'file_master' => $uploadFile,
             'gambar_cover' => $image,
         ]);
 
@@ -96,9 +105,10 @@ class TemplateInvitationController extends Controller
      */
     public function edit($id)
     {
-        $edit = TemplateInvitation::all()->where('id_template', $id)
-            ->select('template_invitation.link_hosting', 'template_invitation.id_template', 'template_invitation.gambar_cover')->first();
-        return view('backend.admin.template_invitation.edit', compact('edit'));
+        $edit = TemplateInvitation::where('id_template', $id)->select('template_invitation.link_hosting', 'template_invitation.id_template', 'template_invitation.gambar_cover', 'template_invitation.file_master', 'template_invitation.id_kategori')->first();
+        $kategori = KategoriTemplate::where('id_kategori_template', $edit->id_kategori)->first();
+        $templateKategori = KategoriTemplate::select('kategori_template.kategori', 'kategori_template.id_kategori_template')->get();
+        return view('backend.admin.template_invitation.edit', compact('edit', 'templateKategori', 'kategori'));
     }
 
     /**
@@ -112,10 +122,11 @@ class TemplateInvitationController extends Controller
     {
         // update data template
         TemplateInvitation::where('id_template', $id)->update([
-            'id_sub_kategori' => $request->idSubKategori,
+            'id_kategori' => $request->idKategori,
             'id_user' => Auth::User()->id,
             'link_hosting' => $request->linkHosting,
         ]);
+
         // update data template jika ada gambar
         if ($request->file('gambarTemplate')) {
 
@@ -129,6 +140,22 @@ class TemplateInvitationController extends Controller
 
             TemplateInvitation::where('id_template', $id)->update([
                 'gambar_cover' => $image,
+            ]);
+        }
+
+        // update data template jika ada PHP
+        if ($request->file('fileMaster')) {
+
+            $NameFile = time();
+            // contoh untuk controllers uploadFile($request->file('file'), 'public/upload/', 'gambar123');
+            $uploadFile = uploadFile($request->file('fileMaster'), 'file/file_master_template/', $NameFile);
+
+            // delete gambar awal ketika di update gambar baru
+            $fileTemplate = TemplateInvitation::findOrFail($id);
+            File::delete(public_path() . '/file/file_master_template/' . $fileTemplate->file_master);
+
+            TemplateInvitation::where('id_template', $id)->update([
+                'file_master' => $uploadFile,
             ]);
         }
 
@@ -150,7 +177,7 @@ class TemplateInvitationController extends Controller
     public function kategori_template(Request $request)
     {
         $kategoriTemplateIcon = SubKategori::where('id_kategori', $request->pilihKategori)
-            ->select('sub_kategori.keterangan', 'sub_kategori.id_sub_kategori', 'sub_kategori.icon')->get();
+            ->select('sub_kategori.keterangan', 'sub_kategori.id_kategori', 'sub_kategoridKategori.icon')->get();
 
         return response()->json($kategoriTemplateIcon);
     }

@@ -202,7 +202,7 @@ class PemesananTemplate extends Controller
         $IdKutipanAyat = $BiodataKutipanAyat->id_kutipan_ayat;
 
         $BiodataPasanganPria = BiodataPasanganPria::create([
-            'nama_lengkap' => $request->nama_lengkap_pria,
+            'nama_lengkap_pria' => $request->nama_lengkap_pria,
             'putra_dari' => $request->putra_dari,
             'nama_bapak_pria' => $request->nama_bapak_pria,
             'nama_ibu_pria' => $request->nama_ibu_pria,
@@ -212,7 +212,7 @@ class PemesananTemplate extends Controller
         $IdPasanganPria = $BiodataPasanganPria->id_pasangan_pria;
 
         $BiodataPasanganWanita = BiodataPasanganWanita::create([
-            'nama_lengkap' => $request->nama_lengkap_wanita,
+            'nama_lengkap_wanita' => $request->nama_lengkap_wanita,
             'putri_dari' => $request->putri_dari,
             'nama_bapak_wanita' => $request->nama_bapak_wanita,
             'nama_ibu_wanita' => $request->nama_ibu_wanita,
@@ -294,7 +294,7 @@ class PemesananTemplate extends Controller
             'id_biodata_pelanggan' => $IdBiodataPelanggan,
             'kategori_template' => $kategori,
             'email' => Auth::User()->email,
-            'nama_link' => $request->nama_link,
+            'link_hosting' => $request->nama_link,
             'tanggal_pemesanan' => $tgl,
         ]);
         // mengambil id Biodata Pemesanan
@@ -454,7 +454,7 @@ class PemesananTemplate extends Controller
         $IdKutipanAyat = $BiodataKutipanAyat->id_kutipan_ayat;
 
         $BiodataPasanganPria = BiodataPasanganPria::create([
-            'nama_lengkap' => $request->nama_lengkap_pria,
+            'nama_lengkap_pria' => $request->nama_lengkap_pria,
             'putra_dari' => $request->putra_dari,
             'nama_bapak_pria' => $request->nama_bapak_pria,
             'nama_ibu_pria' => $request->nama_ibu_pria,
@@ -464,7 +464,7 @@ class PemesananTemplate extends Controller
         $IdPasanganPria = $BiodataPasanganPria->id_pasangan_pria;
 
         $BiodataPasanganWanita = BiodataPasanganWanita::create([
-            'nama_lengkap' => $request->nama_lengkap_wanita,
+            'nama_lengkap_wanita' => $request->nama_lengkap_wanita,
             'putri_dari' => $request->putri_dari,
             'nama_bapak_wanita' => $request->nama_bapak_wanita,
             'nama_ibu_wanita' => $request->nama_ibu_wanita,
@@ -581,7 +581,7 @@ class PemesananTemplate extends Controller
             'id_biodata_pelanggan' => $IdBiodataPelanggan,
             'kategori_template' => $kategori,
             'email' => Auth::User()->email,
-            'nama_link' => $request->nama_link,
+            'link_hosting' => $request->nama_link,
             'tanggal_pemesanan' => $tgl,
         ]);
         // mengambil id Biodata Pemesanan

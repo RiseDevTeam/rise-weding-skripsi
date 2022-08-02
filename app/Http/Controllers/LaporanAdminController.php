@@ -52,6 +52,7 @@ class LaporanAdminController extends Controller
 
     public function cari_rekapitulasi_tahun(Request $request)
     {
+        dd($request->all());
         $pilih_mitra =  $request->mitra;
         $pilih_tahun =  $request->tahun;
         $menampilkanUser = DB::table('users')
