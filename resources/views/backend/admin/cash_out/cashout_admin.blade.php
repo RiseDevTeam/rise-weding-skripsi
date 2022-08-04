@@ -23,12 +23,19 @@
                                 
                             @endphp
                             @foreach ($cashOutAdmin as $cash)
+                                @php
+                                    $pending = DB::table('cash_out')
+                                        ->where('status', 'pending')
+                                        ->where('id_user', $cash->id_user)
+                                        ->select(DB::raw('count(id_cash_out) as cash_out'))
+                                        ->first();
+                                @endphp
                                 <ul class="list-group">
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
                                         <a href="{{ route('detail_cashout_admin', $cash->id_user) }}">{{ $cash->name }}
                                         </a>
                                         <span
-                                            class="badge bg-primary rounded-pill justify-content-end">{{ $pending }}</span>
+                                            class="badge bg-primary rounded-pill justify-content-end">{{ $pending->cash_out }}</span>
                                     </li>
                                 </ul>
                             @endforeach

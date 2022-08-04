@@ -42,6 +42,11 @@
                                             Kategori Template
                                         </th>
 
+                                        <th
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            Tanggal Pemesanan
+                                        </th>
+
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Harga Jual
                                         </th>
@@ -55,7 +60,7 @@
                                         </th>
 
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Upload Bukti Cash Out
+                                            Bukti Cash Out
                                         </th>
 
 
@@ -98,6 +103,14 @@
                                             </td>
 
                                             <td class="text-center">
+                                                <h6 class="mb-0 text-sm">
+                                                    @php
+                                                        date_default_timezone_set('Asia/Jakarta');
+                                                    @endphp
+                                                    {{ date('d F Y', strtotime($cash->tanggal_pemesanan)) }}</h6>
+                                            </td>
+
+                                            <td class="text-center">
                                                 <span class="text-secondary text-xs font-weight-bold">
                                                     Rp.{{ number_format($cash->harga_template) }}
                                                 </span>
@@ -113,7 +126,6 @@
                                                 <span class="text-secondary text-xs font-weight-bold">
                                                     Rp.
                                                     {{ number_format($cash->harga_template - $cash->harga_template * 0.15) }}
-                                                    {{-- Rp. {{ number_format($cash->total_cashout) }} --}}
                                                 </span>
                                             </td>
 

@@ -147,7 +147,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('cashout_admin', [CashOutController::class, 'cashout_admin'])->name('cashout_admin');
         Route::POST('proses_cash_out', [CashOutController::class, 'proses_cash_out'])->name('proses_cash_out');
         Route::get('detail_cashout_admin/{id}', [CashOutController::class, 'detail_cashout_admin'])->name('detail_cashout_admin');
-        Route::POST('konfirmasi_cash_out_admin', [CashOutController::class, 'konfirmasi_cash_out_admin'])->name('konfirmasi_cash_out_admin');
+        Route::POST('konfirmasi_cash_out_admin/{id_user}', [CashOutController::class, 'konfirmasi_cash_out_admin'])->name('konfirmasi_cash_out_admin');
 
         //Laporan Admin
         Route::get('laporan_cashout', [LaporanAdminController::class, 'laporan_cashout'])->name('laporan_cashout');

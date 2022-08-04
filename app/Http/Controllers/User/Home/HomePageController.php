@@ -15,7 +15,15 @@ class HomePageController extends Controller
     public function home_page()
     {
         $TemplateInvitation = TemplateInvitation::leftjoin('kategori_template', 'template_invitation.id_kategori', '=', 'kategori_template.id_kategori_template')
-            ->select('template_invitation.id_kategori', 'template_invitation.id_template', 'template_invitation.link_hosting', 'gambar_cover', 'kategori_template.harga', 'kategori_template.kategori')->get();
+            ->select(
+                'template_invitation.id_kategori',
+                'template_invitation.id_template',
+                'template_invitation.id_user',
+                'template_invitation.link_hosting',
+                'gambar_cover',
+                'kategori_template.harga',
+                'kategori_template.kategori'
+            )->get();
 
         $data =  PemesananInvitation::leftjoin('template_invitation', 'pemesanan_invitation.id_template', '=', 'template_invitation.id_template')
             ->leftjoin('biodata_pelanggan', 'pemesanan_invitation.id_biodata_pelanggan', '=', 'biodata_pelanggan.id_biodata_pelanggan')
@@ -31,9 +39,10 @@ class HomePageController extends Controller
             );
         if (isset(Auth::User()->id)) {
             $result = $data
-                ->where('biodata_pelanggan.id_user', Auth::User()->id);
+                ->where('biodata_pelanggan.id_user', Auth::User()->id)
+                ->orderBy('pemesanan_invitation.id_template', 'desc');
         } else {
-            $result = $data;
+            $result = $data->orderBy('pemesanan_invitation.id_template', 'desc');
         }
         $biodata_pelanggan = $result->first();
 

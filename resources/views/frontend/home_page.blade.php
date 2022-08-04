@@ -106,7 +106,7 @@
     <?php } ?>
 
     <!-- Own-Carousel 1 -->
-    <section class="highlight-news owncar1 mb-5">
+    {{-- <section class="highlight-news owncar1 mb-5">
         <div class="container">
             <div class="own-carousel__container own1 mb-3">
                 <div class="title1 mb-2">
@@ -199,7 +199,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!-- End Own-Carousel 1 -->
 
     <!-- Own-Carousel 2 -->
@@ -219,6 +219,11 @@
                     <div class="own-carousel">
 
                         @foreach ($TemplateInvitation as $template)
+                            @php
+                                $mitra = DB::table('users')
+                                    ->where('id', $template->id_user)
+                                    ->first();
+                            @endphp
                             <div class="own-carousel__item">
                                 <div class="card">
                                     <div class="kategori">
@@ -234,6 +239,10 @@
                                             Preview
                                         </a>
                                     </div>
+                                </div>
+                                <div class="alert alert-warning mt-1" role="alert">
+                                    Nama Mitra : {{ $mitra->name }} <br>
+                                    Email : {{ $mitra->email }}
                                 </div>
                             </div>
                         @endforeach
@@ -286,8 +295,8 @@
                     @if ($blog != null)
                         <a href="{{ route('detail_blog', Crypt::encrypt($blog->id_blog)) }}">
                             <div class="card border-0">
-                                <img src="{{ url('gambar/gambar_blog/thumbnail', $blog->thumbnail) }}"
-                                    class="card-img-top" alt="card utama" />
+                                <img src="{{ url('gambar/gambar_blog/thumbnail', $blog->thumbnail) }}" class="card-img-top"
+                                    alt="card utama" />
                                 <div class="card-body">
                                     <div class="card-title">
                                         <h6 class="fw-bold">

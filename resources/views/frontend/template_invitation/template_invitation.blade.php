@@ -11,6 +11,11 @@
             <h3>Pilihan Paket {{ $kategori->kategori }}</h3>
             <div class="row">
                 @foreach ($templateInvitation as $template)
+                    @php
+                        $mitra = DB::table('users')
+                            ->where('id', $template->id_user)
+                            ->first();
+                    @endphp
                     <div class="col-lg-3 col-md-6">
                         <div class="card">
                             <div class="kategori">
@@ -27,6 +32,10 @@
                                 </a>
                                 <a href="{{ $template->link_hosting }}" target="_blank" class="btn">Preview</a>
                             </div>
+                        </div>
+                        <div class="alert alert-warning mt-1" role="alert">
+                            Nama Mitra : {{ $mitra->name }} <br>
+                            Email : {{ $mitra->email }}
                         </div>
                     </div>
                 @endforeach

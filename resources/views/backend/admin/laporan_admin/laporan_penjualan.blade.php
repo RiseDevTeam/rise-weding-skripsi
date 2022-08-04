@@ -129,7 +129,7 @@
                                                     @php
                                                         date_default_timezone_set('Asia/Jakarta');
                                                     @endphp
-                                                    {{ date('d F Y', strtotime('$cash->tanggal_pemesanan')) }}
+                                                    {{ date('d F Y', strtotime($cash->tanggal_pemesanan)) }}
                                                 </span>
                                             </td>
 

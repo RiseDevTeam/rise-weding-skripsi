@@ -22,6 +22,7 @@ class LinkHostingController extends Controller
                 )
                 ->where('pemesanan_invitation.link_hosting', $link_hosting)
                 ->where('biodata_pelanggan.id_user', Auth::User()->id)
+                ->orderBy('pemesanan_invitation.id_pemesanan', 'desc')
                 ->first();
             return view('frontend.hostingan', compact('hostingan'));
         } else {

@@ -84,7 +84,7 @@
                             <input type="hidden" name="id_template" class="form-control" id="id_template" width="100" value="${element.id_template}">
                             <input type="hidden" name="file_template[]" class="form-control" id="file_template" width="100" value="${element.file}">
                             <input type="hidden" name="id_user" class="form-control" id="file_template" width="100" value="${id_user}">
-                            <button type="button" onclick="hapusTemplate(this)" id="${element.id_file_template}" class="badge badge-sm bg-danger mt-2"><i class="bi bi-trash"></i></button>
+                            
                             <img src="{{ asset('gambar/gambar_template/${element.gambar_template}') }}" alt="Gambar Template">
                         </div>
                     </section>
@@ -119,7 +119,7 @@
                         <input type="hidden" name="id_template" class="form-control" id="id_template" value="${data.id_template}">
                         <input type="hidden" name="file_template[]" class="form-control" id="file_template" value="${data.file}">
                         <input type="hidden" name="id_user" class="form-control" id="file_template" width="100" value="${id_user}">
-                        <button type="button" onclick="hapusTemplate(this)" id="${data.id_file_template}" class="badge badge-sm bg-danger mt-2"><i class="bi bi-trash"></i></button>
+                        
                         <img src="{{ asset('gambar/gambar_template/${data.gambar_template}') }}" alt="Gambar Template">
                     </div>
                 `

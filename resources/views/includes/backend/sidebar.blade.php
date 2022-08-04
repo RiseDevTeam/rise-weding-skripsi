@@ -99,15 +99,16 @@
                                     <span class="sidenav-normal"> Musik Template </span>
                                 </a>
                             </li>
+                        @elseif (Auth::user()->status == 'mitra')
+                            <li class="nav-item">
+                                <a class="nav-link {{ set_active('template.index') }} "
+                                    href="{{ route('template.index') }}">
+                                    <span class="sidenav-mini-icon"> R </span>
+                                    <span class="sidenav-normal"> Template Invitation </span>
+                                </a>
+                            </li>
                         @endif
 
-                        <li class="nav-item">
-                            <a class="nav-link {{ set_active('template.index') }} "
-                                href="{{ route('template.index') }}">
-                                <span class="sidenav-mini-icon"> R </span>
-                                <span class="sidenav-normal"> Template Invitation </span>
-                            </a>
-                        </li>
 
                     </ul>
                 </div>

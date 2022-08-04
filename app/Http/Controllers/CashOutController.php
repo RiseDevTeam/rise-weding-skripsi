@@ -78,10 +78,15 @@ class CashOutController extends Controller
                 'users.name',
             )->groupBy('users.id')
             ->get();
-        foreach ($cashOutAdmin as $key => $value) {
-            $pending = CashOut::where('status', 'pending')->where('id_user', $value->id_user)->count();
-        }
-        return view('backend.admin.cash_out.cashout_admin', compact('cashOutAdmin', 'pending'));
+        // $pending = CashOut::where('status', 'pending')
+        //                             ->where('id_user', $cash->id_user)
+        //                             ->select(DB::raw('count(id_cash_out) as cash_out'))
+        //                             ->first();
+        // foreach ($cashOutAdmin as $key => $value) {
+
+        // }
+        // return view('backend.admin.cash_out.cashout_admin', compact('cashOutAdmin', 'pending'));
+        return view('backend.admin.cash_out.cashout_admin', compact('cashOutAdmin'));
     }
 
     public function detail_cashout_admin($id)
@@ -110,7 +115,7 @@ class CashOutController extends Controller
         return view('backend.admin.cash_out.detail_cashout_admin', compact('DetailcashOutAdmin'));
     }
 
-    public function konfirmasi_cash_out_admin(Request $request)
+    public function konfirmasi_cash_out_admin(Request $request, $id_user)
     {
         $request->validate([
             'bukti_cashout' => 'image|mimes:jpeg,png,jpg,gif,svg',
@@ -120,7 +125,7 @@ class CashOutController extends Controller
         $bukti_nama = time() . '.' . $bukti->extension();
         $bukti->move(public_path('cash_out'), $bukti_nama);
 
-        DB::table('cash_out')->update([
+        DB::table('cash_out')->where('id_user', $id_user)->update([
             'bukti_cashout' => $bukti_nama,
             'status' => 'konfirmasi',
         ]);

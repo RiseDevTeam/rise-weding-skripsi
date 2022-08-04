@@ -108,7 +108,8 @@
                                                                 <button type="button" class="btn-close"
                                                                     data-bs-dismiss="modal" aria-label="Close"></button>
                                                             </div>
-                                                            <form action="{{ route('konfirmasi_cash_out_admin') }}"
+                                                            <form
+                                                                action="{{ route('konfirmasi_cash_out_admin', $cash->id_user) }}"
                                                                 method="POST" enctype="multipart/form-data">
                                                                 @csrf
                                                                 <div class="modal-body">
@@ -191,8 +192,7 @@
                                             </td>
 
                                             <td class="text-center">
-                                                <a target="_blank"
-                                                    href="{{ asset("cash_out/$cash_out->bukti_cashout") }}"
+                                                <a target="_blank" href="{{ asset("cash_out/$cash_out->bukti_cashout") }}"
                                                     class="btn btn-primary">Lihat
                                                     Bukti Bayar</a>
                                             </td>

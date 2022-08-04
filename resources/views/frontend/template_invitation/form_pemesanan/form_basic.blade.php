@@ -5,9 +5,9 @@
 
 @section('content_user')
 
-    <a href="{{ route('preview_template', $id_template) }}"
+    {{-- <a href="{{ route('preview_template', $id_template) }}"
         target="_blank" class="btn btn-danger">Check Preview
-        Template</a>
+        Template</a> --}}
     <form method="POST" id="form-biodata-pelanggan" enctype="multipart/form-data">
         @csrf
         <section class="isi-data-undangan">

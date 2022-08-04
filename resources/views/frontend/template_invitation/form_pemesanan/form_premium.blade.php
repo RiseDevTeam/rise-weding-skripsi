@@ -5,8 +5,8 @@
 
 @section('content_user')
 
-    <a href="{{ route('preview_template', $id_template) }}" target="_blank" class="btn btn-danger">Check Preview
-        Template</a>
+    {{-- <a href="{{ route('preview_template', $id_template) }}" target="_blank" class="btn btn-danger">Check Preview
+        Template</a> --}}
 
     <form method="POST" id="form-biodata-pelanggan" enctype="multipart/form-data">
         @csrf
@@ -567,8 +567,7 @@
                                                     <li class="list-group-item">{{ $musik->judul_musik }}</li>
                                                     <li class="list-group-item">
                                                         <audio controls>
-                                                            <source
-                                                                src="{{ asset("file/audio_template/$musik->musik") }}"
+                                                            <source src="{{ asset("file/audio_template/$musik->musik") }}"
                                                                 type="audio/mpeg">
                                                         </audio>
                                                         <input type="radio" class="btn btn-danger" id="musik"
