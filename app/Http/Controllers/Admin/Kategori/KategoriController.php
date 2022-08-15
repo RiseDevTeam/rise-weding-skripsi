@@ -41,21 +41,15 @@ class KategoriController extends Controller
         // validasi
         $validator = Validator::make($request->all(), [
             'kategori' => 'required',
-            'harga' => 'required',
         ]);
 
         if ($validator->fails()) {
             return response()->json(['errors' => $validator->getMessageBag()->toArray()]);
         }
-        // menghilangkan RP. pada harga
-        $harga = explode("Rp.", $request->harga)[1];
-        $harga_baru = explode(".", $harga);
-        $harga_template = (int) implode($harga_baru);
 
         // insert data kategori template
         KategoriTemplate::create([
             'kategori' => $request->kategori,
-            'harga' => $harga_template,
         ]);
 
         return response()->json(['success' => 'Kategori Berhasil Disimpan']);
@@ -96,7 +90,6 @@ class KategoriController extends Controller
         // validasi
         $validator = Validator::make($request->all(), [
             'kategori' => 'required',
-            'harga' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -105,7 +98,6 @@ class KategoriController extends Controller
 
         KategoriTemplate::where('id_kategori_template', $id)->update([
             'kategori' => $request->kategori,
-            'harga' => $request->harga,
         ]);
 
         return response()->json(['success' => 'Kategori Berhasil Diupdate']);

@@ -38,13 +38,9 @@
                                             Harga Jual
                                         </th>
 
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Potongan 15% (Untuk Marketplace)
-                                        </th>
-
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        {{-- <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Total Untuk Mitra
-                                        </th>
+                                        </th> --}}
 
                                     </tr>
                                 </thead>
@@ -71,7 +67,7 @@
 
                                                 <td class="text-center">
                                                     <img src='{{ asset("gambar/gambar_cover_template/$cash->gambar_cover") }}'
-                                                        class="img-fluid mx-auto" alt="" />
+                                                        class="img-fluid mx-auto" alt="" width="100rem" />
                                                 </td>
 
                                                 <td class="text-center">
@@ -79,19 +75,13 @@
                                                         class="text-secondary text-xs font-weight-bold">Rp.{{ number_format($cash->total) }}</span>
                                                 </td>
 
-                                                <td class="text-center">
-                                                    <span class="text-secondary text-xs font-weight-bold">Rp.
-                                                        {{ number_format($persen) }}</span>
-                                                </td>
-
-                                                <td class="text-center">
+                                                {{-- <td class="text-center">
                                                     <span class="text-secondary text-xs font-weight-bold">Rp.
                                                         {{ number_format($cash->total - $cash->total * 0.15) }}</span>
-                                                </td>
-                                                <input type="hidden" name="id_cash_out_sementara[]"
+                                                </td> --}}
+
+                                                <input type="hidden" name="id_cashout_sementara[]"
                                                     value="{{ $cash->id_cash_out_sementara }}">
-                                                <input type="hidden" name="total_cashout[]"
-                                                    value="{{ $cash->total - $cash->total * 0.15 }}">
                                                 <input type="hidden" name="id_pembayaran[]"
                                                     value="{{ $cash->id_pembayaran }}">
                                                 <input type="hidden" name="id_user" value="{{ $cash->id_user }}">
@@ -102,20 +92,36 @@
 
                                 <tbody>
                                     <tr>
-                                        <td colspan="6">
+                                        <td colspan="5">
                                             <hr>
                                         </td>
                                     </tr>
                                     <tr>
-
-                                        <td colspan="5"> Total Cash Out Mitra : </td>
-                                        <td colspan="5"> Rp. {{ number_format($total) }}</td>
+                                        @php
+                                            $total_cash_out = DB::table('cash_out')
+                                                ->where('id_cashout_sementara', $cash->id_cash_out_sementara)
+                                                // ->select('total')
+                                                ->select(DB::raw('SUM(total) as total_akhir'))
+                                                ->first();
+                                        @endphp
+                                        <td colspan="4"> Total Cash : </td>
+                                        <td colspan="5">
+                                            @if (isset($total_cash_out))
+                                                Rp. {{ number_format($total - $total_cash_out->total_akhir) }}
+                                            @else
+                                                Rp. {{ number_format($total) }}
+                                            @endif
+                                        </td>
                                     </tr>
                                     <tr>
-                                        <td></td>
+                                        <td colspan="4"> Cash : </td>
+                                        <td>
+                                            <input type="text" class="form-control" id="harga" name="total_cashout"
+                                                required>
+                                        </td>
                                     </tr>
                                     <tr>
-                                        <td colspan="5" class="mt-5"></td>
+                                        <td colspan="4" class="mt-5"></td>
                                         <td colspan="5">
                                             <!-- Button trigger modal -->
                                             <button type="button" class="btn btn-primary" data-bs-toggle="modal"
@@ -193,4 +199,79 @@
             </div>
         </div>
     </div>
+
+    <script>
+        // scipt untuk harga rupiah
+        var rupiah = document.getElementById('harga');
+        rupiah.addEventListener('keyup', function(e) {
+            // tambahkan 'Rp.' pada saat ketik nominal di form kolom input
+            // gunakan fungsi formatRupiah() untuk mengubah nominal angka yang di ketik menjadi format angka
+            rupiah.value = formatRupiah(this.value, 'Rp. ');
+        });
+        /* Fungsi formatRupiah */
+        function formatRupiah(angka, prefix) {
+            var number_string = angka.replace(/[^,\d]/g, '').toString(),
+                split = number_string.split(','),
+                sisa = split[0].length % 3,
+                rupiah = split[0].substr(0, sisa),
+                ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+            // tambahkan titik jika yang di input sudah menjadi angka satuan ribuan
+            if (ribuan) {
+                separator = sisa ? '.' : '';
+                rupiah += separator + ribuan.join('.');
+            }
+
+            rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+            return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+        }
+        // ! scipt untuk harga rupiah !
+
+
+        let formHero = document.getElementById('form-kategori');
+        formHero.addEventListener('submit', function(e) {
+            e.preventDefault()
+
+            let kategori = document.getElementById('kategori');
+
+            axios.post("{{ route('kategori.store') }}", {
+                    kategori: kategori.value,
+                    harga: rupiah.value,
+                }).then(function(response) {
+                    if (response.status == 200) {
+                        const data = response.data
+                        const dataError = response.data.errors
+                        if (dataError) {
+                            if (dataError.kategori) {
+                                let headerKategori = document.getElementById('validationKategori')
+                                kategori.classList.add("is-invalid")
+                                headerKategori.innerText = dataError.kategori[0]
+                                headerKategori.style.display = "block"
+                            }
+
+                            if (dataError.harga) {
+                                let headerHarga = document.getElementById('validationHarga')
+                                harga.classList.add("is-invalid")
+                                headerHarga.innerText = dataError.harga[0]
+                                headerHarga.style.display = "block"
+                            }
+
+                        } else {
+                            Swal.fire({
+                                position: 'center',
+                                icon: 'success',
+                                title: data.success,
+                                showConfirmButton: false,
+                                timer: 1000
+                            }).then(function() {
+                                window.location.href = "{{ route('kategori.index') }}"
+                            })
+                        }
+                    }
+                })
+                .catch(function(error) {
+                    console.log(error);
+                });
+        })
+    </script>
 @endsection

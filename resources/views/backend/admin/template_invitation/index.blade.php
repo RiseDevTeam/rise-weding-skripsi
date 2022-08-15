@@ -37,6 +37,11 @@
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             File Master
                                         </th>
+
+                                        <th
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            Harga Template
+                                        </th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             File Template
@@ -96,6 +101,13 @@
                                                         target="_blank">Menampilkan
                                                         file
                                                     </a>
+                                                </p>
+                                            </td>
+
+
+                                            <td class="text-center">
+                                                <p class="text-xs font-weight-bold mb-0">
+                                                    Rp. {{ number_format($template->harga_template) }}
                                                 </p>
                                             </td>
 

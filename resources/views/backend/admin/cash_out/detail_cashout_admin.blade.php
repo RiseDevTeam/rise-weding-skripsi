@@ -57,7 +57,7 @@
                                         </th>
 
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Upload Bukti Cash Out
+                                            Bukti Cash Out
                                         </th>
 
 
@@ -192,9 +192,13 @@
                                             </td>
 
                                             <td class="text-center">
-                                                <a target="_blank" href="{{ asset("cash_out/$cash_out->bukti_cashout") }}"
-                                                    class="btn btn-primary">Lihat
-                                                    Bukti Bayar</a>
+                                                @if ($cash_out->bukti_cashout)
+                                                    <a target="_blank"
+                                                        href="{{ asset("cash_out/$cash_out->bukti_cashout") }}"
+                                                        class="btn btn-primary">Lihat
+                                                        Bukti Bayar</a>
+                                                @else
+                                                @endif
                                             </td>
 
                                         </tr>

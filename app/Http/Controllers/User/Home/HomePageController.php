@@ -21,7 +21,6 @@ class HomePageController extends Controller
                 'template_invitation.id_user',
                 'template_invitation.link_hosting',
                 'gambar_cover',
-                'kategori_template.harga',
                 'kategori_template.kategori'
             )->get();
 

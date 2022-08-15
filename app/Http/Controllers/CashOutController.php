@@ -33,14 +33,22 @@ class CashOutController extends Controller
 
     public function proses_cash_out(Request $request)
     {
+        // dd($request->all());
+
+        // menghilangkan RP. pada harga
+        $harga = explode("Rp.", $request->total_cashout)[1];
+        $harga_baru = explode(".", $harga);
+        $harga_cashout = (int) implode($harga_baru);
+
         date_default_timezone_set('Asia/Jakarta');
         $tanggal = date('Y-m-d');
         foreach ($request->id_pembayaran as $key => $value) {
             CashOut::create([
                 'id_pembayaran' => $value,
                 'id_user' => $request->id_user,
+                'id_cashout_sementara' => $request->id_cashout_sementara[$key],
                 'tanggal_cashout' => $tanggal,
-                'total' => $request->total_cashout[$key],
+                'total' => $harga_cashout,
                 'status' => 'pending',
             ]);
         }
@@ -60,10 +68,11 @@ class CashOutController extends Controller
                 'nomor_rekening' => $request->nomor_rekening,
             ]);
         }
-        foreach ($request->id_cash_out_sementara as $key => $value) {
-            DB::table('cash_out_sementara')->where('id_cash_out_sementara', $request->id_cash_out_sementara[$key])->delete();
-            # code...
-        }
+        // foreach ($request->id_cashout_sementara as $key => $value) {
+        //     $cash_sementara = DB::table('cash_out_sementara')->where('id_cash_out_sementara', $request->id_cashout_sementara[$key])->first();
+        //     $persen = $cash_sementara->total * 0.15;
+        //     dd($cash_sementara->total * 0.15);  
+        // }
 
         return redirect()->route('cashout-pembayaran')->with('cash_out', 'Mohon Menunggu balasan dari admin');
     }

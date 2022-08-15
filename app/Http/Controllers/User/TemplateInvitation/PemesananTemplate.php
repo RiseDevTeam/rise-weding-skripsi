@@ -35,7 +35,7 @@ class PemesananTemplate extends Controller
         $kategori_template = Crypt::decrypt($id_kategori_template);
 
         $templateInvitation = TemplateInvitation::leftjoin('kategori_template', 'template_invitation.id_kategori', '=', 'kategori_template.id_kategori_template')
-            ->select('kategori_template.kategori', 'template_invitation.link_hosting', 'template_invitation.id_user', 'template_invitation.id_kategori', 'template_invitation.gambar_cover', 'id_template')
+            ->select('kategori_template.kategori', 'template_invitation.link_hosting', 'template_invitation.harga_template', 'template_invitation.id_user', 'template_invitation.id_kategori', 'template_invitation.gambar_cover', 'id_template')
             ->where('template_invitation.id_kategori', $kategori_template)->get();
         $kategori =  KategoriTemplate::where('id_kategori_template', $kategori_template)->select('kategori')->first();
         return view('frontend.template_invitation.template_invitation', compact('templateInvitation', 'kategori'));

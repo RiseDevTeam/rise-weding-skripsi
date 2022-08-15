@@ -14,7 +14,7 @@ class UserPageController extends Controller
     public function kategori_template()
     {
         // menampilkan kategori template pada halaman utama
-        $KategoriTemplate = KategoriTemplate::leftjoin('rincian_kategori_template', 'kategori_template.id_kategori_template', '=', 'rincian_kategori_template.id_kategori')->select('id_kategori_template', 'kategori', 'harga', 'rincian_kategori_template')->get();
+        $KategoriTemplate = KategoriTemplate::leftjoin('rincian_kategori_template', 'kategori_template.id_kategori_template', '=', 'rincian_kategori_template.id_kategori')->select('id_kategori_template', 'kategori', 'rincian_kategori_template')->get();
         // menampilkan kategori template pada halaman utama
         return view('frontend.template_invitation.kategori_template', compact('KategoriTemplate'));
         // return view('frontend.template_invitation.kategori_template');
@@ -32,7 +32,7 @@ class UserPageController extends Controller
 
     public function blog()
     {
-$blog = Blog::where('isActive', '1')->orderBy('id_blog', 'desc')->first();
+        $blog = Blog::where('isActive', '1')->orderBy('id_blog', 'desc')->first();
         $blogLain = Blog::where('isActive', '1')
             ->orderBy('id_blog', 'desc')->get();
 
@@ -45,7 +45,7 @@ $blog = Blog::where('isActive', '1')->orderBy('id_blog', 'desc')->first();
 
     public function detail_blog($id_blog)
     {
-       $blog = Crypt::decrypt($id_blog);
+        $blog = Crypt::decrypt($id_blog);
         $blogDetail = blog::where('id_blog', $blog)->first();
         $blogLain = Blog::where('isActive', '1')
             ->orderBy('id_blog', 'desc')->get();

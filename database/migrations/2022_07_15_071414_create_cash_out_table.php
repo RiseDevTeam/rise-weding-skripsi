@@ -17,6 +17,7 @@ class CreateCashOutTable extends Migration
             $table->bigIncrements('id_cash_out');
             $table->bigInteger('id_pembayaran');
             $table->bigInteger('id_user');
+            $table->bigInteger('id_cash_out_sementara');
             $table->bigInteger('total');
             $table->date('tanggal_cashout');
             $table->string('status');

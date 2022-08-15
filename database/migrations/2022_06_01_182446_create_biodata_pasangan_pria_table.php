@@ -15,7 +15,7 @@ class CreateBiodataPasanganPriaTable extends Migration
     {
         Schema::create('biodata_pasangan_pria', function (Blueprint $table) {
             $table->bigIncrements('id_pasangan_pria');
-            $table->string('nama_lengkap');
+            $table->string('nama_lengkap_pria');
             $table->string('putra_dari');
             $table->string('gambar_mempelai_pria');
             $table->string('nama_bapak_pria');

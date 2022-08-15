@@ -23,9 +23,6 @@
                                             Nama Kategori</th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Harga</th>
-                                        <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Action</th>
                                         <th class="text-secondary opacity-7"></th>
                                     </tr>
@@ -44,11 +41,6 @@
 
                                             <td>
                                                 <p class="text-xs font-weight-bold mb-0">{{ $kategori->kategori }}</p>
-                                            </td>
-
-                                            <td class="align-middle text-center text-sm">
-                                                <p class="text-xs font-weight-bold mb-0">
-                                                    Rp. {{ number_format($kategori->harga) }}</p>
                                             </td>
 
                                             <td class="align-middle text-center">

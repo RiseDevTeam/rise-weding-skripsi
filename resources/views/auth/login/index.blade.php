@@ -15,6 +15,7 @@
 </head>
 
 <body>
+    @include('sweetalert::alert')
     <!-- Form Signin -->
     <section class="form">
         <img src="{{ asset('user_page/template/public/img/daun1.png') }}" alt="bg-form">

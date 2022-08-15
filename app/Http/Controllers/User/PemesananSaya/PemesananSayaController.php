@@ -31,7 +31,7 @@ class PemesananSayaController extends Controller
                 'biodata_pasangan_pria.nama_lengkap_pria as nama_pria',
                 'biodata_pasangan_wanita.nama_lengkap_wanita as nama_wanita',
                 'biodata_pelanggan.id_user',
-                'kategori_template.harga',
+                'template_invitation.harga_template',
                 'detail_pembayaran_invitation.total'
             )
             ->orderby('pemesanan_invitation.id_pemesanan', 'desc')
@@ -55,7 +55,7 @@ class PemesananSayaController extends Controller
                 'biodata_pasangan_pria.nama_lengkap_pria as nama_pria',
                 'biodata_pasangan_wanita.nama_lengkap_wanita as nama_wanita',
                 'biodata_pelanggan.id_user',
-                'kategori_template.harga'
+                'template_invitation.harga_template'
             )
             ->orderby('pemesanan_invitation.id_pemesanan', 'desc')
             ->groupBy('pemesanan_invitation.id_pemesanan')

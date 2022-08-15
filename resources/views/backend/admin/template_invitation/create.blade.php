@@ -44,11 +44,18 @@
                                 </div>
 
                                 <div class="form-group">
+                                    <label for="example-text-input" class="form-control-label">Harga Template</label>
+                                    <input class="form-control" id="harga_template" type="text" placeholder="Harga">
+                                    <div id="validationHarga" class="invalid-feedback"></div>
+                                </div>
+
+                                <div class="form-group">
                                     <label for="example-text-input" class="form-control-label">Gambar Cover Template</label>
                                     <input class="form-control" id="gambarTemplate" type="file"
                                         onchange="gambarSlide();">
                                     <div id="validationGambar" class="invalid-feedback"></div>
                                 </div>
+
 
                                 <div class="mb-3">
                                     <label for="gambar" class="form-label">Gambar Cover Template</label>
@@ -72,13 +79,32 @@
 @endsection
 
 @push('script')
-    <!--Initializing a wizard with no configuration -->
-    {{-- <script>
-        new Wizard("#basicwizard", {
-            progress: true
+    <script>
+        // scipt untuk harga rupiah
+        var rupiah = document.getElementById('harga_template');
+        rupiah.addEventListener('keyup', function(e) {
+            // tambahkan 'Rp.' pada saat ketik nominal di form kolom input
+            // gunakan fungsi formatRupiah() untuk mengubah nominal angka yang di ketik menjadi format angka
+            rupiah.value = formatRupiah(this.value, 'Rp. ');
         });
-    </script> --}}
-
+        /* Fungsi formatRupiah */
+        function formatRupiah(angka, prefix) {
+            var number_string = angka.replace(/[^,\d]/g, '').toString(),
+                split = number_string.split(','),
+                sisa = split[0].length % 3,
+                rupiah = split[0].substr(0, sisa),
+                ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+            // tambahkan titik jika yang di input sudah menjadi angka satuan ribuan
+            if (ribuan) {
+                separator = sisa ? '.' : '';
+                rupiah += separator + ribuan.join('.');
+            }
+            rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+            return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+        }
+        // ! scipt untuk harga rupiah !
+    </script>
+    <!--Initializing a wizard with no configuration -->
     <script>
         // untuk menampilkan gambar ketika upload gambar
         function gambarSlide() {
@@ -98,10 +124,10 @@
             let linkHosting = document.getElementById('linkHosting');
             let gambarTemplate = document.getElementById('gambarTemplate');
             let fileMaster = document.getElementById('fileMaster');
-
             const formData = new FormData()
             formData.append("idKategori", idKategori.value)
             formData.append("linkHosting", linkHosting.value)
+            formData.append("harga_template", rupiah.value, )
             formData.append("fileMaster", fileMaster.files[0])
             formData.append("gambarTemplate", gambarTemplate.files[0])
 
@@ -137,6 +163,13 @@
                                 gambarTemplate.classList.add("is-invalid")
                                 validasiGambar.innerText = dataError.gambarTemplate[0]
                                 validasiGambar.style.display = "block"
+                            }
+
+                            if (dataError.harga) {
+                                let validasiHarga = document.getElementById('validationHarga')
+                                harga.classList.add("is-invalid")
+                                validasiHarga.innerText = dataError.harga[0]
+                                validasiHarga.style.display = "block"
                             }
 
                         } else {

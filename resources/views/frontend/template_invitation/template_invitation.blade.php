@@ -18,8 +18,13 @@
                     @endphp
                     <div class="col-lg-3 col-md-6">
                         <div class="card">
-                            <div class="kategori">
-                                <span>{{ $template->kategori }}</span>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="harga">
+                                    <span>Rp. {{ number_format($template->harga_template) }}</span>
+                                </div>
+                                <div class="kategori">
+                                    <span>{{ $template->kategori }}</span>
+                                </div>
                             </div>
                             <img src="{{ asset("gambar/gambar_cover_template/$template->gambar_cover") }}" class="img-fluid"
                                 alt="..." />

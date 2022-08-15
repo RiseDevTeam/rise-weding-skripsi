@@ -4,8 +4,8 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="apple-touch-icon" sizes="76x76" href="{{asset('admin')}}/img/apple-icon.png">
-    <link rel="icon" type="image/png" href="{{asset('admin')}}/img/favicon.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('admin') }}/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="{{ asset('admin') }}/img/favicon.png">
     <title>
         @yield('title')
     </title>
@@ -13,13 +13,15 @@
     <!--- include CSS --->
     @include('includes.backend.css')
     <!--- include CSS --->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 </head>
 
 <body class="g-sidenav-show  bg-gray-100">
 
-
+    @include('sweetalert::alert')
     <!--- include sidebar --->
 
     @include('includes.backend.sidebar')

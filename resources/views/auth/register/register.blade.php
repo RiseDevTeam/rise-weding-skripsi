@@ -13,7 +13,9 @@
 </head>
 
 <body>
-
+    @if (isset($menampilkanUser))
+        @include('sweetalert::alert')
+    @endif
     <!-- Syarat Menjadi Mitra-->
     <section class="syarat">
         <div class="container">
@@ -159,33 +161,52 @@
                 alt="Background Form Registrasi" />
             <h3>Registrasi</h3>
             <p>Please Register Using Your Email</p>
-            <form method="POST" id="form-register" class="mx-auto">
+            <form method="POST" id="form-register" class="mx-auto" action="{{ route('register.proses') }}"
+                enctype="multipart/form-data">
+                @csrf
                 <div class="row">
                     <!-- 1 -->
                     <div class="col-lg-6 col-md-6 px-5">
                         <div class="mb-4">
                             <label for="nama" class="form-label">Nama Lengkap</label>
-                            <input type="text" id="nama" class="form-control" placeholder="Nama Lengkap"
-                                autofocus />
-                            <div id="validationNama" class="invalid-feedback"></div>
+                            <input type="text" id="nama" name="nama" class="form-control"
+                                placeholder="Nama Lengkap" autofocus />
+                            <div class="text-danger">
+                                @error('nama')
+                                    {{ $message }}
+                                @enderror
+                            </div>
                         </div>
                         <div class="mb-4">
                             <label for="username" class="form-label">Email</label>
-                            <input type="text" id="email" class="form-control" placeholder="email" />
-                            <div id="validationEmail" class="invalid-feedback"></div>
+                            <input type="text" id="email" name="email" class="form-control"
+                                placeholder="email" />
+                            <div class="text-danger">
+                                @error('email')
+                                    {{ $message }}
+                                @enderror
+                            </div>
                         </div>
                         <div class="mb-4">
                             <label for="nowa" class="form-label">Nomor WhatsApp</label>
-                            <input type="text" id="nomor_telepon" class="form-control"
+                            <input type="text" id="nomor_telepon" name="nomor_telepon" class="form-control"
                                 placeholder="Nomor WhatsApp" />
-                            <div id="validationNomorTelepon" class="invalid-feedback"></div>
+                            <div class="text-danger">
+                                @error('nomor_telepon')
+                                    {{ $message }}
+                                @enderror
+                            </div>
                         </div>
                         <div class="row mb-4">
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <label for="foto" class="form-label">Upload Foto Diri</label>
-                                <input type="file" id="foto_diri" onchange="fotoDiri()" class="form-control"
-                                    placeholder="Foto Diri" />
-                                <div id="validationFotoDiri" class="invalid-feedback"></div>
+                                <input type="file" id="foto_diri" name="foto_diri" onchange="fotoDiri()"
+                                    class="form-control" placeholder="Foto Diri" />
+                                <div class="text-danger">
+                                    @error('foto_diri')
+                                        {{ $message }}
+                                    @enderror
+                                </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <img src="{{ asset('user_page/template/public/img/img.png') }}" id="img_foto_diri"
@@ -197,25 +218,44 @@
                     <div class="col-lg-6 col-md-6 px-5">
                         <div class="mb-4">
                             <label for="alamat" class="form-label">Alamat</label>
-                            <input type="text" id="alamat" class="form-control" placeholder="Alamat" />
-                            <div id="validationAlamat" class="invalid-feedback"></div>
+                            <input type="text" id="alamat" name="alamat" class="form-control"
+                                placeholder="Alamat" />
+                            <div class="text-danger">
+                                @error('alamat')
+                                    {{ $message }}
+                                @enderror
+                            </div>
                         </div>
                         <div class="mb-4">
                             <label for="password" class="form-label">Password</label>
-                            <input type="password" id="password" class="form-control" placeholder="Password" />
-                            <div id="validationPassword" class="invalid-feedback"></div>
+                            <input type="password" id="password" name="password" class="form-control"
+                                placeholder="Password" />
+                            <div class="text-danger">
+                                @error('password')
+                                    {{ $message }}
+                                @enderror
+                            </div>
                         </div>
                         <div class="mb-4">
                             <label for="noktp" class="form-label">Nomor KTP</label>
-                            <input type="text" id="nomor_ktp" class="form-control" placeholder="Nomor KTP" />
-                            <div id="validationNomorKtp" class="invalid-feedback"></div>
+                            <input type="text" id="nomor_ktp" name="nomor_ktp" class="form-control"
+                                placeholder="Nomor KTP" />
+                            <div class="text-danger">
+                                @error('nomor_ktp')
+                                    {{ $message }}
+                                @enderror
+                            </div>
                         </div>
                         <div class="row mb-4">
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <label for="fotoktp" class="form-label">Upload Foto Diri dengan KTP</label>
-                                <input type="file" onchange="fotoKTP()" id="foto_ktp" class="form-control"
-                                    placeholder="Foto Diri Dengan KTP" />
-                                <div id="validationFotoKtp" class="invalid-feedback"></div>
+                                <input type="file" onchange="fotoKTP()" id="foto_ktp" name="foto_ktp"
+                                    class="form-control" placeholder="Foto Diri Dengan KTP" />
+                                <div class="text-danger">
+                                    @error('foto_ktp')
+                                        {{ $message }}
+                                    @enderror
+                                </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <img src="{{ asset('user_page/template/public/img/img.png') }}" id="img_foto_ktp"
@@ -233,8 +273,8 @@
     <!-- End Form Registrasi -->
 
 </body>
-
 <script>
+    var menampilkanUser = {{ 'menampilkanUser' }}
     // menampilkan foto diri
     function fotoDiri() {
         document.getElementById("img_foto_diri").style.display = "block";
@@ -253,119 +293,6 @@
             document.getElementById("img_foto_ktp").src = oFREvent.target.result;
         };
     };
-</script>
-
-<script>
-    let formRegister = document.getElementById('form-register');
-    formRegister.addEventListener('submit', function(e) {
-        e.preventDefault()
-
-        let nama = document.getElementById('nama');
-        let email = document.getElementById('email');
-        let nomor_telepon = document.getElementById('nomor_telepon');
-        let foto_diri = document.getElementById('foto_diri');
-        let alamat = document.getElementById('alamat');
-        let password = document.getElementById('password');
-        let nomor_ktp = document.getElementById('nomor_ktp');
-        let foto_ktp = document.getElementById('foto_ktp');
-
-        const formData = new FormData()
-        formData.append("nama", nama.value)
-        formData.append("email", email.value)
-        formData.append("nomor_telepon", nomor_telepon.value)
-        formData.append("foto_diri", foto_diri.files[0])
-        formData.append("alamat", alamat.value)
-        formData.append("password", password.value)
-        formData.append("nomor_ktp", nomor_ktp.value)
-        formData.append("foto_ktp", foto_ktp.files[0])
-
-        axios.post("{{ route('register.proses') }}", formData)
-            .then(function(response) {
-                if (response.status == 200) {
-                    const data = response.data
-                    const dataError = response.data.errors
-                    if (dataError) {
-                        if (dataError.nama) {
-                            let validationNama = document.getElementById('validationNama')
-                            nama.classList.add("is-invalid")
-                            validationNama.innerText = dataError.nama[0]
-                            validationNama.style.display = "block"
-                        }
-
-                        if (dataError.email) {
-                            let validationEmail = document.getElementById('validationEmail')
-                            email.classList.add("is-invalid")
-                            validationEmail.innerText = dataError.email[0]
-                            validationEmail.style.display = "block"
-                        }
-
-                        if (dataError.nomor_telepon) {
-                            let validationNomorTelepon = document.getElementById('validationNomorTelepon')
-                            nomor_telepon.classList.add("is-invalid")
-                            validationNomorTelepon.innerText = dataError.nomor_telepon[0]
-                            validationNomorTelepon.style.display = "block"
-                        }
-
-                        if (dataError.foto_diri) {
-                            let validationFotoDiri = document.getElementById('validationFotoDiri')
-                            foto_diri.classList.add("is-invalid")
-                            validationFotoDiri.innerText = dataError.foto_diri[0]
-                            validationFotoDiri.style.display = "block"
-                        }
-
-                        if (dataError.alamat) {
-                            let validationAlamat = document.getElementById('validationAlamat')
-                            alamat.classList.add("is-invalid")
-                            validationAlamat.innerText = dataError.alamat[0]
-                            validationAlamat.style.display = "block"
-                        }
-
-                        if (dataError.password) {
-                            let validationPassword = document.getElementById('validationPassword')
-                            password.classList.add("is-invalid")
-                            validationPassword.innerText = dataError.password[0]
-                            validationPassword.style.display = "block"
-                        }
-
-                        if (dataError.nomor_ktp) {
-                            let validationNomorKtp = document.getElementById('validationNomorKtp')
-                            nomor_ktp.classList.add("is-invalid")
-                            validationNomorKtp.innerText = dataError.nomor_ktp[0]
-                            validationNomorKtp.style.display = "block"
-                        }
-
-                        if (dataError.foto_ktp) {
-                            let validationFotoKtp = document.getElementById('validationFotoKtp')
-                            foto_ktp.classList.add("is-invalid")
-                            validationFotoKtp.innerText = dataError.foto_ktp[0]
-                            validationFotoKtp.style.display = "block"
-                        }
-
-                        swal({
-                            title: "Oops...",
-                            text: "Data nya kurang nih, silahkan cek dulu yaaa",
-                            icon: "warning",
-                            dangerMode: true,
-                        })
-
-                    } else {
-                        swal({
-                                position: 'center',
-                                icon: 'success',
-                                title: data.success,
-                                showConfirmButton: false,
-                                timer: 1000
-                            })
-                            .then(function() {
-                                window.location.href = "{{ route('login') }}"
-                            })
-                    }
-                }
-            })
-            .catch(function(error) {
-                console.log(error);
-            });
-    })
 </script>
 
 </html>

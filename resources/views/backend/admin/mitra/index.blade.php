@@ -20,7 +20,14 @@
                                             #</th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Nama</th>
+                                            Validasi
+                                        </th>
+
+                                        <th
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            Nama
+                                        </th>
+
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Email</th>
@@ -44,6 +51,21 @@
                                     @forelse ($mitra as $m)
                                         <tr>
                                             <td class="text-center">{{ $loop->iteration }}</td>
+                                            <td class="text-center">
+                                                <h6 class="mb-0 text-sm">
+                                                    @if ($m->status_mitra == 'pending')
+                                                        <form action="{{ route('validasi_mitra', $m->id_user) }}"
+                                                            method="POST">
+                                                            @csrf
+                                                            <button class="btn btn-primary" type="submit">Validasi</button>
+                                                        </form>
+                                                    @else
+                                                        <div class="text text-warning" role="alert">
+                                                            {{ strtoupper($m->status_mitra) }}
+                                                        </div>
+                                                    @endif
+                                                </h6>
+                                            </td>
                                             <td class="text-center">
                                                 <h6 class="mb-0 text-sm">{{ $m->name }}</h6>
                                             </td>

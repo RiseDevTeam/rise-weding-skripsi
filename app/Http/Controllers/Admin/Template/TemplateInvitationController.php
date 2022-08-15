@@ -23,7 +23,7 @@ class TemplateInvitationController extends Controller
     public function index()
     {
         $TemplateInvitation = TemplateInvitation::leftjoin('kategori_template', 'template_invitation.id_kategori', '=', 'kategori_template.id_kategori_template')
-            ->select('kategori_template.kategori', 'template_invitation.id_template', 'template_invitation.link_hosting', 'template_invitation.gambar_cover', 'template_invitation.file_master')
+            ->select('kategori_template.kategori', 'template_invitation.id_template', 'template_invitation.harga_template', 'template_invitation.gambar_cover', 'template_invitation.file_master')
             ->where('template_invitation.id_user', Auth::User()->id)->get();
 
         $FileTemplate = FileTemplate::select(DB::raw('count(id_file_template) as file_template'))
@@ -53,6 +53,7 @@ class TemplateInvitationController extends Controller
         $validator = Validator::make($request->all(), [
             'idKategori' => 'required',
             'linkHosting' => 'required',
+            'harga_template' => 'required',
             'fileMaster' => 'required|mimes:php,html',
             'gambarTemplate' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
         ]);
@@ -75,10 +76,16 @@ class TemplateInvitationController extends Controller
             $uploadFile = uploadFile($request->file('fileMaster'), 'file/file_master_template/', $NameFile);
         }
 
+        // menghilangkan RP. pada harga
+        $harga = explode("Rp.", $request->harga_template)[1];
+        $harga_baru = explode(".", $harga);
+        $harga_template = (int) implode($harga_baru);
+
         TemplateInvitation::create([
             'id_kategori' => $request->idKategori,
             'id_user' => Auth::User()->id,
             'link_hosting' => $request->linkHosting,
+            'harga_template' => $harga_template,
             'file_master' => $uploadFile,
             'gambar_cover' => $image,
         ]);
@@ -105,7 +112,7 @@ class TemplateInvitationController extends Controller
      */
     public function edit($id)
     {
-        $edit = TemplateInvitation::where('id_template', $id)->select('template_invitation.link_hosting', 'template_invitation.id_template', 'template_invitation.gambar_cover', 'template_invitation.file_master', 'template_invitation.id_kategori')->first();
+        $edit = TemplateInvitation::where('id_template', $id)->select('template_invitation.link_hosting', 'template_invitation.id_template', 'template_invitation.gambar_cover', 'template_invitation.harga_template', 'template_invitation.file_master', 'template_invitation.id_kategori')->first();
         $kategori = KategoriTemplate::where('id_kategori_template', $edit->id_kategori)->first();
         $templateKategori = KategoriTemplate::select('kategori_template.kategori', 'kategori_template.id_kategori_template')->get();
         return view('backend.admin.template_invitation.edit', compact('edit', 'templateKategori', 'kategori'));
@@ -125,6 +132,7 @@ class TemplateInvitationController extends Controller
             'id_kategori' => $request->idKategori,
             'id_user' => Auth::User()->id,
             'link_hosting' => $request->linkHosting,
+            'harga_template' => $request->harga_template,
         ]);
 
         // update data template jika ada gambar

@@ -20,6 +20,7 @@ class CreateMitraTable extends Migration
             $table->bigInteger('nomor_telepon');
             $table->string('foto_ktp');
             $table->text('alamat');
+            $table->string('status_mitra');
             $table->timestamps();
         });
     }

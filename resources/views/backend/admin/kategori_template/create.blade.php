@@ -25,11 +25,6 @@
                                     <div id="validationKategori" class="invalid-feedback"></div>
                                 </div>
 
-                                <div class="form-group">
-                                    <label for="example-text-input" class="form-control-label">Harga</label>
-                                    <input class="form-control" id="harga" type="text" placeholder="Harga">
-                                    <div id="validationHarga" class="invalid-feedback"></div>
-                                </div>
                                 <button type="submit" class="btn btn-primary">Submit</button>
                                 <a href="{{ route('kategori.index') }}" class="btn btn-danger">Back</a>
                             </form>

@@ -19,6 +19,13 @@ section.paket .card {
   -o-border-radius: var(--lengkung);
 }
 
+section.paket .card .harga {
+  position: absolute;
+  z-index: 1;
+  top: 25px;
+  left: 30px;
+}
+
 section.paket .card .kategori {
   position: absolute;
   z-index: 1;
@@ -26,7 +33,8 @@ section.paket .card .kategori {
   right: 30px;
 }
 
-section.paket .card .kategori span {
+section.paket .card .kategori span,
+section.paket .card .harga span {
   padding: 6.7px 15px 10px 15px;
   font-weight: bold;
   background-color: var(--warna1);

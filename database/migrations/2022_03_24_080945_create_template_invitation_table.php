@@ -20,6 +20,7 @@ class CreateTemplateInvitationTable extends Migration
             $table->string('link_hosting');
             $table->string('file_master');
             $table->string('gambar_cover')->nullable();
+            $table->bigInteger('harga_template');
             $table->timestamps();
         });
     }

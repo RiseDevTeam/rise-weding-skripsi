@@ -75,7 +75,7 @@
                                                 @if ($pesananSaya->status_pemesanan == 'sudah bayar')
                                                     Harga : <b>{{ number_format($pesananSaya->total) }}</b>
                                                 @else
-                                                    Harga : <b>{{ number_format($pesananSaya->harga) }}</b>
+                                                    Harga : <b>{{ number_format($pesananSaya->harga_template) }}</b>
                                                 @endif
                                             </h4>
                                         </div>
@@ -147,7 +147,7 @@
                                                     <a class="bi bi-telegram" href="#"></a>
                                                 </span>
                                                 <h4 class="harga">Harga : <b>Rp.
-                                                        {{ number_format($pembagianPesanan->harga) }}</b></h4>
+                                                        {{ number_format($pembagianPesanan->harga_template) }}</b></h4>
                                             </div>
                                             <!-- Daftar Button -->
                                             <div class="daftar-button">
@@ -220,7 +220,7 @@
                                                     <a class="bi bi-telegram" href="#"></a>
                                                 </span>
                                                 <h4 class="harga">Harga : <b>Rp.
-                                                        {{ number_format($pembagianPesanan->harga) }}</b></h4>
+                                                        {{ number_format($pembagianPesanan->harga_template) }}</b></h4>
                                             </div>
                                             <!-- Daftar Button -->
                                             <div class="daftar-button">

@@ -13,8 +13,8 @@
                     <div class="undangan-gratis col-lg-4 col-md-6">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="kategori-paket">Paket {{ $kategori->kategori }}</h5>
-                                <h3 class="harga-paket">Rp. {{ number_format($kategori->harga) }}</h3>
+                                {{-- <h3 class="harga-paket">Rp. {{ number_format($kategori->harga) }}</h3> --}}
+                                <h5 class="harga-paket">Paket {{ $kategori->kategori }}</h5>
                                 <hr />
                                 <ul class="list-style-none mt-2">
                                     <!-- enkripsi id -->
